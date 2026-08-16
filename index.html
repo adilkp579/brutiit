@@ -320,7 +320,7 @@ section{ position:relative; }
 .work-card.expanded .work-toggle{ transform:rotate(180deg); color:var(--accent); }
 
 /* ---------- security ---------- */
-#security{ position:relative; background:var(--surface) url('https://4kwallpapers.com/images/wallpapers/hacker-hacking-2048x2048-15637.jpeg') center center / cover no-repeat; border-top:1px solid var(--glass-border); border-bottom:1px solid var(--glass-border); overflow:hidden; }
+#security{ position:relative; background:var(--surface) url('Cybersecurity.png') center center / cover no-repeat; border-top:1px solid var(--glass-border); border-bottom:1px solid var(--glass-border); overflow:hidden; }
 #security::before{ content:''; position:absolute; inset:0; background:linear-gradient(180deg, rgba(8,9,10,0.86), rgba(8,9,10,0.92)); z-index:0; }
 #security .wrap{ position:relative; z-index:1; }
 .sec-wrap{ display:grid; grid-template-columns:1fr; gap:50px; align-items:center; }
@@ -389,6 +389,42 @@ footer{ padding:70px 0 34px; border-top:1px solid var(--glass-border); }
 .foot-bottom{ display:flex; flex-direction:column; gap:10px; margin-top:30px; font-size:12.5px; color:var(--ink-faint); }
 @media(min-width:640px){ .foot-bottom{flex-direction:row; justify-content:space-between;} }
 
+/* ---------- start-a-project modal ---------- */
+.modal-overlay{
+  position:fixed; inset:0; z-index:300; display:flex; align-items:center; justify-content:center; padding:20px;
+  background:rgba(4,5,6,0.72); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px);
+  opacity:0; visibility:hidden; transition:opacity .4s var(--ease), visibility .4s;
+}
+.modal-overlay.open{ opacity:1; visibility:visible; }
+.modal-card{
+  position:relative; width:100%; max-width:560px; max-height:88vh; overflow-y:auto;
+  background:var(--card-bg); border:1px solid var(--glass-border); border-radius:24px; padding:32px 26px;
+  box-shadow:0 24px 60px -12px rgba(0,0,0,0.7);
+  transform:translateY(24px) scale(0.97); opacity:0; transition:transform .45s var(--ease), opacity .4s var(--ease);
+}
+.modal-overlay.open .modal-card{ transform:translateY(0) scale(1); opacity:1; }
+.modal-close{
+  position:absolute; top:18px; right:18px; width:36px; height:36px; border-radius:50%; border:1px solid var(--glass-border);
+  background:transparent; color:var(--ink-dim); display:flex; align-items:center; justify-content:center; font-size:14px;
+  transition:border-color .3s, color .3s, transform .3s;
+}
+.modal-close:hover{ border-color:var(--accent); color:var(--accent); transform:rotate(90deg); }
+.modal-title{ font-family:'Space Grotesk',sans-serif; font-size:clamp(22px,4vw,28px); font-weight:500; margin:0 0 8px; max-width:22ch; }
+.modal-sub{ color:var(--ink-dim); font-size:13.5px; margin-bottom:22px; }
+.modal-form{ display:flex; flex-direction:column; gap:14px; }
+.mf-row{ display:grid; grid-template-columns:1fr; gap:14px; }
+@media(min-width:480px){ .mf-row{ grid-template-columns:1fr 1fr; } }
+.mf-field{ display:flex; flex-direction:column; gap:7px; }
+.mf-field span{ font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.08em; text-transform:uppercase; color:var(--ink-faint); }
+.mf-field input, .mf-field select, .mf-field textarea{
+  font-family:'Inter',sans-serif; font-size:14px; color:var(--ink); background:var(--surface-2);
+  border:1px solid var(--glass-border); border-radius:10px; padding:11px 13px; outline:none; resize:vertical;
+  transition:border-color .3s, background .3s;
+}
+.mf-field input::placeholder, .mf-field textarea::placeholder{ color:var(--ink-faint); }
+.mf-field input:focus, .mf-field select:focus, .mf-field textarea:focus{ border-color:var(--accent); background:rgba(143,184,255,0.04); }
+.mf-field select{ color-scheme:dark; }
+
 @media (prefers-reduced-motion: reduce){
   *{ animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; scroll-behavior:auto !important; }
 }
@@ -410,7 +446,7 @@ footer{ padding:70px 0 34px; border-top:1px solid var(--glass-border); }
       <a href="#about">About</a>
       <a href="#footer-contact">Contact</a>
     </div>
-    <a href="#cta" class="nav-cta nav-glass">Let's Talk →</a>
+    <a href="https://wa.me/919207271076" target="_blank" rel="noopener" class="nav-cta nav-glass">Let's Talk →</a>
     <span class="mobile-section-label" id="mobileSectionLabel"></span>
     <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
       <span></span><span></span><span></span>
@@ -441,7 +477,7 @@ footer{ padding:70px 0 34px; border-top:1px solid var(--glass-border); }
       </h1>
       <p class="hero-sub reveal">BRUTIIT creates powerful digital experiences, intelligent software and secure technology solutions for ambitious businesses.</p>
       <div class="hero-ctas reveal reveal-d1">
-        <a href="#footer-contact" class="btn btn-primary">Start a Project →</a>
+        <a href="#" id="startProjectBtn" class="btn btn-primary">Start a Project →</a>
         <a href="#work" class="btn btn-ghost">Explore Our Work</a>
       </div>
     </div>
@@ -788,6 +824,66 @@ footer{ padding:70px 0 34px; border-top:1px solid var(--glass-border); }
   </div>
 </footer>
 
+<!-- START A PROJECT MODAL -->
+<div id="projectModal" class="modal-overlay" aria-hidden="true">
+  <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <button class="modal-close" id="modalClose" aria-label="Close">✕</button>
+    <span class="eyebrow-label" style="margin-bottom:8px;">Start A Project</span>
+    <h3 id="modalTitle" class="modal-title">Tell us what you're building.</h3>
+    <p class="modal-sub">Fill this in and we'll pick it up on WhatsApp right away.</p>
+
+    <form id="projectForm" class="modal-form">
+      <div class="mf-row">
+        <label class="mf-field">
+          <span>Your Name</span>
+          <input type="text" name="name" required placeholder="Full name">
+        </label>
+        <label class="mf-field">
+          <span>Company Name</span>
+          <input type="text" name="company" placeholder="Your company">
+        </label>
+      </div>
+
+      <div class="mf-row">
+        <label class="mf-field">
+          <span>Contact Number</span>
+          <input type="tel" name="contact" required placeholder="+91 XXXXX XXXXX">
+        </label>
+        <label class="mf-field">
+          <span>WhatsApp Number</span>
+          <input type="tel" name="whatsapp" placeholder="Same as above, if different">
+        </label>
+      </div>
+
+      <label class="mf-field">
+        <span>Which Service Do You Need?</span>
+        <select name="service" required>
+          <option value="" disabled selected>Select a service</option>
+          <option>Web Development</option>
+          <option>App Development</option>
+          <option>Software Development</option>
+          <option>Cybersecurity</option>
+          <option>AI &amp; Automation</option>
+          <option>Cloud &amp; DevOps</option>
+          <option>Other</option>
+        </select>
+      </label>
+
+      <label class="mf-field">
+        <span>About Your Company</span>
+        <textarea name="companyDetails" rows="2" placeholder="What does your company do?"></textarea>
+      </label>
+
+      <label class="mf-field">
+        <span>What Do You Need?</span>
+        <textarea name="requirement" rows="3" required placeholder="Tell us about your project and what you're looking to build."></textarea>
+      </label>
+
+      <button type="submit" class="btn btn-primary" style="width:100%; margin-top:6px;">Send via WhatsApp →</button>
+    </form>
+  </div>
+</div>
+
 <script>
 document.getElementById('year').textContent = new Date().getFullYear();
 
@@ -866,6 +962,50 @@ revealEls.forEach(el=>io.observe(el));
       setDots(index % count);
     }, 3600);
   }
+})();
+
+/* ---------- start-a-project modal ---------- */
+(function(){
+  const overlay = document.getElementById('projectModal');
+  const openBtn = document.getElementById('startProjectBtn');
+  const closeBtn = document.getElementById('modalClose');
+  const form = document.getElementById('projectForm');
+  if(!overlay || !openBtn || !form) return;
+
+  function openModal(){
+    overlay.classList.add('open');
+    overlay.setAttribute('aria-hidden','false');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal(){
+    overlay.classList.remove('open');
+    overlay.setAttribute('aria-hidden','true');
+    document.body.style.overflow = '';
+  }
+  openBtn.addEventListener('click', (e)=>{ e.preventDefault(); openModal(); });
+  closeBtn.addEventListener('click', closeModal);
+  overlay.addEventListener('click', (e)=>{ if(e.target === overlay) closeModal(); });
+  document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape' && overlay.classList.contains('open')) closeModal(); });
+
+  form.addEventListener('submit', (e)=>{
+    e.preventDefault();
+    const d = Object.fromEntries(new FormData(form).entries());
+    const lines = [
+      'New project inquiry — BRUTIIT website',
+      '',
+      'Name: ' + (d.name || '-'),
+      'Company: ' + (d.company || '-'),
+      'Contact Number: ' + (d.contact || '-'),
+      'WhatsApp Number: ' + (d.whatsapp || d.contact || '-'),
+      'Service Needed: ' + (d.service || '-'),
+      'About Company: ' + (d.companyDetails || '-'),
+      'Requirement: ' + (d.requirement || '-')
+    ];
+    const msg = encodeURIComponent(lines.join('\n'));
+    window.open('https://wa.me/919207271076?text=' + msg, '_blank');
+    closeModal();
+    form.reset();
+  });
 })();
 
 /* ---------- work cards: expand/collapse toggle ---------- */
