@@ -182,6 +182,12 @@ section{ position:relative; }
 .hero-ctas{ display:flex; flex-direction:column; gap:14px; max-width:340px; }
 @media(min-width:560px){ .hero-ctas{flex-direction:row; max-width:none; align-items:center;} }
 @media(min-width:900px){ .hero-ctas{max-width:none;} }
+.hero-talk-btn.btn{ display:inline-flex; }
+.hero-explore-btn.btn{ display:none; }
+@media(min-width:900px){
+  .hero-talk-btn.btn{ display:none; }
+  .hero-explore-btn.btn{ display:inline-flex; }
+}
 
 .btn{ display:inline-flex; align-items:center; justify-content:center; gap:10px; font-size:14.5px; padding:16px 26px; border-radius:100px; min-height:50px; transition:transform .35s var(--ease), background .35s, border-color .35s, box-shadow .4s; white-space:nowrap; }
 .btn-primary{ background:var(--ink); color:#08090A; font-weight:500; }
@@ -477,8 +483,9 @@ footer{ padding:70px 0 34px; border-top:1px solid var(--glass-border); }
       </h1>
       <p class="hero-sub reveal">BRUTIIT creates powerful digital experiences, intelligent software and secure technology solutions for ambitious businesses.</p>
       <div class="hero-ctas reveal reveal-d1">
-        <a href="#" id="startProjectBtn" class="btn btn-primary">Start a Project →</a>
-        <a href="#work" class="btn btn-ghost">Explore Our Work</a>
+        <a href="#" id="startProjectBtn" class="btn btn-primary start-project-trigger">Start a Project →</a>
+        <a href="#work" class="btn btn-ghost hero-explore-btn">Explore Our Work</a>
+        <a href="https://wa.me/919207271076" target="_blank" rel="noopener" class="btn btn-ghost hero-talk-btn">Let's Talk →</a>
       </div>
     </div>
   </div>
@@ -783,7 +790,7 @@ footer{ padding:70px 0 34px; border-top:1px solid var(--glass-border); }
     <h2 class="cta-title reveal">HAVE AN IDEA?<br>LET'S BUILD IT.</h2>
     <p class="cta-sub reveal reveal-d1">Tell us what you're building. We'll help turn the idea into a powerful digital product.</p>
     <div class="cta-btns reveal reveal-d2">
-      <a href="#footer-contact" class="btn btn-primary">Start a Project →</a>
+      <a href="#" class="btn btn-primary start-project-trigger">Start a Project →</a>
       <a href="mailto:hello@brutiit.in" class="btn btn-ghost">Talk to BRUTIIT</a>
     </div>
   </div>
@@ -967,10 +974,10 @@ revealEls.forEach(el=>io.observe(el));
 /* ---------- start-a-project modal ---------- */
 (function(){
   const overlay = document.getElementById('projectModal');
-  const openBtn = document.getElementById('startProjectBtn');
+  const openBtns = document.querySelectorAll('.start-project-trigger');
   const closeBtn = document.getElementById('modalClose');
   const form = document.getElementById('projectForm');
-  if(!overlay || !openBtn || !form) return;
+  if(!overlay || !openBtns.length || !form) return;
 
   function openModal(){
     overlay.classList.add('open');
@@ -982,7 +989,7 @@ revealEls.forEach(el=>io.observe(el));
     overlay.setAttribute('aria-hidden','true');
     document.body.style.overflow = '';
   }
-  openBtn.addEventListener('click', (e)=>{ e.preventDefault(); openModal(); });
+  openBtns.forEach(btn=> btn.addEventListener('click', (e)=>{ e.preventDefault(); openModal(); }));
   closeBtn.addEventListener('click', closeModal);
   overlay.addEventListener('click', (e)=>{ if(e.target === overlay) closeModal(); });
   document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape' && overlay.classList.contains('open')) closeModal(); });
