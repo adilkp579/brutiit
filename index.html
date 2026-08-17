@@ -430,6 +430,9 @@ footer{ padding:70px 0 34px; border-top:1px solid var(--glass-border); }
 .mf-field input::placeholder, .mf-field textarea::placeholder{ color:var(--ink-faint); }
 .mf-field input:focus, .mf-field select:focus, .mf-field textarea:focus{ border-color:var(--accent); background:rgba(143,184,255,0.04); }
 .mf-field select{ color-scheme:dark; }
+.modal-status{ font-size:13px; margin:0; min-height:18px; }
+.modal-status.ok{ color:var(--accent); }
+.modal-status.err{ color:#e08080; }
 
 @media (prefers-reduced-motion: reduce){
   *{ animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; scroll-behavior:auto !important; }
@@ -837,7 +840,7 @@ footer{ padding:70px 0 34px; border-top:1px solid var(--glass-border); }
     <button class="modal-close" id="modalClose" aria-label="Close">✕</button>
     <span class="eyebrow-label" style="margin-bottom:8px;">Start A Project</span>
     <h3 id="modalTitle" class="modal-title">Tell us what you're building.</h3>
-    <p class="modal-sub">Fill this in and we'll pick it up on WhatsApp right away.</p>
+    <p class="modal-sub">Fill this in and our team will get back to you shortly.</p>
 
     <form id="projectForm" class="modal-form">
       <div class="mf-row">
@@ -886,7 +889,8 @@ footer{ padding:70px 0 34px; border-top:1px solid var(--glass-border); }
         <textarea name="requirement" rows="3" required placeholder="Tell us about your project and what you're looking to build."></textarea>
       </label>
 
-      <button type="submit" class="btn btn-primary" style="width:100%; margin-top:6px;">Send via WhatsApp →</button>
+      <p id="formStatus" class="modal-status"></p>
+      <button type="submit" id="formSubmitBtn" class="btn btn-primary" style="width:100%; margin-top:6px;">Send Inquiry →</button>
     </form>
   </div>
 </div>
@@ -994,24 +998,40 @@ revealEls.forEach(el=>io.observe(el));
   overlay.addEventListener('click', (e)=>{ if(e.target === overlay) closeModal(); });
   document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape' && overlay.classList.contains('open')) closeModal(); });
 
-  form.addEventListener('submit', (e)=>{
+  // This must be a server you control — never call the Notion API directly from the browser.
+  const NOTION_PROXY_URL = 'https://brutiit-notion-proxy.pages.dev/';
+  const submitBtn = document.getElementById('formSubmitBtn');
+  const statusEl = document.getElementById('formStatus');
+
+  form.addEventListener('submit', async (e)=>{
     e.preventDefault();
     const d = Object.fromEntries(new FormData(form).entries());
-    const lines = [
-      'New project inquiry — BRUTIIT website',
-      '',
-      'Name: ' + (d.name || '-'),
-      'Company: ' + (d.company || '-'),
-      'Contact Number: ' + (d.contact || '-'),
-      'WhatsApp Number: ' + (d.whatsapp || d.contact || '-'),
-      'Service Needed: ' + (d.service || '-'),
-      'About Company: ' + (d.companyDetails || '-'),
-      'Requirement: ' + (d.requirement || '-')
-    ];
-    const msg = encodeURIComponent(lines.join('\n'));
-    window.open('https://wa.me/919207271076?text=' + msg, '_blank');
-    closeModal();
-    form.reset();
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending…';
+    statusEl.textContent = '';
+    statusEl.className = 'modal-status';
+
+    try{
+      const res = await fetch(NOTION_PROXY_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(d)
+      });
+      if(!res.ok) throw new Error('Request failed');
+
+      statusEl.textContent = "Thanks — we've received your request and will be in touch shortly.";
+      statusEl.classList.add('ok');
+      form.reset();
+      setTimeout(closeModal, 1800);
+    }catch(err){
+      console.error('Notion proxy submission failed:', err);
+      statusEl.textContent = "Something went wrong sending your request. Please try again in a moment.";
+      statusEl.classList.add('err');
+    }finally{
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Send Inquiry →';
+    }
   });
 })();
 
