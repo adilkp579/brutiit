@@ -14,7 +14,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=Inter:wght@300..600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Organization","name":"BRUTIIT","url":"https://brutiit.in","email":"hello@brutiit.in","sameAs":["https://www.instagram.com/brutiit_?igsi=MXZoZTRyZzRlbWEzZw==","https://linkedin.com","https://github.com","https://x.com"]}
+{"@context":"https://schema.org","@type":"Organization","name":"BRUTIIT","url":"https://brutiit.in","email":"hello@brutiit.in","sameAs":["https://instagram.com","https://linkedin.com","https://github.com","https://x.com"]}
 </script>
 <style>
 /* ---------- tokens ---------- */
@@ -326,7 +326,7 @@ section{ position:relative; }
 .work-card.expanded .work-toggle{ transform:rotate(180deg); color:var(--accent); }
 
 /* ---------- security ---------- */
-#security{ position:relative; background:var(--surface) url('https://wallpaperbat.com/img/87441-black-hat-hd-wallpaper-top-free-black-hat-hd-background.jpg') center center / cover no-repeat; border-top:1px solid var(--glass-border); border-bottom:1px solid var(--glass-border); overflow:hidden; }
+#security{ position:relative; background:var(--surface) url('Cybersecurity.png') center center / cover no-repeat; border-top:1px solid var(--glass-border); border-bottom:1px solid var(--glass-border); overflow:hidden; }
 #security::before{ content:''; position:absolute; inset:0; background:linear-gradient(180deg, rgba(8,9,10,0.86), rgba(8,9,10,0.92)); z-index:0; }
 #security .wrap{ position:relative; z-index:1; }
 .sec-wrap{ display:grid; grid-template-columns:1fr; gap:50px; align-items:center; }
@@ -460,6 +460,30 @@ footer{ padding:70px 0 34px; border-top:1px solid var(--glass-border); }
   transition:border-color .3s, color .3s;
 }
 .sp-close:hover{ border-color:var(--accent); color:var(--accent); }
+
+/* desktop: match the main navbar's 3-pill layout exactly */
+@media(min-width:900px){
+  .sp-header{
+    display:grid; grid-template-columns:1fr auto 1fr; align-items:center; gap:20px;
+    max-width:1240px; margin:0 auto; padding:24px 40px;
+    background:transparent; backdrop-filter:none; -webkit-backdrop-filter:none;
+    border-bottom:none; border-radius:0;
+  }
+  .sp-logo, .sp-title, .sp-close{
+    background:linear-gradient(155deg, rgba(255,255,255,0.12), rgba(255,255,255,0.03));
+    border:1px solid rgba(255,255,255,0.16);
+    backdrop-filter:blur(22px) saturate(180%); -webkit-backdrop-filter:blur(22px) saturate(180%);
+    box-shadow:0 8px 24px -10px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.12);
+    border-radius:100px; height:48px; display:flex; align-items:center;
+    transition:border-color .3s, background .3s, box-shadow .3s;
+    font-size:14px; letter-spacing:normal; text-transform:none; color:var(--ink);
+  }
+  .sp-logo{ justify-self:start; padding:0 24px; font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:19px; }
+  .sp-logo:hover{ border-color:rgba(143,184,255,0.4); }
+  .sp-title{ justify-self:center; position:static; transform:none; padding:0 30px; font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-dim); }
+  .sp-close{ justify-self:end; padding:0 24px; font-family:'IBM Plex Mono',monospace; font-size:14px; }
+  .sp-close:hover{ border-color:var(--accent); color:var(--accent); background:linear-gradient(155deg, rgba(143,184,255,0.18), rgba(255,255,255,0.03)); }
+}
 .sp-body{ max-width:720px; margin:0 auto; padding:36px 20px 70px; }
 @media(min-width:768px){ .sp-body{ padding:48px 40px 90px; } }
 .sp-body .modal-title{ margin-top:12px; }
@@ -535,7 +559,7 @@ footer{ padding:70px 0 34px; border-top:1px solid var(--glass-border); }
         <span class="line"><span>BUILDING</span></span>
         <span class="line"><span>THE DIGITAL <em class="accent-word" style="font-style:normal;">FUTURE.</em></span></span>
       </h1>
-      <p class="hero-sub reveal">BRUTIIT IT SOLUTION creates powerful digital experiences, intelligent software and secure technology solutions for ambitious businesses.</p>
+      <p class="hero-sub reveal">BRUTIIT creates powerful digital experiences, intelligent software and secure technology solutions for ambitious businesses.</p>
       <div class="hero-ctas reveal reveal-d1">
         <a href="#" id="startProjectBtn" class="btn btn-primary start-project-trigger">Start a Project →</a>
         <a href="#work" class="btn btn-ghost hero-explore-btn">Explore Our Work</a>
@@ -870,7 +894,7 @@ footer{ padding:70px 0 34px; border-top:1px solid var(--glass-border); }
         <div class="foot-heading">Connect</div>
         <div class="foot-links">
           <a href="mailto:hello@brutiit.in">hello@brutiit.in</a>
-          <a href="https://www.instagram.com/brutiit_?igsi=MXZoZTRyZzRlbWEzZw==" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a>
           <a href="https://linkedin.com" target="_blank" rel="noopener">LinkedIn</a>
           <a href="https://github.com" target="_blank" rel="noopener">GitHub</a>
           <a href="https://x.com" target="_blank" rel="noopener">X</a>
@@ -1723,7 +1747,7 @@ revealEls.forEach(el=>io.observe(el));
   document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape' && overlay.classList.contains('open')) closeModal(); });
 
   // This must be a server you control — never call the Notion API directly from the browser.
-  const NOTION_PROXY_URL = 'https://f3e95bb1.brutiit-notion-proxy.pages.dev/';
+  const NOTION_PROXY_URL = 'https://brutiit-notion-proxy.pages.dev/';
   const submitBtn = document.getElementById('formSubmitBtn');
   const statusEl = document.getElementById('formStatus');
 
