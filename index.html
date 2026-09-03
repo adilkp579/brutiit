@@ -1765,6 +1765,13 @@ revealEls.forEach(el=>io.observe(el));
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(d)
+    name: name,
+    company: company,
+    contact: contact,
+    whatsapp: whatsapp,
+    service: service,
+    companyDetails: companyDetails,
+    requirement: requirement
       });
       if(!res.ok) throw new Error('Request failed');
 
