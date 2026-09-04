@@ -264,6 +264,15 @@ section{ position:relative; }
 /* ---------- 3d node visual wrap ---------- */
 .node-visual{ position:relative; width:100%; height:280px; margin-top:60px; border-radius:var(--radius); overflow:hidden; border:1px solid var(--glass-border); background:radial-gradient(ellipse at 50% 40%, rgba(143,184,255,0.06), transparent 70%); }
 @media(min-width:768px){ .node-visual{height:380px;} }
+.services-video{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; cursor:pointer; background:#0c0d0f; }
+.services-video-play{
+  position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
+  width:72px; height:72px; border-radius:50%; background:rgba(255,255,255,0.92); color:#08090A;
+  display:flex; align-items:center; justify-content:center; font-size:20px; padding-left:4px;
+  box-shadow:0 12px 30px -6px rgba(0,0,0,0.5); transition:transform .3s var(--ease), opacity .3s;
+}
+.services-video-play:hover{ transform:translate(-50%,-50%) scale(1.08); }
+.services-video-play.playing{ opacity:0; visibility:hidden; pointer-events:none; }
 
 /* ---------- why ---------- */
 .why-list{ margin-top:50px; border-top:1px solid var(--glass-border); }
@@ -281,15 +290,24 @@ section{ position:relative; }
 
 /* ---------- process ---------- */
 .process-list{ margin-top:56px; position:relative; }
-.process-item{ display:grid; grid-template-columns:auto 1fr; gap:20px; padding:26px 0; border-top:1px solid var(--glass-border); position:relative; }
+.process-item{ display:grid; grid-template-columns:auto 1fr; gap:20px; padding:26px 0; border-top:1px solid var(--glass-border); }
 .process-item:last-child{ border-bottom:1px solid var(--glass-border); }
 .process-item .n{ font-family:'IBM Plex Mono',monospace; font-size:13px; color:var(--accent-dim); padding-top:4px; }
 .process-item .t{ font-family:'Space Grotesk',sans-serif; font-size:clamp(19px,4vw,26px); font-weight:500; margin-bottom:6px; }
 .process-item .d{ color:var(--ink-dim); font-size:14.5px; max-width:44ch; }
-.process-item .bar{ position:absolute; left:0; top:0; height:100%; width:2px; background:var(--accent); transform-origin:top; transform:scaleY(0); transition:transform .7s var(--ease); }
-.process-item.in .bar{ transform:scaleY(1); }
-#process .typing::after{ content:''; display:inline-block; width:2px; height:0.9em; background:var(--accent); margin-left:3px; vertical-align:-0.1em; animation:blinkCursor .8s steps(1) infinite; }
-@keyframes blinkCursor{ 50%{ opacity:0; } }
+.process-item.reveal{ opacity:0; transform:translateY(-52px); transition:opacity .6s ease, transform .8s cubic-bezier(0.34,1.56,0.64,1); }
+.process-item.reveal.in{ opacity:1; transform:translateY(0); }
+.process-list .process-item:nth-child(1){ transition-delay:0s; }
+.process-list .process-item:nth-child(2){ transition-delay:.12s; }
+.process-list .process-item:nth-child(3){ transition-delay:.24s; }
+.process-list .process-item:nth-child(4){ transition-delay:.36s; }
+.process-list .process-item:nth-child(5){ transition-delay:.48s; }
+.process-list .process-item:nth-child(6){ transition-delay:.6s; }
+#process .eyebrow-label.reveal, #process .section-title.reveal{
+  opacity:0; transform:translateY(-52px); transition:opacity .6s ease, transform .8s cubic-bezier(0.34,1.56,0.64,1);
+}
+#process .eyebrow-label.reveal.in, #process .section-title.reveal.in{ opacity:1; transform:translateY(0); }
+#process .section-title.reveal{ transition-delay:.1s; }
 
 /* ---------- work (neumorphic expandable cards) ---------- */
 .work-grid{ display:grid; grid-template-columns:1fr; gap:24px; margin-top:52px; }
@@ -312,6 +330,25 @@ section{ position:relative; }
   transition:background .3s, color .3s;
 }
 .work-btn:hover{ background:var(--accent); color:#08090A; }
+
+/* ---------- work tabs (New Work / All Work) ---------- */
+.work-tabs{
+  position:relative; display:inline-flex; margin-top:40px; padding:5px; border-radius:100px;
+  background:var(--card-bg); border:1px solid var(--glass-border);
+  box-shadow:6px 6px 14px rgba(0,0,0,0.4), -5px -5px 12px rgba(255,255,255,0.02);
+}
+.work-tab{
+  position:relative; z-index:2; padding:11px 24px; border-radius:100px; white-space:nowrap;
+  font-family:'IBM Plex Mono',monospace; font-size:13px; letter-spacing:0.04em; color:var(--ink-dim);
+  background:none; border:none; cursor:pointer; transition:color .4s var(--ease);
+}
+.work-tab.active{ color:#08090A; }
+.work-tab-indicator{
+  position:absolute; top:5px; left:5px; height:calc(100% - 10px); border-radius:100px; background:var(--ink);
+  transition:transform .5s cubic-bezier(0.34,1.56,0.64,1), width .5s cubic-bezier(0.34,1.56,0.64,1); z-index:1;
+}
+.work-tab-panel[hidden]{ display:none; }
+@keyframes workCardIn{ from{ opacity:0; transform:translateY(22px); } to{ opacity:1; transform:translateY(0); } }
 
 .work-panel{ max-height:0; overflow:hidden; transition:max-height .55s var(--ease); }
 .work-card.expanded .work-panel{ max-height:220px; }
@@ -372,6 +409,33 @@ section{ position:relative; }
 @media(min-width:768px){ .stat-grid{grid-template-columns:repeat(4,1fr);} }
 .stat-num{ font-family:'Space Grotesk',sans-serif; font-size:clamp(32px,6vw,52px); font-weight:600; background:linear-gradient(120deg,var(--chrome-1),var(--accent)); -webkit-background-clip:text; background-clip:text; color:transparent; }
 .stat-label{ font-size:13px; color:var(--ink-dim); margin-top:6px; }
+
+/* ---------- trust badges ---------- */
+.trust-badges{ display:flex; flex-wrap:wrap; gap:14px; margin-top:50px; }
+.trust-badge{
+  display:flex; align-items:center; gap:10px; background:var(--card-bg); border:1px solid var(--glass-border);
+  border-radius:100px; padding:13px 22px; font-size:13.5px; color:var(--ink-dim);
+  box-shadow:6px 6px 14px rgba(0,0,0,0.4), -5px -5px 12px rgba(255,255,255,0.02);
+}
+.trust-badge .icon{ font-size:16px; line-height:1; }
+
+/* ---------- faq accordion ---------- */
+.faq-list{ margin-top:50px; border-top:1px solid var(--glass-border); }
+.faq-item{ border-bottom:1px solid var(--glass-border); }
+.faq-q{
+  width:100%; display:flex; align-items:center; justify-content:space-between; gap:20px;
+  padding:24px 0; text-align:left; font-family:'Space Grotesk',sans-serif; font-size:clamp(16px,3vw,18px);
+  font-weight:500; color:var(--ink); background:none; border:none; cursor:pointer;
+}
+.faq-q .plus{
+  flex-shrink:0; width:32px; height:32px; border-radius:50%; border:1px solid var(--glass-border);
+  display:flex; align-items:center; justify-content:center; font-size:16px; color:var(--ink-dim);
+  transition:transform .4s var(--ease), border-color .3s, color .3s;
+}
+.faq-item.open .faq-q .plus{ transform:rotate(45deg); border-color:var(--accent); color:var(--accent); }
+.faq-a{ max-height:0; overflow:hidden; transition:max-height .5s var(--ease); }
+.faq-item.open .faq-a{ max-height:240px; }
+.faq-a p{ padding:0 34px 24px 0; color:var(--ink-dim); font-size:14.5px; line-height:1.7; max-width:65ch; }
 
 /* ---------- cta ---------- */
 #cta{ position:relative; text-align:center; padding:120px 0; overflow:hidden; }
@@ -559,7 +623,7 @@ footer{ padding:70px 0 34px; border-top:1px solid var(--glass-border); }
         <span class="line"><span>BUILDING</span></span>
         <span class="line"><span>THE DIGITAL <em class="accent-word" style="font-style:normal;">FUTURE.</em></span></span>
       </h1>
-      <p class="hero-sub reveal">BRUTIIT creates powerful digital experiences, intelligent software and secure technology solutions for ambitious businesses.</p>
+      <p class="hero-sub reveal">BRUTIIT SOLUTIONS creates powerful digital experiences, intelligent software and secure technology solutions for ambitious businesses.</p>
       <div class="hero-ctas reveal reveal-d1">
         <a href="#" id="startProjectBtn" class="btn btn-primary start-project-trigger">Start a Project →</a>
         <a href="#work" class="btn btn-ghost hero-explore-btn">Explore Our Work</a>
@@ -567,7 +631,7 @@ footer{ padding:70px 0 34px; border-top:1px solid var(--glass-border); }
       </div>
     </div>
   </div>
-  <div class="scroll-cue"><span class="mono">SCROLL</span><span class="stem"></span></div>
+  <div class="scroll-cue"><span class="mono"></span><span class="stem"></span></div>
 </section>
 
 <!-- INTRO -->
@@ -622,7 +686,10 @@ footer{ padding:70px 0 34px; border-top:1px solid var(--glass-border); }
         </div>
       </div>
     </div>
-    <div class="node-visual reveal reveal-d2"><canvas id="node-canvas"></canvas></div>
+    <div class="node-visual reveal reveal-d2">
+      <video id="servicesVideo" class="services-video" src="video.mp4" playsinline preload="metadata"></video>
+      <button class="services-video-play" id="servicesVideoPlay" aria-label="Play video">▶</button>
+    </div>
   </div>
 </section>
 
@@ -646,12 +713,12 @@ footer{ padding:70px 0 34px; border-top:1px solid var(--glass-border); }
     <span class="eyebrow-label reveal">From Idea To Impact</span>
     <h2 class="section-title reveal reveal-d1">A disciplined path from concept to launch.</h2>
     <div class="process-list">
-      <div class="process-item reveal"><div class="bar"></div><span class="n">01</span><div><div class="t">Discover</div><div class="d">Understand the problem.</div></div></div>
-      <div class="process-item reveal"><div class="bar"></div><span class="n">02</span><div><div class="t">Strategize</div><div class="d">Create the right technology roadmap.</div></div></div>
-      <div class="process-item reveal"><div class="bar"></div><span class="n">03</span><div><div class="t">Design</div><div class="d">Build a refined digital experience.</div></div></div>
-      <div class="process-item reveal"><div class="bar"></div><span class="n">04</span><div><div class="t">Develop</div><div class="d">Engineer the product.</div></div></div>
-      <div class="process-item reveal"><div class="bar"></div><span class="n">05</span><div><div class="t">Secure</div><div class="d">Test and protect the system.</div></div></div>
-      <div class="process-item reveal"><div class="bar"></div><span class="n">06</span><div><div class="t">Launch</div><div class="d">Deploy, optimize and scale.</div></div></div>
+      <div class="process-item reveal"><span class="n">01</span><div><div class="t">Discover</div><div class="d">Understand the problem.</div></div></div>
+      <div class="process-item reveal"><span class="n">02</span><div><div class="t">Strategize</div><div class="d">Create the right technology roadmap.</div></div></div>
+      <div class="process-item reveal"><span class="n">03</span><div><div class="t">Design</div><div class="d">Build a refined digital experience.</div></div></div>
+      <div class="process-item reveal"><span class="n">04</span><div><div class="t">Develop</div><div class="d">Engineer the product.</div></div></div>
+      <div class="process-item reveal"><span class="n">05</span><div><div class="t">Secure</div><div class="d">Test and protect the system.</div></div></div>
+      <div class="process-item reveal"><span class="n">06</span><div><div class="t">Launch</div><div class="d">Deploy, optimize and scale.</div></div></div>
     </div>
   </div>
 </section>
@@ -662,41 +729,125 @@ footer{ padding:70px 0 34px; border-top:1px solid var(--glass-border); }
     <span class="eyebrow-label reveal">Selected Work</span>
     <h2 class="section-title reveal reveal-d1">Products we've engineered.</h2>
 
-    <div class="work-grid">
-      <div class="work-card reveal expanded">
-        <div class="work-photo">
-          <svg class="mock" viewBox="0 0 400 275" preserveAspectRatio="xMidYMid slice"><rect width="400" height="275" fill="#101215"/><rect x="20" y="20" width="360" height="30" rx="6" fill="#1a1d21"/><circle cx="36" cy="35" r="4" fill="#8FB8FF"/><rect x="20" y="66" width="170" height="190" rx="8" fill="#15181c"/><rect x="200" y="66" width="180" height="90" rx="8" fill="#171b20"/><rect x="200" y="166" width="180" height="90" rx="8" fill="#15181c"/><rect x="36" y="84" width="110" height="10" rx="3" fill="#2a2f36"/><rect x="36" y="104" width="80" height="8" rx="3" fill="#22262c"/></svg>
-          <div class="work-photo-overlay">
-            <div><div class="work-photo-title">Choicho</div><div class="work-photo-cat">Social Platform</div></div>
-            <a href="#" class="work-btn" id="choichoDetailBtn">View Project →</a>
-          </div>
-        </div>
-        <div class="work-panel"><p class="work-panel-inner">A community-driven social platform built for speed at scale, with real-time interaction at its core.</p></div>
-        <button class="work-toggle" aria-label="Toggle details">⌄</button>
-      </div>
+    <div class="work-tabs reveal reveal-d2" id="workTabs">
+      <button class="work-tab active" data-tab="new">New Work</button>
+      <button class="work-tab" data-tab="all">All Work</button>
+      <span class="work-tab-indicator"></span>
+    </div>
 
-      <div class="work-card reveal reveal-d1">
-        <div class="work-photo">
-          <svg class="mock" viewBox="0 0 400 275" preserveAspectRatio="xMidYMid slice"><rect width="400" height="275" fill="#0d1012"/><circle cx="200" cy="137" r="70" fill="none" stroke="#8FB8FF" stroke-opacity="0.4" stroke-width="1"/><circle cx="200" cy="137" r="100" fill="none" stroke="#8FB8FF" stroke-opacity="0.2" stroke-width="1"/><circle cx="200" cy="137" r="6" fill="#8FB8FF"/><rect x="20" y="20" width="120" height="8" rx="3" fill="#22262c"/><rect x="20" y="235" width="200" height="8" rx="3" fill="#22262c"/></svg>
-          <div class="work-photo-overlay">
-            <div><div class="work-photo-title">Brutiit Cyber Labs</div><div class="work-photo-cat">Cybersecurity</div></div>
-            <a href="#" class="work-btn" id="cyberLabsDetailBtn">View Project →</a>
+    <div class="work-tab-panel" data-panel="new">
+      <div class="work-grid">
+        <div class="work-card reveal expanded">
+          <div class="work-photo">
+            <svg class="mock" viewBox="0 0 400 275" preserveAspectRatio="xMidYMid slice"><rect width="400" height="275" fill="#101215"/><rect x="20" y="20" width="360" height="30" rx="6" fill="#1a1d21"/><circle cx="36" cy="35" r="4" fill="#8FB8FF"/><rect x="20" y="66" width="170" height="190" rx="8" fill="#15181c"/><rect x="200" y="66" width="180" height="90" rx="8" fill="#171b20"/><rect x="200" y="166" width="180" height="90" rx="8" fill="#15181c"/><rect x="36" y="84" width="110" height="10" rx="3" fill="#2a2f36"/><rect x="36" y="104" width="80" height="8" rx="3" fill="#22262c"/></svg>
+            <div class="work-photo-overlay">
+              <div><div class="work-photo-title"><Choicho class="in"></Choicho></div><div class="work-photo-cat">Social Platform</div></div>
+              <a href="#" class="work-btn" id="choichoDetailBtn">View Project →</a>
+            </div>
           </div>
+          <div class="work-panel"><p class="work-panel-inner">A community-driven social platform built for speed at scale, with real-time interaction at its core.</p></div>
+          <button class="work-toggle" aria-label="Toggle details">⌄</button>
         </div>
-        <div class="work-panel"><p class="work-panel-inner">A threat-monitoring and infrastructure hardening system built for real-time visibility.</p></div>
-        <button class="work-toggle" aria-label="Toggle details">⌄</button>
-      </div>
 
-      <div class="work-card reveal reveal-d2">
-        <div class="work-photo">
-          <svg class="mock" viewBox="0 0 400 275" preserveAspectRatio="xMidYMid slice"><rect width="400" height="275" fill="#101215"/><rect x="20" y="20" width="110" height="235" rx="8" fill="#161a1e"/><rect x="146" y="20" width="234" height="112" rx="8" fill="#171b20"/><rect x="146" y="144" width="112" height="111" rx="8" fill="#15181c"/><rect x="270" y="144" width="110" height="111" rx="8" fill="#171b20"/><rect x="36" y="40" width="78" height="8" rx="3" fill="#2a2f36"/></svg>
-          <div class="work-photo-overlay">
-            <div><div class="work-photo-title">Digital Commerce Platform</div><div class="work-photo-cat">Web &amp; E-commerce</div></div>
-            <a href="#" class="work-btn" id="commerceDetailBtn">View Project →</a>
+        <div class="work-card reveal reveal-d1">
+          <div class="work-photo">
+            <svg class="mock" viewBox="0 0 400 275" preserveAspectRatio="xMidYMid slice"><rect width="400" height="275" fill="#0d1012"/><circle cx="200" cy="137" r="70" fill="none" stroke="#8FB8FF" stroke-opacity="0.4" stroke-width="1"/><circle cx="200" cy="137" r="100" fill="none" stroke="#8FB8FF" stroke-opacity="0.2" stroke-width="1"/><circle cx="200" cy="137" r="6" fill="#8FB8FF"/><rect x="20" y="20" width="120" height="8" rx="3" fill="#22262c"/><rect x="20" y="235" width="200" height="8" rx="3" fill="#22262c"/></svg>
+            <div class="work-photo-overlay">
+              <div><div class="work-photo-title">Brutiit Cyber Labs</div><div class="work-photo-cat">Cybersecurity</div></div>
+              <a href="#" class="work-btn" id="cyberLabsDetailBtn">View Project →</a>
+            </div>
           </div>
+          <div class="work-panel"><p class="work-panel-inner">A threat-monitoring and infrastructure hardening system built for real-time visibility.</p></div>
+          <button class="work-toggle" aria-label="Toggle details">⌄</button>
         </div>
-        <div class="work-panel"><p class="work-panel-inner">A headless commerce build engineered for conversion, speed, and effortless scale.</p></div>
-        <button class="work-toggle" aria-label="Toggle details">⌄</button>
+
+        <div class="work-card reveal reveal-d2">
+          <div class="work-photo">
+            <svg class="mock" viewBox="0 0 400 275" preserveAspectRatio="xMidYMid slice"><rect width="400" height="275" fill="#101215"/><rect x="20" y="20" width="110" height="235" rx="8" fill="#161a1e"/><rect x="146" y="20" width="234" height="112" rx="8" fill="#171b20"/><rect x="146" y="144" width="112" height="111" rx="8" fill="#15181c"/><rect x="270" y="144" width="110" height="111" rx="8" fill="#171b20"/><rect x="36" y="40" width="78" height="8" rx="3" fill="#2a2f36"/></svg>
+            <div class="work-photo-overlay">
+              <div><div class="work-photo-title">Digital Commerce Platform</div><div class="work-photo-cat">Web &amp; E-commerce</div></div>
+              <a href="#" class="work-btn" id="commerceDetailBtn">View Project →</a>
+            </div>
+          </div>
+          <div class="work-panel"><p class="work-panel-inner">A headless commerce build engineered for conversion, speed, and effortless scale.</p></div>
+          <button class="work-toggle" aria-label="Toggle details">⌄</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="work-tab-panel" data-panel="all" hidden>
+      <div class="work-grid">
+        <div class="work-card">
+          <div class="work-photo">
+            <svg class="mock" viewBox="0 0 400 275" preserveAspectRatio="xMidYMid slice"><rect width="400" height="275" fill="#101215"/><rect x="20" y="20" width="360" height="30" rx="6" fill="#1a1d21"/><circle cx="36" cy="35" r="4" fill="#8FB8FF"/><rect x="20" y="66" width="170" height="190" rx="8" fill="#15181c"/><rect x="200" y="66" width="180" height="90" rx="8" fill="#171b20"/><rect x="200" y="166" width="180" height="90" rx="8" fill="#15181c"/><rect x="36" y="84" width="110" height="10" rx="3" fill="#2a2f36"/><rect x="36" y="104" width="80" height="8" rx="3" fill="#22262c"/></svg>
+            <div class="work-photo-overlay">
+              <div><div class="work-photo-title">Choicho</div><div class="work-photo-cat">Social Platform</div></div>
+              <a href="#" class="work-btn">View Project →</a>
+            </div>
+          </div>
+          <div class="work-panel"><p class="work-panel-inner">A community-driven social platform built for speed at scale, with real-time interaction at its core.</p></div>
+          <button class="work-toggle" aria-label="Toggle details">⌄</button>
+        </div>
+
+        <div class="work-card">
+          <div class="work-photo">
+            <svg class="mock" viewBox="0 0 400 275" preserveAspectRatio="xMidYMid slice"><rect width="400" height="275" fill="#0d1012"/><circle cx="200" cy="137" r="70" fill="none" stroke="#8FB8FF" stroke-opacity="0.4" stroke-width="1"/><circle cx="200" cy="137" r="100" fill="none" stroke="#8FB8FF" stroke-opacity="0.2" stroke-width="1"/><circle cx="200" cy="137" r="6" fill="#8FB8FF"/><rect x="20" y="20" width="120" height="8" rx="3" fill="#22262c"/><rect x="20" y="235" width="200" height="8" rx="3" fill="#22262c"/></svg>
+            <div class="work-photo-overlay">
+              <div><div class="work-photo-title">Brutiit Cyber Labs</div><div class="work-photo-cat">Cybersecurity</div></div>
+              <a href="#" class="work-btn">View Project →</a>
+            </div>
+          </div>
+          <div class="work-panel"><p class="work-panel-inner">A threat-monitoring and infrastructure hardening system built for real-time visibility.</p></div>
+          <button class="work-toggle" aria-label="Toggle details">⌄</button>
+        </div>
+
+        <div class="work-card">
+          <div class="work-photo">
+            <svg class="mock" viewBox="0 0 400 275" preserveAspectRatio="xMidYMid slice"><rect width="400" height="275" fill="#101215"/><rect x="20" y="20" width="110" height="235" rx="8" fill="#161a1e"/><rect x="146" y="20" width="234" height="112" rx="8" fill="#171b20"/><rect x="146" y="144" width="112" height="111" rx="8" fill="#15181c"/><rect x="270" y="144" width="110" height="111" rx="8" fill="#171b20"/><rect x="36" y="40" width="78" height="8" rx="3" fill="#2a2f36"/></svg>
+            <div class="work-photo-overlay">
+              <div><div class="work-photo-title">Digital Commerce Platform</div><div class="work-photo-cat">Web &amp; E-commerce</div></div>
+              <a href="#" class="work-btn">View Project →</a>
+            </div>
+          </div>
+          <div class="work-panel"><p class="work-panel-inner">A headless commerce build engineered for conversion, speed, and effortless scale.</p></div>
+          <button class="work-toggle" aria-label="Toggle details">⌄</button>
+        </div>
+
+        <div class="work-card">
+          <div class="work-photo">
+            <svg class="mock" viewBox="0 0 400 275" preserveAspectRatio="xMidYMid slice"><rect width="400" height="275" fill="#0e1013"/><rect x="20" y="20" width="360" height="120" rx="8" fill="#171b20"/><rect x="20" y="152" width="170" height="103" rx="8" fill="#15181c"/><rect x="200" y="152" width="180" height="103" rx="8" fill="#171b20"/><path d="M40 120 L90 80 L140 100 L190 60 L240 90 L290 50 L340 75" stroke="#8FB8FF" stroke-width="2" fill="none" stroke-opacity="0.6"/></svg>
+            <div class="work-photo-overlay">
+              <div><div class="work-photo-title">Nexora Analytics</div><div class="work-photo-cat">Data Dashboard</div></div>
+              <a href="#" class="work-btn">View Project →</a>
+            </div>
+          </div>
+          <div class="work-panel"><p class="work-panel-inner">A real-time analytics dashboard built to turn raw business data into clear, actionable insight.</p></div>
+          <button class="work-toggle" aria-label="Toggle details">⌄</button>
+        </div>
+
+        <div class="work-card">
+          <div class="work-photo">
+            <svg class="mock" viewBox="0 0 400 275" preserveAspectRatio="xMidYMid slice"><rect width="400" height="275" fill="#101215"/><rect x="20" y="20" width="360" height="80" rx="8" fill="#171b20"/><rect x="20" y="112" width="115" height="143" rx="8" fill="#15181c"/><rect x="143" y="112" width="115" height="143" rx="8" fill="#171b20"/><rect x="266" y="112" width="114" height="143" rx="8" fill="#15181c"/><rect x="36" y="40" width="90" height="8" rx="3" fill="#2a2f36"/></svg>
+            <div class="work-photo-overlay">
+              <div><div class="work-photo-title">Skyline Booking</div><div class="work-photo-cat">Travel &amp; Booking</div></div>
+              <a href="#" class="work-btn">View Project →</a>
+            </div>
+          </div>
+          <div class="work-panel"><p class="work-panel-inner">A booking platform for travel experiences, built for a smooth search-to-checkout flow.</p></div>
+          <button class="work-toggle" aria-label="Toggle details">⌄</button>
+        </div>
+
+        <div class="work-card">
+          <div class="work-photo">
+            <svg class="mock" viewBox="0 0 400 275" preserveAspectRatio="xMidYMid slice"><rect width="400" height="275" fill="#0d1012"/><circle cx="130" cy="137" r="60" fill="none" stroke="#8FB8FF" stroke-opacity="0.35" stroke-width="10"/><circle cx="130" cy="137" r="60" fill="none" stroke="#8FB8FF" stroke-opacity="0.7" stroke-width="10" stroke-dasharray="180 200"/><rect x="230" y="70" width="140" height="18" rx="6" fill="#22262c"/><rect x="230" y="100" width="110" height="14" rx="6" fill="#1a1d21"/><rect x="230" y="130" width="120" height="14" rx="6" fill="#1a1d21"/></svg>
+            <div class="work-photo-overlay">
+              <div><div class="work-photo-title">Pulse Fitness App</div><div class="work-photo-cat">Health &amp; Fitness</div></div>
+              <a href="#" class="work-btn">View Project →</a>
+            </div>
+          </div>
+          <div class="work-panel"><p class="work-panel-inner">A fitness tracking app that keeps users motivated with progress rings and daily goals.</p></div>
+          <button class="work-toggle" aria-label="Toggle details">⌄</button>
+        </div>
       </div>
     </div>
   </div>
@@ -861,6 +1012,51 @@ footer{ padding:70px 0 34px; border-top:1px solid var(--glass-border); }
   </div>
 </section>
 
+<!-- TRUST -->
+<section id="trust" class="section">
+  <div class="wrap">
+    <span class="eyebrow-label reveal">Why Trust BRUTIIT</span>
+    <h2 class="section-title reveal reveal-d1">Built on transparency and accountability.</h2>
+    <div class="trust-badges reveal reveal-d2">
+      <div class="trust-badge"><span class="icon">🔒</span>NDA &amp; Data Protection</div>
+      <div class="trust-badge"><span class="icon">⏱️</span>On-Time Delivery</div>
+      <div class="trust-badge"><span class="icon">💬</span>Transparent Pricing</div>
+      <div class="trust-badge"><span class="icon">🛠️</span>Dedicated Support</div>
+      <div class="trust-badge"><span class="icon">📄</span>Full Source Code Ownership</div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="section">
+  <div class="wrap">
+    <span class="eyebrow-label reveal">FAQ</span>
+    <h2 class="section-title reveal reveal-d1">Frequently asked questions.</h2>
+    <div class="faq-list">
+      <div class="faq-item reveal">
+        <button class="faq-q"><span>How long does it take to build a website or app?</span><span class="plus">+</span></button>
+        <div class="faq-a"><p>Timelines vary depending on scope and complexity, but most website projects take 3–6 weeks, while custom software or app projects typically take 6–12 weeks. We'll give you a clear timeline after understanding your requirements.</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q"><span>How much does a project cost?</span><span class="plus">+</span></button>
+        <div class="faq-a"><p>Cost depends on the size, features, and complexity of your project. We provide a detailed quote after discussing your requirements, so you only pay for what you actually need.</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q"><span>Do you provide support after the project is delivered?</span><span class="plus">+</span></button>
+        <div class="faq-a"><p>Yes. We offer ongoing maintenance, updates, and technical support after launch to keep your product running smoothly.</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q"><span>Will my website or app be secure?</span><span class="plus">+</span></button>
+        <div class="faq-a"><p>Security is built into every project from the start — including secure authentication, data protection, and regular security reviews, not added as an afterthought.</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q"><span>Can you work with an existing website or system?</span><span class="plus">+</span></button>
+        <div class="faq-a"><p>Yes, we can audit, improve, redesign, or integrate with your existing website, app, or software system.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- CTA -->
 <section id="cta">
   <canvas id="cta-canvas"></canvas>
@@ -893,8 +1089,8 @@ footer{ padding:70px 0 34px; border-top:1px solid var(--glass-border); }
       <div>
         <div class="foot-heading">Connect</div>
         <div class="foot-links">
-          <a href="mailto:hello@brutiit.in">hello@brutiit.in</a>
-          <a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a>
+          <a href="brutiitsolution@gmail.com">mail</a>
+          <a href="https://instagram.com/brutiit_" target="_blank" rel="noopener">Instagram</a>
           <a href="https://linkedin.com" target="_blank" rel="noopener">LinkedIn</a>
           <a href="https://github.com" target="_blank" rel="noopener">GitHub</a>
           <a href="https://x.com" target="_blank" rel="noopener">X</a>
@@ -1818,60 +2014,60 @@ initServicePage('choichoModal', 'choichoDetailBtn', 'choichoModalClose', 'choich
 initServicePage('cyberLabsModal', 'cyberLabsDetailBtn', 'cyberLabsModalClose', 'cyberLabsBackLogo');
 initServicePage('commerceModal', 'commerceDetailBtn', 'commerceModalClose', 'commerceBackLogo');
 
+/* ---------- FAQ accordion ---------- */
+document.querySelectorAll('.faq-q').forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    const item = btn.closest('.faq-item');
+    const wasOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(i=> i.classList.remove('open'));
+    if(!wasOpen) item.classList.add('open');
+  });
+});
+
+/* ---------- work tabs: New Work / All Work sliding indicator ---------- */
+(function(){
+  const tabsWrap = document.getElementById('workTabs');
+  if(!tabsWrap) return;
+  const tabs = Array.from(tabsWrap.querySelectorAll('.work-tab'));
+  const indicator = tabsWrap.querySelector('.work-tab-indicator');
+  const panels = document.querySelectorAll('.work-tab-panel');
+
+  function moveIndicator(btn){
+    if(!btn) return;
+    indicator.style.width = btn.offsetWidth + 'px';
+    indicator.style.transform = 'translateX(' + btn.offsetLeft + 'px)';
+  }
+  function activate(tabName){
+    tabs.forEach(t=> t.classList.toggle('active', t.dataset.tab === tabName));
+    panels.forEach(p=>{
+      if(p.dataset.panel === tabName){
+        p.hidden = false;
+        p.querySelectorAll('.work-card').forEach((card,i)=>{
+          card.style.animation = 'none';
+          void card.offsetWidth;
+          card.style.animation = 'workCardIn .6s cubic-bezier(0.16,0.84,0.44,1) ' + (i*0.08) + 's both';
+        });
+      } else {
+        p.hidden = true;
+      }
+    });
+  }
+  tabs.forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      moveIndicator(btn);
+      activate(btn.dataset.tab);
+    });
+  });
+  requestAnimationFrame(()=> moveIndicator(tabsWrap.querySelector('.work-tab.active')));
+  window.addEventListener('resize', ()=> moveIndicator(tabsWrap.querySelector('.work-tab.active')));
+})();
+
 /* ---------- work cards: expand/collapse toggle ---------- */
 document.querySelectorAll('.work-toggle').forEach(btn=>{
   btn.addEventListener('click', ()=>{
     btn.closest('.work-card').classList.toggle('expanded');
   });
 });
-
-/* ---------- impact section: sequential typewriter for all text ---------- */
-(function(){
-  const processSection = document.getElementById('process');
-  if(!processSection) return;
-  const seq = [];
-  const eyebrow = processSection.querySelector('.eyebrow-label');
-  const heading = processSection.querySelector('.section-title');
-  if(eyebrow) seq.push(eyebrow);
-  if(heading) seq.push(heading);
-  processSection.querySelectorAll('.process-item').forEach(item=>{
-    ['.n','.t','.d'].forEach(sel=>{
-      const el = item.querySelector(sel);
-      if(el) seq.push(el);
-    });
-  });
-  if(!seq.length) return;
-  const reduceMotionForType = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  seq.forEach(el=>{ el.dataset.full = el.textContent; });
-  if(reduceMotionForType) return; // keep static text, skip animation
-  seq.forEach(el=>{ el.textContent=''; });
-
-  function typeSequential(i){
-    if(i >= seq.length) return;
-    const el = seq[i];
-    const text = el.dataset.full;
-    el.classList.add('typing');
-    let c = 0;
-    const speed = 30;
-    (function step(){
-      el.textContent = text.slice(0,c);
-      c++;
-      if(c <= text.length){ setTimeout(step, speed); }
-      else{ el.classList.remove('typing'); setTimeout(()=>typeSequential(i+1), 120); }
-    })();
-  }
-
-  let started = false;
-  new IntersectionObserver((entries, obs)=>{
-    entries.forEach(e=>{
-      if(e.isIntersecting && !started){
-        started = true;
-        typeSequential(0);
-        obs.disconnect();
-      }
-    });
-  },{threshold:0.2}).observe(processSection);
-})();
 
 /* ---------- stat counters ---------- */
 const counters = document.querySelectorAll('[data-count]');
@@ -2050,43 +2246,30 @@ function buildNodeSphere(count, radius){
 })();
 
 /* ---- SERVICES NODE VISUAL ---- */
-(function initNodeVisual(){
-  const canvas = document.getElementById('node-canvas');
-  if(!canvas) return;
-  const renderer = new THREE.WebGLRenderer({canvas, antialias:true, alpha:true});
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio,2));
-  const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(45, 1, 0.1, 50);
-  camera.position.z = 5.5;
-  const sphere = buildNodeSphere(isMobile?70:150, 2.1);
-  scene.add(sphere);
+/* ---- SERVICES VISUAL: DIGITAL SHIELD + DATA FLOW ---- */
+/* ---- SERVICES VISUAL: PLAYABLE VIDEO ---- */
+(function initServicesVideo(){
+  const video = document.getElementById('servicesVideo');
+  const playBtn = document.getElementById('servicesVideoPlay');
+  if(!video || !playBtn) return;
 
-  function resize(){
-    const w = canvas.parentElement.clientWidth, h = canvas.parentElement.clientHeight;
-    renderer.setSize(w,h); camera.aspect = w/h; camera.updateProjectionMatrix();
-  }
-  resize();
-  window.addEventListener('resize', resize);
+  function showPlay(){ playBtn.classList.remove('playing'); }
+  function hidePlay(){ playBtn.classList.add('playing'); }
 
-  let raf, visible=false;
-  function animate(){
-    raf = requestAnimationFrame(animate);
-    sphere.rotation.y += reduceMotion?0:0.003;
-    sphere.rotation.x += reduceMotion?0:0.001;
-    renderer.render(scene,camera);
-  }
-  new IntersectionObserver(entries=>{
-    entries.forEach(e=>{
-      if(e.isIntersecting && !visible){ visible=true; animate(); }
-      else if(!e.isIntersecting && visible){ visible=false; cancelAnimationFrame(raf); }
-    });
-  },{threshold:0.1}).observe(canvas);
-
-  // highlight nodes on service card hover
-  document.querySelectorAll('.svc-card').forEach(card=>{
-    card.addEventListener('mouseenter', ()=>{ sphere.children[0].material.size = 2.1*0.09; sphere.children[0].material.color.set(0xffffff); });
-    card.addEventListener('mouseleave', ()=>{ sphere.children[0].material.size = 2.1*0.045; sphere.children[0].material.color.set(0x8fb8ff); });
+  playBtn.addEventListener('click', ()=>{
+    if(video.paused){ video.play().catch(()=>{}); } else { video.pause(); }
   });
+  video.addEventListener('click', ()=>{
+    if(!video.paused){ video.pause(); }
+  });
+  video.addEventListener('play', hidePlay);
+  video.addEventListener('pause', showPlay);
+  video.addEventListener('ended', showPlay);
+
+  // pause when scrolled out of view
+  new IntersectionObserver(entries=>{
+    entries.forEach(e=>{ if(!e.isIntersecting && !video.paused) video.pause(); });
+  },{threshold:0.15}).observe(video);
 })();
 
 /* ---- CTA BACKDROP ---- */
