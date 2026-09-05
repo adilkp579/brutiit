@@ -4,22 +4,23 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>BRUTIIT — Digital Innovation, Software &amp; Cybersecurity</title>
-<meta name="description" content="BRUTIIT builds modern digital products, software, websites, applications and cybersecurity solutions for ambitious businesses.">
+<meta name="description" content="Brutiit is an IT company providing professional web development, mobile app development, software solutions, cybersecurity, AI automation, cloud and DevOps services.">
 <meta property="og:title" content="BRUTIIT — Building the Digital Future">
 <meta property="og:description" content="Web, app and software development, cybersecurity, AI automation and cloud engineering for ambitious businesses.">
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#08090A">
+<link rel="canonical" href="https://brutiit.in/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=Inter:wght@300..600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Organization","name":"BRUTIIT","url":"https://brutiit.in","email":"hello@brutiit.in","sameAs":["https://instagram.com","https://linkedin.com","https://github.com","https://x.com"]}
+{"@context":"https://schema.org","@type":"Organization","name":"BRUTIIT","url":"https://brutiit.in","email":"brutiitsolution@brutiit.in","sameAs":["https://instagram.com","https://linkedin.com","https://github.com","https://x.com"]}
 </script>
 <style>
 /* ---------- tokens ---------- */
 :root{
-  --bg:#08090A;
+  --bg:#070707;
   --surface:#0F1113;
   --surface-2:#141618;
   --glass:rgba(255,255,255,0.045);
@@ -264,15 +265,7 @@ section{ position:relative; }
 /* ---------- 3d node visual wrap ---------- */
 .node-visual{ position:relative; width:100%; height:280px; margin-top:60px; border-radius:var(--radius); overflow:hidden; border:1px solid var(--glass-border); background:radial-gradient(ellipse at 50% 40%, rgba(143,184,255,0.06), transparent 70%); }
 @media(min-width:768px){ .node-visual{height:380px;} }
-.services-video{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; cursor:pointer; background:#0c0d0f; }
-.services-video-play{
-  position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
-  width:72px; height:72px; border-radius:50%; background:rgba(255,255,255,0.92); color:#08090A;
-  display:flex; align-items:center; justify-content:center; font-size:20px; padding-left:4px;
-  box-shadow:0 12px 30px -6px rgba(0,0,0,0.5); transition:transform .3s var(--ease), opacity .3s;
-}
-.services-video-play:hover{ transform:translate(-50%,-50%) scale(1.08); }
-.services-video-play.playing{ opacity:0; visibility:hidden; pointer-events:none; }
+.services-video{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; background:#0c0d0f; }
 
 /* ---------- why ---------- */
 .why-list{ margin-top:50px; border-top:1px solid var(--glass-border); }
@@ -318,8 +311,8 @@ section{ position:relative; }
   box-shadow:12px 12px 26px rgba(0,0,0,0.55), -9px -9px 20px rgba(255,255,255,0.03);
   transition:box-shadow .5s var(--ease);
 }
-.work-photo{ position:relative; border-radius:20px; overflow:hidden; height:230px; }
-.work-photo .mock{ position:absolute; inset:0; width:100%; height:100%; }
+.work-photo{ position:relative; border-radius:20px; overflow:hidden; height:230px; background:linear-gradient(150deg,#1c1e22,#0b0c0e); }
+.work-photo .mock{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; }
 .work-photo-overlay{ position:absolute; inset:0; background:linear-gradient(180deg, transparent 38%, rgba(0,0,0,0.8) 100%); display:flex; align-items:flex-end; justify-content:space-between; gap:12px; padding:18px; }
 .work-photo-title{ font-family:'Space Grotesk',sans-serif; font-size:18px; font-weight:500; color:var(--ink); }
 .work-photo-cat{ font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:var(--ink-dim); margin-top:3px; }
@@ -336,6 +329,9 @@ section{ position:relative; }
   position:relative; display:inline-flex; margin-top:40px; padding:5px; border-radius:100px;
   background:var(--card-bg); border:1px solid var(--glass-border);
   box-shadow:6px 6px 14px rgba(0,0,0,0.4), -5px -5px 12px rgba(255,255,255,0.02);
+}
+@media(max-width:719px){
+  .work-tabs{ display:flex; width:fit-content; margin-left:auto; margin-right:auto; }
 }
 .work-tab{
   position:relative; z-index:2; padding:11px 24px; border-radius:100px; white-space:nowrap;
@@ -623,7 +619,7 @@ footer{ padding:70px 0 34px; border-top:1px solid var(--glass-border); }
         <span class="line"><span>BUILDING</span></span>
         <span class="line"><span>THE DIGITAL <em class="accent-word" style="font-style:normal;">FUTURE.</em></span></span>
       </h1>
-      <p class="hero-sub reveal">BRUTIIT SOLUTIONS creates powerful digital experiences, intelligent software and secure technology solutions for ambitious businesses.</p>
+      <p class="hero-sub reveal">BRUTIIT SOLUTION creates powerful digital experiences, intelligent software and secure technology solutions for ambitious businesses.</p>
       <div class="hero-ctas reveal reveal-d1">
         <a href="#" id="startProjectBtn" class="btn btn-primary start-project-trigger">Start a Project →</a>
         <a href="#work" class="btn btn-ghost hero-explore-btn">Explore Our Work</a>
@@ -687,8 +683,7 @@ footer{ padding:70px 0 34px; border-top:1px solid var(--glass-border); }
       </div>
     </div>
     <div class="node-visual reveal reveal-d2">
-      <video id="servicesVideo" class="services-video" src="video.mp4" playsinline preload="metadata"></video>
-      <button class="services-video-play" id="servicesVideoPlay" aria-label="Play video">▶</button>
+      <video id="servicesVideo" class="services-video" src="services-video.mp4" autoplay muted loop playsinline preload="auto"></video>
     </div>
   </div>
 </section>
@@ -739,9 +734,9 @@ footer{ padding:70px 0 34px; border-top:1px solid var(--glass-border); }
       <div class="work-grid">
         <div class="work-card reveal expanded">
           <div class="work-photo">
-            <svg class="mock" viewBox="0 0 400 275" preserveAspectRatio="xMidYMid slice"><rect width="400" height="275" fill="#101215"/><rect x="20" y="20" width="360" height="30" rx="6" fill="#1a1d21"/><circle cx="36" cy="35" r="4" fill="#8FB8FF"/><rect x="20" y="66" width="170" height="190" rx="8" fill="#15181c"/><rect x="200" y="66" width="180" height="90" rx="8" fill="#171b20"/><rect x="200" y="166" width="180" height="90" rx="8" fill="#15181c"/><rect x="36" y="84" width="110" height="10" rx="3" fill="#2a2f36"/><rect x="36" y="104" width="80" height="8" rx="3" fill="#22262c"/></svg>
+            <img class="mock" src="choicho.jpg" alt="Choicho project photo" loading="lazy">
             <div class="work-photo-overlay">
-              <div><div class="work-photo-title"><Choicho class="in"></Choicho></div><div class="work-photo-cat">Social Platform</div></div>
+              <div><div class="work-photo-title">Choicho</div><div class="work-photo-cat">Social Platform</div></div>
               <a href="#" class="work-btn" id="choichoDetailBtn">View Project →</a>
             </div>
           </div>
@@ -751,7 +746,7 @@ footer{ padding:70px 0 34px; border-top:1px solid var(--glass-border); }
 
         <div class="work-card reveal reveal-d1">
           <div class="work-photo">
-            <svg class="mock" viewBox="0 0 400 275" preserveAspectRatio="xMidYMid slice"><rect width="400" height="275" fill="#0d1012"/><circle cx="200" cy="137" r="70" fill="none" stroke="#8FB8FF" stroke-opacity="0.4" stroke-width="1"/><circle cx="200" cy="137" r="100" fill="none" stroke="#8FB8FF" stroke-opacity="0.2" stroke-width="1"/><circle cx="200" cy="137" r="6" fill="#8FB8FF"/><rect x="20" y="20" width="120" height="8" rx="3" fill="#22262c"/><rect x="20" y="235" width="200" height="8" rx="3" fill="#22262c"/></svg>
+            <img class="mock" src="brutiit-cyber-labs.jpg" alt="Brutiit Cyber Labs project photo" loading="lazy">
             <div class="work-photo-overlay">
               <div><div class="work-photo-title">Brutiit Cyber Labs</div><div class="work-photo-cat">Cybersecurity</div></div>
               <a href="#" class="work-btn" id="cyberLabsDetailBtn">View Project →</a>
@@ -763,7 +758,7 @@ footer{ padding:70px 0 34px; border-top:1px solid var(--glass-border); }
 
         <div class="work-card reveal reveal-d2">
           <div class="work-photo">
-            <svg class="mock" viewBox="0 0 400 275" preserveAspectRatio="xMidYMid slice"><rect width="400" height="275" fill="#101215"/><rect x="20" y="20" width="110" height="235" rx="8" fill="#161a1e"/><rect x="146" y="20" width="234" height="112" rx="8" fill="#171b20"/><rect x="146" y="144" width="112" height="111" rx="8" fill="#15181c"/><rect x="270" y="144" width="110" height="111" rx="8" fill="#171b20"/><rect x="36" y="40" width="78" height="8" rx="3" fill="#2a2f36"/></svg>
+            <img class="mock" src="digital-commerce.jpg" alt="Digital Commerce Platform project photo" loading="lazy">
             <div class="work-photo-overlay">
               <div><div class="work-photo-title">Digital Commerce Platform</div><div class="work-photo-cat">Web &amp; E-commerce</div></div>
               <a href="#" class="work-btn" id="commerceDetailBtn">View Project →</a>
@@ -779,7 +774,7 @@ footer{ padding:70px 0 34px; border-top:1px solid var(--glass-border); }
       <div class="work-grid">
         <div class="work-card">
           <div class="work-photo">
-            <svg class="mock" viewBox="0 0 400 275" preserveAspectRatio="xMidYMid slice"><rect width="400" height="275" fill="#101215"/><rect x="20" y="20" width="360" height="30" rx="6" fill="#1a1d21"/><circle cx="36" cy="35" r="4" fill="#8FB8FF"/><rect x="20" y="66" width="170" height="190" rx="8" fill="#15181c"/><rect x="200" y="66" width="180" height="90" rx="8" fill="#171b20"/><rect x="200" y="166" width="180" height="90" rx="8" fill="#15181c"/><rect x="36" y="84" width="110" height="10" rx="3" fill="#2a2f36"/><rect x="36" y="104" width="80" height="8" rx="3" fill="#22262c"/></svg>
+            <img class="mock" src="choicho.jpg" alt="Choicho project photo" loading="lazy">
             <div class="work-photo-overlay">
               <div><div class="work-photo-title">Choicho</div><div class="work-photo-cat">Social Platform</div></div>
               <a href="#" class="work-btn">View Project →</a>
@@ -791,7 +786,7 @@ footer{ padding:70px 0 34px; border-top:1px solid var(--glass-border); }
 
         <div class="work-card">
           <div class="work-photo">
-            <svg class="mock" viewBox="0 0 400 275" preserveAspectRatio="xMidYMid slice"><rect width="400" height="275" fill="#0d1012"/><circle cx="200" cy="137" r="70" fill="none" stroke="#8FB8FF" stroke-opacity="0.4" stroke-width="1"/><circle cx="200" cy="137" r="100" fill="none" stroke="#8FB8FF" stroke-opacity="0.2" stroke-width="1"/><circle cx="200" cy="137" r="6" fill="#8FB8FF"/><rect x="20" y="20" width="120" height="8" rx="3" fill="#22262c"/><rect x="20" y="235" width="200" height="8" rx="3" fill="#22262c"/></svg>
+            <img class="mock" src="brutiit-cyber-labs.jpg" alt="Brutiit Cyber Labs project photo" loading="lazy">
             <div class="work-photo-overlay">
               <div><div class="work-photo-title">Brutiit Cyber Labs</div><div class="work-photo-cat">Cybersecurity</div></div>
               <a href="#" class="work-btn">View Project →</a>
@@ -803,7 +798,7 @@ footer{ padding:70px 0 34px; border-top:1px solid var(--glass-border); }
 
         <div class="work-card">
           <div class="work-photo">
-            <svg class="mock" viewBox="0 0 400 275" preserveAspectRatio="xMidYMid slice"><rect width="400" height="275" fill="#101215"/><rect x="20" y="20" width="110" height="235" rx="8" fill="#161a1e"/><rect x="146" y="20" width="234" height="112" rx="8" fill="#171b20"/><rect x="146" y="144" width="112" height="111" rx="8" fill="#15181c"/><rect x="270" y="144" width="110" height="111" rx="8" fill="#171b20"/><rect x="36" y="40" width="78" height="8" rx="3" fill="#2a2f36"/></svg>
+            <img class="mock" src="digital-commerce.jpg" alt="Digital Commerce Platform project photo" loading="lazy">
             <div class="work-photo-overlay">
               <div><div class="work-photo-title">Digital Commerce Platform</div><div class="work-photo-cat">Web &amp; E-commerce</div></div>
               <a href="#" class="work-btn">View Project →</a>
@@ -815,7 +810,7 @@ footer{ padding:70px 0 34px; border-top:1px solid var(--glass-border); }
 
         <div class="work-card">
           <div class="work-photo">
-            <svg class="mock" viewBox="0 0 400 275" preserveAspectRatio="xMidYMid slice"><rect width="400" height="275" fill="#0e1013"/><rect x="20" y="20" width="360" height="120" rx="8" fill="#171b20"/><rect x="20" y="152" width="170" height="103" rx="8" fill="#15181c"/><rect x="200" y="152" width="180" height="103" rx="8" fill="#171b20"/><path d="M40 120 L90 80 L140 100 L190 60 L240 90 L290 50 L340 75" stroke="#8FB8FF" stroke-width="2" fill="none" stroke-opacity="0.6"/></svg>
+            <img class="mock" src="nexora-analytics.jpg" alt="Nexora Analytics project photo" loading="lazy">
             <div class="work-photo-overlay">
               <div><div class="work-photo-title">Nexora Analytics</div><div class="work-photo-cat">Data Dashboard</div></div>
               <a href="#" class="work-btn">View Project →</a>
@@ -827,7 +822,7 @@ footer{ padding:70px 0 34px; border-top:1px solid var(--glass-border); }
 
         <div class="work-card">
           <div class="work-photo">
-            <svg class="mock" viewBox="0 0 400 275" preserveAspectRatio="xMidYMid slice"><rect width="400" height="275" fill="#101215"/><rect x="20" y="20" width="360" height="80" rx="8" fill="#171b20"/><rect x="20" y="112" width="115" height="143" rx="8" fill="#15181c"/><rect x="143" y="112" width="115" height="143" rx="8" fill="#171b20"/><rect x="266" y="112" width="114" height="143" rx="8" fill="#15181c"/><rect x="36" y="40" width="90" height="8" rx="3" fill="#2a2f36"/></svg>
+            <img class="mock" src="skyline-booking.jpg" alt="Skyline Booking project photo" loading="lazy">
             <div class="work-photo-overlay">
               <div><div class="work-photo-title">Skyline Booking</div><div class="work-photo-cat">Travel &amp; Booking</div></div>
               <a href="#" class="work-btn">View Project →</a>
@@ -839,7 +834,7 @@ footer{ padding:70px 0 34px; border-top:1px solid var(--glass-border); }
 
         <div class="work-card">
           <div class="work-photo">
-            <svg class="mock" viewBox="0 0 400 275" preserveAspectRatio="xMidYMid slice"><rect width="400" height="275" fill="#0d1012"/><circle cx="130" cy="137" r="60" fill="none" stroke="#8FB8FF" stroke-opacity="0.35" stroke-width="10"/><circle cx="130" cy="137" r="60" fill="none" stroke="#8FB8FF" stroke-opacity="0.7" stroke-width="10" stroke-dasharray="180 200"/><rect x="230" y="70" width="140" height="18" rx="6" fill="#22262c"/><rect x="230" y="100" width="110" height="14" rx="6" fill="#1a1d21"/><rect x="230" y="130" width="120" height="14" rx="6" fill="#1a1d21"/></svg>
+            <img class="mock" src="pulse-fitness.jpg" alt="Pulse Fitness App project photo" loading="lazy">
             <div class="work-photo-overlay">
               <div><div class="work-photo-title">Pulse Fitness App</div><div class="work-photo-cat">Health &amp; Fitness</div></div>
               <a href="#" class="work-btn">View Project →</a>
@@ -1002,7 +997,7 @@ footer{ padding:70px 0 34px; border-top:1px solid var(--glass-border); }
   <div class="wrap">
     <span class="eyebrow-label reveal">We Are BRUTIIT</span>
     <h2 class="section-title reveal reveal-d1" style="max-width:20ch;">A technology-driven team building for the next generation of businesses.</h2>
-    <p class="section-body reveal reveal-d2">Digital products, platforms and experiences engineered with the same discipline, whether we're shipping a landing page or a distributed system.</p>
+    <p class="section-body reveal reveal-d2">About Brutiit, Brutiit is an IT company focused on building modern digital solutions for businesses and organizations.Our services include web development, mobile application development, custom software development, cybersecurity, AI automation, cloud and DevOps solutions.Our goal is to help businesses build secure, scalable and modern digital experiences..</p>
     <div class="stat-grid">
       <div class="reveal"><div class="stat-num" data-count="10" data-suffix="+">0</div><div class="stat-label">Projects</div></div>
       <div class="reveal reveal-d1"><div class="stat-num" data-count="5" data-suffix="+">0</div><div class="stat-label">Technology Domains</div></div>
@@ -1089,7 +1084,7 @@ footer{ padding:70px 0 34px; border-top:1px solid var(--glass-border); }
       <div>
         <div class="foot-heading">Connect</div>
         <div class="foot-links">
-          <a href="brutiitsolution@gmail.com">mail</a>
+          <a href="mailto:brutiitsolution@brutiit.in">hello@brutiit.in</a>
           <a href="https://instagram.com/brutiit_" target="_blank" rel="noopener">Instagram</a>
           <a href="https://linkedin.com" target="_blank" rel="noopener">LinkedIn</a>
           <a href="https://github.com" target="_blank" rel="noopener">GitHub</a>
@@ -2250,26 +2245,8 @@ function buildNodeSphere(count, radius){
 /* ---- SERVICES VISUAL: PLAYABLE VIDEO ---- */
 (function initServicesVideo(){
   const video = document.getElementById('servicesVideo');
-  const playBtn = document.getElementById('servicesVideoPlay');
-  if(!video || !playBtn) return;
-
-  function showPlay(){ playBtn.classList.remove('playing'); }
-  function hidePlay(){ playBtn.classList.add('playing'); }
-
-  playBtn.addEventListener('click', ()=>{
-    if(video.paused){ video.play().catch(()=>{}); } else { video.pause(); }
-  });
-  video.addEventListener('click', ()=>{
-    if(!video.paused){ video.pause(); }
-  });
-  video.addEventListener('play', hidePlay);
-  video.addEventListener('pause', showPlay);
-  video.addEventListener('ended', showPlay);
-
-  // pause when scrolled out of view
-  new IntersectionObserver(entries=>{
-    entries.forEach(e=>{ if(!e.isIntersecting && !video.paused) video.pause(); });
-  },{threshold:0.15}).observe(video);
+  if(!video) return;
+  video.play().catch(()=>{});
 })();
 
 /* ---- CTA BACKDROP ---- */
