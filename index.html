@@ -4,23 +4,22 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>BRUTIIT — Digital Innovation, Software &amp; Cybersecurity</title>
-<meta name="description" content="Brutiit is an IT company providing professional web development, mobile app development, software solutions, cybersecurity, AI automation, cloud and DevOps services.">
+<meta name="description" content="BRUTIIT builds modern digital products, software, websites, applications and cybersecurity solutions for ambitious businesses.">
 <meta property="og:title" content="BRUTIIT — Building the Digital Future">
 <meta property="og:description" content="Web, app and software development, cybersecurity, AI automation and cloud engineering for ambitious businesses.">
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#08090A">
-<link rel="canonical" href="https://brutiit.in/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=Inter:wght@300..600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Organization","name":"BRUTIIT","url":"https://brutiit.in","email":"brutiitsolution@brutiit.in","sameAs":["https://instagram.com","https://linkedin.com","https://github.com","https://x.com"]}
+{"@context":"https://schema.org","@type":"Organization","name":"BRUTIIT","url":"https://brutiit.in","email":"hello@brutiit.in","sameAs":["https://instagram.com","https://linkedin.com","https://github.com","https://x.com"]}
 </script>
 <style>
 /* ---------- tokens ---------- */
 :root{
-  --bg:#070707;
+  --bg:#08090A;
   --surface:#0F1113;
   --surface-2:#141618;
   --glass:rgba(255,255,255,0.045);
@@ -37,13 +36,16 @@
   --ease: cubic-bezier(.16,.84,.44,1);
 }
 *{box-sizing:border-box; -webkit-tap-highlight-color:transparent;}
-html{scroll-behavior:smooth;}
+html{scroll-behavior:smooth; scrollbar-width:none; -ms-overflow-style:none;}
+html::-webkit-scrollbar{ display:none; width:0; height:0; }
 body{
   margin:0; background:var(--bg); color:var(--ink);
   font-family:'Inter',sans-serif; font-weight:300;
   overflow-x:hidden; width:100%;
   -webkit-font-smoothing:antialiased;
+  scrollbar-width:none; -ms-overflow-style:none;
 }
+body::-webkit-scrollbar{ display:none; width:0; height:0; }
 h1,h2,h3,.display{ font-family:'Space Grotesk',sans-serif; letter-spacing:-0.02em; }
 .mono{ font-family:'IBM Plex Mono',monospace; letter-spacing:0.08em; }
 img,canvas{max-width:100%;}
@@ -71,7 +73,6 @@ section{ position:relative; }
 }
 
 /* ---------- scroll progress ---------- */
-#scroll-progress{ position:fixed; top:0; left:0; height:2.5px; width:0%; background:linear-gradient(90deg,var(--accent-dim),var(--accent),var(--chrome-1)); z-index:200; transition:width .08s linear; box-shadow:0 0 6px 0 rgba(143,184,255,0.35); }
 
 /* ---------- navbar ---------- */
 #navbar{
@@ -483,7 +484,7 @@ footer{ padding:70px 0 34px; border-top:1px solid var(--glass-border); }
 .mf-field{ display:flex; flex-direction:column; gap:7px; }
 .mf-field span{ font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.08em; text-transform:uppercase; color:var(--ink-faint); }
 .mf-field input, .mf-field select, .mf-field textarea{
-  font-family:'Inter',sans-serif; font-size:14px; color:var(--ink); background:var(--surface-2);
+  font-family:'Inter',sans-serif; font-size:16px; color:var(--ink); background:var(--surface-2);
   border:1px solid var(--glass-border); border-radius:10px; padding:11px 13px; outline:none; resize:vertical;
   transition:border-color .3s, background .3s;
 }
@@ -500,7 +501,9 @@ footer{ padding:70px 0 34px; border-top:1px solid var(--glass-border); }
   transform:translateX(100%); visibility:hidden;
   transition:transform .55s var(--ease), visibility .55s;
   overflow-y:auto; -webkit-overflow-scrolling:touch;
+  scrollbar-width:none; -ms-overflow-style:none;
 }
+.service-page::-webkit-scrollbar{ display:none; width:0; height:0; }
 .service-page.open{ transform:translateX(0); visibility:visible; }
 .sp-header{
   position:sticky; top:0; z-index:5;
@@ -576,7 +579,6 @@ footer{ padding:70px 0 34px; border-top:1px solid var(--glass-border); }
 </head>
 <body>
 
-<div id="scroll-progress"></div>
 
 <!-- NAVBAR -->
 <nav id="navbar">
@@ -619,7 +621,7 @@ footer{ padding:70px 0 34px; border-top:1px solid var(--glass-border); }
         <span class="line"><span>BUILDING</span></span>
         <span class="line"><span>THE DIGITAL <em class="accent-word" style="font-style:normal;">FUTURE.</em></span></span>
       </h1>
-      <p class="hero-sub reveal">BRUTIIT SOLUTION creates powerful digital experiences, intelligent software and secure technology solutions for ambitious businesses.</p>
+      <p class="hero-sub reveal">BRUTIIT creates powerful digital experiences, intelligent software and secure technology solutions for ambitious businesses.</p>
       <div class="hero-ctas reveal reveal-d1">
         <a href="#" id="startProjectBtn" class="btn btn-primary start-project-trigger">Start a Project →</a>
         <a href="#work" class="btn btn-ghost hero-explore-btn">Explore Our Work</a>
@@ -627,7 +629,7 @@ footer{ padding:70px 0 34px; border-top:1px solid var(--glass-border); }
       </div>
     </div>
   </div>
-  <div class="scroll-cue"><span class="mono"></span><span class="stem"></span></div>
+  <div class="scroll-cue"><span class="mono">SCROLL</span><span class="stem"></span></div>
 </section>
 
 <!-- INTRO -->
@@ -997,7 +999,7 @@ footer{ padding:70px 0 34px; border-top:1px solid var(--glass-border); }
   <div class="wrap">
     <span class="eyebrow-label reveal">We Are BRUTIIT</span>
     <h2 class="section-title reveal reveal-d1" style="max-width:20ch;">A technology-driven team building for the next generation of businesses.</h2>
-    <p class="section-body reveal reveal-d2">About Brutiit, Brutiit is an IT company focused on building modern digital solutions for businesses and organizations.Our services include web development, mobile application development, custom software development, cybersecurity, AI automation, cloud and DevOps solutions.Our goal is to help businesses build secure, scalable and modern digital experiences..</p>
+    <p class="section-body reveal reveal-d2">Digital products, platforms and experiences engineered with the same discipline, whether we're shipping a landing page or a distributed system.</p>
     <div class="stat-grid">
       <div class="reveal"><div class="stat-num" data-count="10" data-suffix="+">0</div><div class="stat-label">Projects</div></div>
       <div class="reveal reveal-d1"><div class="stat-num" data-count="5" data-suffix="+">0</div><div class="stat-label">Technology Domains</div></div>
@@ -1084,8 +1086,8 @@ footer{ padding:70px 0 34px; border-top:1px solid var(--glass-border); }
       <div>
         <div class="foot-heading">Connect</div>
         <div class="foot-links">
-          <a href="mailto:brutiitsolution@brutiit.in">hello@brutiit.in</a>
-          <a href="https://instagram.com/brutiit_" target="_blank" rel="noopener">Instagram</a>
+          <a href="mailto:hello@brutiit.in">hello@brutiit.in</a>
+          <a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a>
           <a href="https://linkedin.com" target="_blank" rel="noopener">LinkedIn</a>
           <a href="https://github.com" target="_blank" rel="noopener">GitHub</a>
           <a href="https://x.com" target="_blank" rel="noopener">X</a>
@@ -1858,10 +1860,10 @@ mmenu.querySelectorAll('a').forEach(a=>a.addEventListener('click', ()=>{
 /* ---------- hero title reveal ---------- */
 requestAnimationFrame(()=> document.getElementById('heroTitle').classList.add('in'));
 
-/* ---------- scroll reveal ---------- */
+/* ---------- scroll reveal (reversible: replays both scroll directions) ---------- */
 const revealEls = document.querySelectorAll('.reveal, .process-item');
 const io = new IntersectionObserver((entries)=>{
-  entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  entries.forEach(e=>{ e.target.classList.toggle('in', e.isIntersecting); });
 },{threshold:0.15, rootMargin:'0px 0px -8% 0px'});
 revealEls.forEach(el=>io.observe(el));
 
@@ -2078,16 +2080,7 @@ const cio = new IntersectionObserver((entries)=>{
 },{threshold:0.5});
 counters.forEach(el=>cio.observe(el));
 
-/* ---------- scroll progress bar ---------- */
-const progressBar = document.getElementById('scroll-progress');
 const reduceMotionPref = matchMedia('(prefers-reduced-motion: reduce)').matches;
-function updateScrollProgress(){
-  const h = document.documentElement;
-  const scrolled = (h.scrollTop || document.body.scrollTop);
-  const height = h.scrollHeight - h.clientHeight;
-  const pct = height > 0 ? (scrolled/height)*100 : 0;
-  progressBar.style.width = pct + '%';
-}
 
 /* ---------- hero parallax on scroll ---------- */
 const heroVisualEl = document.querySelector('.hero-visual');
@@ -2162,11 +2155,11 @@ function updateMobileSectionLabel(){
 let scrollTicking = false;
 window.addEventListener('scroll', ()=>{
   if(!scrollTicking){
-    requestAnimationFrame(()=>{ updateScrollProgress(); updateHeroParallax(); updateNavLinkCollapse(); updateMobileSectionLabel(); scrollTicking=false; });
+    requestAnimationFrame(()=>{ updateHeroParallax(); updateNavLinkCollapse(); updateMobileSectionLabel(); scrollTicking=false; });
     scrollTicking = true;
   }
 }, {passive:true});
-updateScrollProgress(); updateHeroParallax(); updateNavLinkCollapse(); updateMobileSectionLabel();
+updateHeroParallax(); updateNavLinkCollapse(); updateMobileSectionLabel();
 requestAnimationFrame(updateNavLinksWidth);
 
 /* ================= THREE.JS SCENES ================= */
