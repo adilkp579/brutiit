@@ -606,6 +606,66 @@ footer{ padding:70px 0 34px; border-top:1px solid var(--glass-border); }
 .sd-step .t{ font-family:'Space Grotesk',sans-serif; font-size:15px; margin-bottom:3px; }
 .sd-step .d{ font-size:13px; color:var(--ink-dim); line-height:1.55; }
 
+/* ---------- buttons: centered & equal width on phones ---------- */
+@media(max-width:899px){
+  .hero-ctas{ width:100%; margin-left:auto; margin-right:auto; align-items:center; justify-content:center; }
+}
+@media(max-width:559px){
+  .hero-ctas{ max-width:340px; }
+  .hero-ctas .btn{ width:100%; }
+  .cta-btns .btn{ width:100%; max-width:340px; }
+}
+@media(min-width:560px) and (max-width:899px){
+  .hero-ctas{ flex-wrap:wrap; max-width:none; }
+}
+
+/* ---------- AI chatbot ---------- */
+.cb-launcher{ position:fixed; right:18px; bottom:calc(18px + env(safe-area-inset-bottom,0px)); z-index:200; width:58px; height:58px; border-radius:50%; background:transparent; color:#fff; display:flex; align-items:center; justify-content:center; font-size:24px; isolation:isolate; transform:scale(0); opacity:0; transition:transform .45s cubic-bezier(.34,1.56,.64,1), opacity .3s; }
+.cb-launcher::before{ content:''; position:absolute; inset:0; z-index:-1; background:var(--ink); border-radius:50%; box-shadow:0 10px 28px -8px rgba(20,25,35,.45); }
+.cb-launcher.show::before{ animation:cbBlobShape 7s ease-in-out infinite, cbBlobMove 4.6s ease-in-out infinite; }
+/* different sides grow / shrink at different times (organic blob) */
+@keyframes cbBlobShape{
+  0%   { border-radius:50% 50% 50% 50% / 50% 50% 50% 50%; }
+  14%  { border-radius:36% 64% 50% 50% / 50% 50% 50% 50%; }
+  29%  { border-radius:36% 64% 58% 42% / 50% 38% 62% 50%; }
+  43%  { border-radius:50% 50% 58% 42% / 62% 38% 62% 38%; }
+  57%  { border-radius:44% 56% 40% 60% / 62% 46% 54% 38%; }
+  71%  { border-radius:44% 56% 40% 60% / 40% 46% 54% 60%; }
+  86%  { border-radius:56% 44% 48% 52% / 40% 58% 42% 60%; }
+  100% { border-radius:50% 50% 50% 50% / 50% 50% 50% 50%; }
+}
+@keyframes cbBlobMove{
+  0%   { transform:scale(1,1) rotate(0deg); }
+  20%  { transform:scale(1.07,.95) rotate(8deg); }
+  40%  { transform:scale(.94,1.06) rotate(-6deg); }
+  60%  { transform:scale(1.05,1.0) rotate(10deg); }
+  80%  { transform:scale(.97,1.05) rotate(-4deg); }
+  100% { transform:scale(1,1) rotate(0deg); }
+}
+.cb-launcher.show{ transform:scale(1); opacity:1; }
+.cb-launcher .cb-badge{ position:absolute; top:4px; right:4px; width:11px; height:11px; border-radius:50%; background:#E0554F; border:2px solid #fff; }
+.cb-panel{ position:fixed; right:18px; bottom:calc(18px + env(safe-area-inset-bottom,0px)); z-index:210; width:360px; max-width:calc(100vw - 24px); height:520px; max-height:calc(100svh - 36px); display:flex; flex-direction:column; background:#fff; border:1px solid var(--glass-border); border-radius:22px; overflow:hidden; box-shadow:0 24px 60px -14px rgba(20,25,35,.35); transform:translateY(24px) scale(.96); transform-origin:bottom right; opacity:0; visibility:hidden; transition:transform .45s var(--ease), opacity .35s, visibility .35s; }
+.cb-panel.open{ transform:none; opacity:1; visibility:visible; }
+.cb-head{ display:flex; align-items:center; justify-content:space-between; padding:14px 16px; background:var(--card-bg); border-bottom:1px solid var(--glass-border); }
+.cb-title{ font-family:'Space Grotesk',sans-serif; font-weight:500; font-size:15px; display:flex; align-items:center; gap:8px; }
+.cb-title i{ width:8px; height:8px; border-radius:50%; background:#3FBF6B; display:inline-block; }
+.cb-close{ width:32px; height:32px; border-radius:50%; border:1px solid var(--glass-border); color:var(--ink-dim); font-size:13px; }
+.cb-body{ flex:1; overflow-y:auto; padding:16px; display:flex; flex-direction:column; gap:10px; scrollbar-width:none; }
+.cb-body::-webkit-scrollbar{ display:none; }
+.cb-msg{ max-width:85%; padding:10px 14px; border-radius:16px; font-size:14px; line-height:1.55; white-space:pre-wrap; word-break:break-word; }
+.cb-msg.bot{ background:var(--surface); color:var(--ink); border-bottom-left-radius:4px; align-self:flex-start; }
+.cb-msg.user{ background:var(--ink); color:#fff; border-bottom-right-radius:4px; align-self:flex-end; }
+.cb-typing span{ display:inline-block; width:6px; height:6px; margin:0 2px; border-radius:50%; background:var(--ink-faint); animation:cbDot 1s infinite; }
+.cb-typing span:nth-child(2){ animation-delay:.15s; } .cb-typing span:nth-child(3){ animation-delay:.3s; }
+@keyframes cbDot{ 0%,80%,100%{ opacity:.25; transform:translateY(0);} 40%{ opacity:1; transform:translateY(-3px);} }
+.cb-quick{ display:flex; flex-wrap:wrap; gap:8px; padding:0 16px 10px; }
+.cb-quick button{ font-size:12.5px; padding:7px 12px; border-radius:100px; border:1px solid var(--glass-border); background:#fff; color:var(--ink-dim); }
+.cb-form{ display:flex; gap:8px; padding:12px; border-top:1px solid var(--glass-border); }
+.cb-form input{ flex:1; font-family:'Inter',sans-serif; font-size:16px; padding:11px 14px; border:1px solid var(--glass-border); border-radius:100px; background:var(--surface); color:var(--ink); outline:none; }
+.cb-form input:focus{ border-color:var(--accent); }
+.cb-form button{ width:44px; height:44px; border-radius:50%; background:var(--ink); color:#fff; font-size:16px; }
+@media(max-width:480px){ .cb-panel{ right:12px; left:12px; width:auto; max-width:none; } }
+
 @media (prefers-reduced-motion: reduce){
   *{ animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; scroll-behavior:auto !important; }
 }
@@ -1886,6 +1946,23 @@ footer{ padding:70px 0 34px; border-top:1px solid var(--glass-border); }
   </div>
 </div>
 
+<!-- AI CHATBOT -->
+<button class="cb-launcher" id="cbLauncher" aria-label="Open chat">💬<span class="cb-badge"></span></button>
+<div class="cb-panel" id="cbPanel" role="dialog" aria-label="BRUTIIT assistant" aria-hidden="true">
+  <div class="cb-head">
+    <div class="cb-title"><i></i>BRUTIIT Assistant</div>
+    <button class="cb-close" id="cbClose" aria-label="Close chat">✕</button>
+  </div>
+  <div class="cb-body" id="cbBody"></div>
+  <div class="cb-quick" id="cbQuick">
+    <button>Services</button><button>Pricing</button><button>Start a project</button>
+  </div>
+  <form class="cb-form" id="cbForm">
+    <input id="cbInput" type="text" placeholder="Type your message…" autocomplete="off">
+    <button type="submit" aria-label="Send">➤</button>
+  </form>
+</div>
+
 <script>
 document.getElementById('year').textContent = new Date().getFullYear();
 
@@ -2386,6 +2463,87 @@ function buildNodeSphere(count, radius){
       else if(!e.isIntersecting && visible){ visible=false; cancelAnimationFrame(raf); }
     });
   },{threshold:0.1}).observe(canvas);
+})();
+
+/* ---------- AI chatbot ---------- */
+(function(){
+  const CHAT_PROXY_URL = ''; // paste your chat proxy URL here (Cloudflare Pages function)
+  const launcher = document.getElementById('cbLauncher');
+  const panel = document.getElementById('cbPanel');
+  const body = document.getElementById('cbBody');
+  const form = document.getElementById('cbForm');
+  const input = document.getElementById('cbInput');
+  const quick = document.getElementById('cbQuick');
+  const history = [];
+  let greeted = false, userInteracted = false;
+
+  function add(text, who){
+    const m = document.createElement('div');
+    m.className = 'cb-msg ' + who;
+    m.textContent = text;
+    body.appendChild(m);
+    body.scrollTop = body.scrollHeight;
+    return m;
+  }
+  function openChat(){
+    panel.classList.add('open'); panel.setAttribute('aria-hidden','false');
+    launcher.classList.remove('show');
+    if(!greeted){ greeted = true; add("Hi! 👋 I'm the BRUTIIT assistant. Ask me about websites, apps, software, cybersecurity, AI or cloud.", 'bot'); }
+    setTimeout(()=> input.focus({preventScroll:true}), 400);
+  }
+  function closeChat(){
+    panel.classList.remove('open'); panel.setAttribute('aria-hidden','true');
+    launcher.classList.add('show');
+    const b = launcher.querySelector('.cb-badge'); if(b) b.style.display = 'none';
+  }
+  function fallback(q){
+    q = q.toLowerCase();
+    if(/price|cost|pricing|rate|quote/.test(q)) return "Pricing depends on scope and features. Share your requirements and we'll send a clear quote.";
+    if(/web/.test(q)) return "We build fast, secure, SEO-friendly websites and web apps — business sites, e-commerce, portals and more.";
+    if(/app|android|ios|mobile/.test(q)) return "We develop Android & iOS apps with a modern UI, secure backend and store-ready launch.";
+    if(/secur|hack|pentest|vulnerab/.test(q)) return "We offer vulnerability assessments, penetration testing and OWASP-aligned security reviews.";
+    if(/ai|bot|automat/.test(q)) return "We build AI chatbots, workflow automation and custom AI solutions for your business.";
+    if(/cloud|devops|deploy|aws/.test(q)) return "We handle cloud setup, CI/CD, deployment automation, monitoring and scaling.";
+    if(/start|project|contact|talk|whatsapp|call/.test(q)) return "Great! Tap 'Start a Project' on the page or WhatsApp us at +91 92072 71076.";
+    if(/service/.test(q)) return "Our services: Web Development, App Development, Software Development, Cybersecurity, AI & Automation, Cloud & DevOps.";
+    return "I can help with our services, pricing or starting a project. You can also WhatsApp us at +91 92072 71076.";
+  }
+  async function reply(){
+    const typing = add('', 'bot'); typing.classList.add('cb-typing');
+    typing.innerHTML = '<span></span><span></span><span></span>';
+    let text;
+    try{
+      if(!CHAT_PROXY_URL) throw new Error('no proxy');
+      const res = await fetch(CHAT_PROXY_URL, { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({messages:history.slice(-12)}) });
+      if(!res.ok) throw new Error('bad');
+      text = (await res.json()).reply;
+      if(!text) throw new Error('empty');
+    }catch(e){
+      await new Promise(r=>setTimeout(r,500));
+      text = fallback(history[history.length-1].content);
+    }
+    typing.remove();
+    add(text, 'bot');
+    history.push({role:'assistant', content:text});
+  }
+  function send(text){
+    text = text.trim(); if(!text) return;
+    userInteracted = true;
+    quick.style.display = 'none';
+    add(text, 'user'); history.push({role:'user', content:text});
+    input.value = '';
+    reply();
+  }
+  form.addEventListener('submit', e=>{ e.preventDefault(); send(input.value); });
+  quick.querySelectorAll('button').forEach(b=> b.addEventListener('click', ()=> send(b.textContent)));
+  launcher.addEventListener('click', ()=>{ userInteracted = true; openChat(); });
+  document.getElementById('cbClose').addEventListener('click', closeChat);
+
+  // auto-open 4 seconds after the website loads
+  setTimeout(()=>{
+    if(userInteracted || document.querySelector('.modal-overlay.open')){ launcher.classList.add('show'); return; }
+    openChat();
+  }, 4000);
 })();
 </script>
 </body>
