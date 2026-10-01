@@ -82,11 +82,10 @@ section{ position:relative; }
   border-bottom:1px solid transparent;
 }
 #navbar.scrolled{
-  background:rgba(255,255,255,0.85);
-  backdrop-filter:blur(0px); -webkit-backdrop-filter:blur(0px);
-  border-bottom:1px solid var(--glass-border);
+  background:transparent;
+  backdrop-filter:none; -webkit-backdrop-filter:none;
+  border-bottom:1px solid transparent;
   padding:12px 20px;
-}
 }
 @media(min-width:768px){
   #navbar{padding:24px 40px;}
@@ -172,8 +171,7 @@ section{ position:relative; }
   .hero-visual{ order:2; height:520px; }
   .hero-text{ order:1; }
 }
-.hero-image{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; opacity:0; transition:opacity 1.2s ease; }
-.hero-image.ready{opacity:1;}
+.hero-image{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; opacity:1; }
 .eyebrow{ display:inline-flex; align-items:center; gap:9px; font-size:11px; color:var(--ink-dim); text-transform:uppercase; margin-bottom:22px; }
 .eyebrow .dot{ width:6px; height:6px; border-radius:50%; background:var(--accent); box-shadow:0 0 10px 2px var(--accent); }
 .hero-title{ font-size:clamp(38px,9vw,84px); line-height:1; font-weight:600; margin:0 0 22px; max-width:14ch; }
@@ -649,9 +647,7 @@ footer{ padding:70px 0 34px; border-top:1px solid var(--glass-border); }
 <section id="hero">
   <div class="hero-grid"></div>
   <div class="wrap hero-content">
-  <div class="hero-visual">
-    <img class="hero-image" src="image.jpg" alt="Hero Image">
-</div>
+    <div class="hero-visual"><img src="hero.jpg" alt="BRUTIIT" class="hero-image"></div>
     <div class="hero-text">
       <span class="eyebrow"><span class="dot"></span>DIGITAL INNOVATION STUDIO</span>
       <h1 class="hero-title" id="heroTitle">
@@ -2347,17 +2343,6 @@ function buildNodeSphere(count, radius){
   group.userData.wire = wire;
   return group;
 }
-
-
-  // don't play while hero is off-screen
-  const heroSection = document.getElementById('hero');
-  new IntersectionObserver(entries=>{
-    entries.forEach(e=>{
-      if(!e.isIntersecting) video.pause();
-      else if(!scrollStopTimer) video.play().catch(()=>{});
-    });
-  },{threshold:0}).observe(heroSection);
-})();
 
 /* ---- SERVICES NODE VISUAL ---- */
 /* ---- SERVICES VISUAL: DIGITAL SHIELD + DATA FLOW ---- */
