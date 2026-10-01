@@ -9,6 +9,9 @@
 <meta property="og:description" content="Web, app and software development, cybersecurity, AI automation and cloud engineering for ambitious businesses.">
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#FFFFFF">
+<link rel="icon" type="image/png" href="logo.png">
+<link rel="apple-touch-icon" href="logo.png">
+<meta property="og:image" content="https://brutiit.in/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=Inter:wght@300..600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -606,6 +609,12 @@ footer{ padding:70px 0 34px; border-top:1px solid var(--glass-border); }
 .sd-step .t{ font-family:'Space Grotesk',sans-serif; font-size:15px; margin-bottom:3px; }
 .sd-step .d{ font-size:13px; color:var(--ink-dim); line-height:1.55; }
 
+/* ---------- brand logo ---------- */
+.brand-logo{ display:block; height:26px; width:auto; max-width:160px; object-fit:contain; }
+.brand-logo-lg{ height:36px; max-width:200px; }
+.sp-logo .brand-logo{ height:24px; }
+.nav-logo, .sp-logo{ display:inline-flex; align-items:center; }
+
 /* ---------- buttons: centered & equal width on phones ---------- */
 @media(max-width:899px){
   .hero-ctas{ width:100%; margin-left:auto; margin-right:auto; align-items:center; justify-content:center; }
@@ -620,30 +629,11 @@ footer{ padding:70px 0 34px; border-top:1px solid var(--glass-border); }
 }
 
 /* ---------- AI chatbot ---------- */
-.cb-launcher{ position:fixed; right:18px; bottom:calc(18px + env(safe-area-inset-bottom,0px)); z-index:200; width:58px; height:58px; border-radius:50%; background:transparent; color:#fff; display:flex; align-items:center; justify-content:center; font-size:24px; isolation:isolate; transform:scale(0); opacity:0; transition:transform .45s cubic-bezier(.34,1.56,.64,1), opacity .3s; }
-.cb-launcher::before{ content:''; position:absolute; inset:0; z-index:-1; background:var(--ink); border-radius:50%; box-shadow:0 10px 28px -8px rgba(20,25,35,.45); }
-.cb-launcher.show::before{ animation:cbBlobShape 7s ease-in-out infinite, cbBlobMove 4.6s ease-in-out infinite; }
-/* different sides grow / shrink at different times (organic blob) */
-@keyframes cbBlobShape{
-  0%   { border-radius:50% 50% 50% 50% / 50% 50% 50% 50%; }
-  14%  { border-radius:36% 64% 50% 50% / 50% 50% 50% 50%; }
-  29%  { border-radius:36% 64% 58% 42% / 50% 38% 62% 50%; }
-  43%  { border-radius:50% 50% 58% 42% / 62% 38% 62% 38%; }
-  57%  { border-radius:44% 56% 40% 60% / 62% 46% 54% 38%; }
-  71%  { border-radius:44% 56% 40% 60% / 40% 46% 54% 60%; }
-  86%  { border-radius:56% 44% 48% 52% / 40% 58% 42% 60%; }
-  100% { border-radius:50% 50% 50% 50% / 50% 50% 50% 50%; }
-}
-@keyframes cbBlobMove{
-  0%   { transform:scale(1,1) rotate(0deg); }
-  20%  { transform:scale(1.07,.95) rotate(8deg); }
-  40%  { transform:scale(.94,1.06) rotate(-6deg); }
-  60%  { transform:scale(1.05,1.0) rotate(10deg); }
-  80%  { transform:scale(.97,1.05) rotate(-4deg); }
-  100% { transform:scale(1,1) rotate(0deg); }
-}
+.cb-launcher{ position:fixed; right:14px; bottom:calc(14px + env(safe-area-inset-bottom,0px)); z-index:200; width:72px; height:72px; border-radius:50%; background:transparent; display:flex; align-items:center; justify-content:center; transform:scale(0); opacity:0; transition:transform .45s cubic-bezier(.34,1.56,.64,1), opacity .3s; }
+.cb-launcher canvas{ position:absolute; left:50%; top:50%; width:84px; height:84px; margin:-42px 0 0 -42px; pointer-events:none; filter:drop-shadow(0 8px 12px rgba(20,25,35,.35)); }
+.cb-launcher .cb-ico{ position:relative; width:24px; height:24px; color:#fff; pointer-events:none; }
 .cb-launcher.show{ transform:scale(1); opacity:1; }
-.cb-launcher .cb-badge{ position:absolute; top:4px; right:4px; width:11px; height:11px; border-radius:50%; background:#E0554F; border:2px solid #fff; }
+.cb-launcher .cb-badge{ position:absolute; top:11px; right:11px; width:11px; height:11px; border-radius:50%; background:#E0554F; border:2px solid #0E0F11; }
 .cb-panel{ position:fixed; right:18px; bottom:calc(18px + env(safe-area-inset-bottom,0px)); z-index:210; width:360px; max-width:calc(100vw - 24px); height:520px; max-height:calc(100svh - 36px); display:flex; flex-direction:column; background:#fff; border:1px solid var(--glass-border); border-radius:22px; overflow:hidden; box-shadow:0 24px 60px -14px rgba(20,25,35,.35); transform:translateY(24px) scale(.96); transform-origin:bottom right; opacity:0; visibility:hidden; transition:transform .45s var(--ease), opacity .35s, visibility .35s; }
 .cb-panel.open{ transform:none; opacity:1; visibility:visible; }
 .cb-head{ display:flex; align-items:center; justify-content:space-between; padding:14px 16px; background:var(--card-bg); border-bottom:1px solid var(--glass-border); }
@@ -677,7 +667,7 @@ footer{ padding:70px 0 34px; border-top:1px solid var(--glass-border); }
 <!-- NAVBAR -->
 <nav id="navbar">
   <div class="nav-inner">
-    <a href="#hero" class="nav-logo nav-glass">BRUTIIT</a>
+    <a href="#hero" class="nav-logo nav-glass" aria-label="BRUTIIT"><img src="logo.png" alt="BRUTIIT" class="brand-logo"></a>
     <div class="nav-links nav-glass">
       <a href="#hero">Home</a>
       <a href="#services">Services</a>
@@ -1182,7 +1172,7 @@ footer{ padding:70px 0 34px; border-top:1px solid var(--glass-border); }
   <div class="wrap">
     <div class="foot-grid">
       <div>
-        <div class="nav-logo">BRUTIIT</div>
+        <div class="nav-logo"><img src="logo.png" alt="BRUTIIT" class="brand-logo brand-logo-lg"></div>
         <p class="foot-desc">A technology studio building digital products, software and secure systems for ambitious businesses.</p>
       </div>
       <div>
@@ -1276,7 +1266,7 @@ footer{ padding:70px 0 34px; border-top:1px solid var(--glass-border); }
 <!-- WEB DEVELOPMENT SERVICE DETAIL MODAL -->
 <div id="webDevModal" class="service-page" aria-hidden="true">
   <div class="sp-header">
-    <a href="#" class="sp-logo" id="webDevBackLogo">BRUTIIT</a>
+    <a href="#" class="sp-logo" id="webDevBackLogo"><img src="logo.png" alt="BRUTIIT" class="brand-logo"></a>
     <span class="sp-title" id="webDevModalTitle">Web Development</span>
     <button class="sp-close" id="webDevModalClose" aria-label="Close">✕ Close</button>
   </div>
@@ -1360,7 +1350,7 @@ footer{ padding:70px 0 34px; border-top:1px solid var(--glass-border); }
 <!-- APP DEVELOPMENT SERVICE DETAIL PAGE -->
 <div id="appDevModal" class="service-page" aria-hidden="true">
   <div class="sp-header">
-    <a href="#" class="sp-logo" id="appDevBackLogo">BRUTIIT</a>
+    <a href="#" class="sp-logo" id="appDevBackLogo"><img src="logo.png" alt="BRUTIIT" class="brand-logo"></a>
     <span class="sp-title">App Development</span>
     <button class="sp-close" id="appDevModalClose" aria-label="Close">✕ Close</button>
   </div>
@@ -1452,7 +1442,7 @@ footer{ padding:70px 0 34px; border-top:1px solid var(--glass-border); }
 <!-- SOFTWARE DEVELOPMENT SERVICE DETAIL PAGE -->
 <div id="swDevModal" class="service-page" aria-hidden="true">
   <div class="sp-header">
-    <a href="#" class="sp-logo" id="swDevBackLogo">BRUTIIT</a>
+    <a href="#" class="sp-logo" id="swDevBackLogo"><img src="logo.png" alt="BRUTIIT" class="brand-logo"></a>
     <span class="sp-title">Software Development</span>
     <button class="sp-close" id="swDevModalClose" aria-label="Close">✕ Close</button>
   </div>
@@ -1514,7 +1504,7 @@ footer{ padding:70px 0 34px; border-top:1px solid var(--glass-border); }
 <!-- CYBERSECURITY SERVICE DETAIL PAGE -->
 <div id="cyberModal" class="service-page" aria-hidden="true">
   <div class="sp-header">
-    <a href="#" class="sp-logo" id="cyberBackLogo">BRUTIIT</a>
+    <a href="#" class="sp-logo" id="cyberBackLogo"><img src="logo.png" alt="BRUTIIT" class="brand-logo"></a>
     <span class="sp-title">Cybersecurity</span>
     <button class="sp-close" id="cyberModalClose" aria-label="Close">✕ Close</button>
   </div>
@@ -1575,7 +1565,7 @@ footer{ padding:70px 0 34px; border-top:1px solid var(--glass-border); }
 <!-- AI & AUTOMATION SERVICE DETAIL PAGE -->
 <div id="aiModal" class="service-page" aria-hidden="true">
   <div class="sp-header">
-    <a href="#" class="sp-logo" id="aiBackLogo">BRUTIIT</a>
+    <a href="#" class="sp-logo" id="aiBackLogo"><img src="logo.png" alt="BRUTIIT" class="brand-logo"></a>
     <span class="sp-title">AI &amp; Automation</span>
     <button class="sp-close" id="aiModalClose" aria-label="Close">✕ Close</button>
   </div>
@@ -1637,7 +1627,7 @@ footer{ padding:70px 0 34px; border-top:1px solid var(--glass-border); }
 <!-- CLOUD & DEVOPS SERVICE DETAIL PAGE -->
 <div id="cloudModal" class="service-page" aria-hidden="true">
   <div class="sp-header">
-    <a href="#" class="sp-logo" id="cloudBackLogo">BRUTIIT</a>
+    <a href="#" class="sp-logo" id="cloudBackLogo"><img src="logo.png" alt="BRUTIIT" class="brand-logo"></a>
     <span class="sp-title">Cloud &amp; DevOps</span>
     <button class="sp-close" id="cloudModalClose" aria-label="Close">✕ Close</button>
   </div>
@@ -1699,7 +1689,7 @@ footer{ padding:70px 0 34px; border-top:1px solid var(--glass-border); }
 <!-- WEBSITE SECURITY DETAIL PAGE -->
 <div id="websiteSecurityModal" class="service-page" aria-hidden="true">
   <div class="sp-header">
-    <a href="#" class="sp-logo" id="websiteSecurityBackLogo">BRUTIIT</a>
+    <a href="#" class="sp-logo" id="websiteSecurityBackLogo"><img src="logo.png" alt="BRUTIIT" class="brand-logo"></a>
     <span class="sp-title">Website Security</span>
     <button class="sp-close" id="websiteSecurityModalClose" aria-label="Close">✕ Close</button>
   </div>
@@ -1775,7 +1765,7 @@ footer{ padding:70px 0 34px; border-top:1px solid var(--glass-border); }
 <!-- PROJECT DETAIL: CHOICHO -->
 <div id="choichoModal" class="service-page" aria-hidden="true">
   <div class="sp-header">
-    <a href="#" class="sp-logo" id="choichoBackLogo">BRUTIIT</a>
+    <a href="#" class="sp-logo" id="choichoBackLogo"><img src="logo.png" alt="BRUTIIT" class="brand-logo"></a>
     <span class="sp-title">Choicho</span>
     <button class="sp-close" id="choichoModalClose" aria-label="Close">✕ Close</button>
   </div>
@@ -1833,7 +1823,7 @@ footer{ padding:70px 0 34px; border-top:1px solid var(--glass-border); }
 <!-- PROJECT DETAIL: BRUTIIT CYBER LABS -->
 <div id="cyberLabsModal" class="service-page" aria-hidden="true">
   <div class="sp-header">
-    <a href="#" class="sp-logo" id="cyberLabsBackLogo">BRUTIIT</a>
+    <a href="#" class="sp-logo" id="cyberLabsBackLogo"><img src="logo.png" alt="BRUTIIT" class="brand-logo"></a>
     <span class="sp-title">Brutiit Cyber Labs</span>
     <button class="sp-close" id="cyberLabsModalClose" aria-label="Close">✕ Close</button>
   </div>
@@ -1891,7 +1881,7 @@ footer{ padding:70px 0 34px; border-top:1px solid var(--glass-border); }
 <!-- PROJECT DETAIL: DIGITAL COMMERCE PLATFORM -->
 <div id="commerceModal" class="service-page" aria-hidden="true">
   <div class="sp-header">
-    <a href="#" class="sp-logo" id="commerceBackLogo">BRUTIIT</a>
+    <a href="#" class="sp-logo" id="commerceBackLogo"><img src="logo.png" alt="BRUTIIT" class="brand-logo"></a>
     <span class="sp-title">Digital Commerce Platform</span>
     <button class="sp-close" id="commerceModalClose" aria-label="Close">✕ Close</button>
   </div>
@@ -1947,7 +1937,7 @@ footer{ padding:70px 0 34px; border-top:1px solid var(--glass-border); }
 </div>
 
 <!-- AI CHATBOT -->
-<button class="cb-launcher" id="cbLauncher" aria-label="Open chat">💬<span class="cb-badge"></span></button>
+<button class="cb-launcher" id="cbLauncher" aria-label="Open chat"><canvas id="cbBlobCanvas" aria-hidden="true"></canvas><svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 9 9 0 0 1-3.6-.8L3 21l1.9-5.1A8.4 8.4 0 1 1 21 11.5z"/></svg><span class="cb-badge"></span></button>
 <div class="cb-panel" id="cbPanel" role="dialog" aria-label="BRUTIIT assistant" aria-hidden="true">
   <div class="cb-head">
     <div class="cb-title"><i></i>BRUTIIT Assistant</div>
@@ -2465,6 +2455,83 @@ function buildNodeSphere(count, radius){
   },{threshold:0.1}).observe(canvas);
 })();
 
+/* ---------- chat icon: dotted liquid sphere ---------- */
+(function(){
+  const cv = document.getElementById('cbBlobCanvas');
+  const launcher = document.getElementById('cbLauncher');
+  if(!cv || !launcher) return;
+  const ctx = cv.getContext('2d');
+  const S = 84, dpr = Math.min(window.devicePixelRatio || 1, 2);
+  cv.width = cv.height = S * dpr;
+  ctx.scale(dpr, dpr);
+
+  const N = 620, R = 26, pts = [];
+  const GA = Math.PI * (3 - Math.sqrt(5));
+  for(let i=0;i<N;i++){
+    const y = 1 - (i/(N-1))*2, r = Math.sqrt(1 - y*y), th = GA*i;
+    pts.push([Math.cos(th)*r, y, Math.sin(th)*r]);
+  }
+  // light direction (top-left, towards viewer)
+  const L = [-0.5, -0.6, 0.62], ll = Math.hypot(L[0],L[1],L[2]);
+  L[0]/=ll; L[1]/=ll; L[2]/=ll;
+
+  // smooth organic displacement: different parts swell and shrink at different times
+  function disp(x,y,z,t){
+    return 1
+      + 0.09*Math.sin(x*2.6 + y*1.2 + t*1.3)
+      + 0.07*Math.sin(y*3.1 + z*1.7 - t*1.0)
+      + 0.06*Math.sin(z*3.7 - x*1.4 + t*1.6)
+      + 0.03*Math.sin((x+y+z)*5 + t*2.1);
+  }
+
+  function draw(ms){
+    const t = ms/1000;
+    ctx.clearRect(0,0,S,S);
+    const ca=Math.cos(t*.35), sa=Math.sin(t*.35), cx=Math.cos(t*.22), sx=Math.sin(t*.22);
+    const front = [], back = [];
+    for(let i=0;i<N;i++){
+      const p = pts[i];
+      const d = disp(p[0],p[1],p[2],t);
+      const X=p[0]*d, Y=p[1]*d, Z=p[2]*d;
+      // rotate around Y then X
+      const x1 = X*ca + Z*sa, z1 = -X*sa + Z*ca;
+      const y2 = Y*cx - z1*sx, z2 = Y*sx + z1*cx;
+      // rotated unit normal (for lighting)
+      const ux = p[0]*ca + p[2]*sa, uz1 = -p[0]*sa + p[2]*ca;
+      const uy = p[1]*cx - uz1*sx, uz = p[1]*sx + uz1*cx;
+      const light = Math.max(0, ux*L[0] + uy*L[1] + uz*L[2]);
+      const b = Math.min(1, Math.max(0, 0.18 + 0.82*light + (d-1)*1.6));
+      const item = {x:S/2 + x1*R, y:S/2 + y2*R, b:b};
+      (uz > -0.05 ? front : back).push(item);
+    }
+    // pass 1: solid dark silhouette that follows the wobbling surface
+    ctx.fillStyle = '#0E0F11';
+    ctx.beginPath();
+    for(const q of front){ ctx.moveTo(q.x+3.6, q.y); ctx.arc(q.x, q.y, 3.6, 0, 6.2832); }
+    for(const q of back){ ctx.moveTo(q.x+3.6, q.y); ctx.arc(q.x, q.y, 3.6, 0, 6.2832); }
+    ctx.fill();
+    // pass 2a: faint dots on the far side (depth)
+    ctx.fillStyle = 'rgba(190,200,215,0.10)';
+    ctx.beginPath();
+    for(const q of back){ ctx.moveTo(q.x+0.5, q.y); ctx.arc(q.x, q.y, 0.5, 0, 6.2832); }
+    ctx.fill();
+    // pass 2b: lit dots on the near side
+    for(const q of front){
+      ctx.fillStyle = 'rgba(205,215,230,' + (0.12 + q.b*0.8).toFixed(3) + ')';
+      ctx.beginPath();
+      ctx.arc(q.x, q.y, 0.45 + q.b*0.55, 0, 6.2832);
+      ctx.fill();
+    }
+  }
+
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches){ draw(1500); return; }
+  function loop(ms){
+    if(launcher.classList.contains('show')) draw(ms);
+    requestAnimationFrame(loop);
+  }
+  requestAnimationFrame(loop);
+})();
+
 /* ---------- AI chatbot ---------- */
 (function(){
   const CHAT_PROXY_URL = 'brutiit-chat-proxy.adilkp579.workers.dev'; // paste your chat proxy URL here (Cloudflare Pages function)
@@ -2543,7 +2610,7 @@ function buildNodeSphere(count, radius){
   setTimeout(()=>{
     if(userInteracted || document.querySelector('.modal-overlay.open')){ launcher.classList.add('show'); return; }
     openChat();
-  }, 4000);
+  }, 6000);
 })();
 </script>
 </body>
