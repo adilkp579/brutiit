@@ -90,7 +90,7 @@ section{ position:relative; }
   border-bottom:1px solid var(--glass-border);
   padding:12px 20px;
 }
-}
+
 @media(min-width:768px){
   #navbar{padding:24px 40px;}
   #navbar.scrolled{padding:14px 40px;}
@@ -391,26 +391,8 @@ section{ position:relative; }
 .sec-wrap{ display:grid; grid-template-columns:1fr; gap:50px; align-items:center; }
 @media(min-width:900px){ .sec-wrap{grid-template-columns:1fr 1fr;} }
 .sec-right{ display:flex; flex-direction:column; gap:32px; align-items:center; }
-.sec-visual{ position:relative; aspect-ratio:1/1; width:100%; max-width:340px; margin:0 auto; }
-.radar-ring{ position:absolute; border:1px solid var(--glass-border); border-radius:50%; inset:0; }
-.radar-ring.r2{ inset:18%; border-color:rgba(55,99,214,0.2); }
-.radar-ring.r3{ inset:36%; border-color:rgba(55,99,214,0.32); }
-.radar-sweep{
-  position:absolute; inset:0; border-radius:50%; overflow:hidden;
-  -webkit-mask-image:radial-gradient(circle, #000 98%, transparent 100%); mask-image:radial-gradient(circle, #000 98%, transparent 100%);
-  animation:radarSpin 3.6s linear infinite;
-}
-.radar-sweep::before{
-  content:''; position:absolute; inset:0;
-  background:conic-gradient(from 0deg, rgba(55,99,214,0.38), transparent 32%);
-}
-@keyframes radarSpin{ to{ transform:rotate(360deg); } }
-.radar-core{ position:absolute; inset:44%; border-radius:50%; background:radial-gradient(circle at 35% 30%, var(--chrome-1), var(--chrome-2) 60%, #C9CBD0); box-shadow:0 0 40px -6px rgba(55,99,214,0.4); }
-.radar-dot{ position:absolute; width:8px; height:8px; border-radius:50%; background:#E0554F; box-shadow:0 0 10px 2px rgba(224,85,79,0.6); animation:radarBlip 2.4s ease-in-out infinite; }
-.radar-dot.d1{ top:22%; left:66%; animation-delay:0s; }
-.radar-dot.d2{ top:64%; left:26%; animation-delay:.8s; }
-.radar-dot.d3{ top:70%; left:70%; animation-delay:1.6s; }
-@keyframes radarBlip{ 0%,100%{ opacity:.2; transform:scale(0.8); } 50%{ opacity:1; transform:scale(1.3); } }
+.sec-visual{ position:relative; width:100%; max-width:420px; margin:0 auto; aspect-ratio:4 / 3; border-radius:26px; overflow:hidden; background:#1D5580; box-shadow:0 26px 50px -22px rgba(20,25,35,.45), 0 0 0 1px rgba(10,10,10,.08); }
+.sec-visual img{ display:block; width:100%; height:100%; object-fit:cover; }
 
 .sec-terminal{
   width:100%; max-width:420px; border-radius:14px; overflow:hidden;
@@ -732,26 +714,25 @@ footer{ padding:70px 0 34px; border-top:1px solid var(--glass-border); }
 </head>
 <body>
 
-
 <!-- NAVBAR -->
-<nav id="navbar">
-  <div class="nav-inner">
-    <a href="#hero" class="nav-logo nav-glass">BRUTIIT</a>
-    <div class="nav-links nav-glass">
-      <a href="#hero">Home</a>
-      <a href="#services">Services</a>
-      <a href="#why">Solutions</a>
-      <a href="#work">Work</a>
-      <a href="#about">About</a>
-      <a href="#footer-contact">Contact</a>
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo nav-glass">BRUTIIT</a>
+      <div class="nav-links nav-glass">
+        <a href="#hero">Home</a>
+        <a href="#services">Services</a>
+        <a href="#why">Solutions</a>
+        <a href="#work">Work</a>
+        <a href="#about">About</a>
+        <a href="#footer-contact">Contact</a>
+      </div>
+      <a href="https://wa.me/919207271076" target="_blank" rel="noopener" class="nav-cta nav-glass">Let's Talk →</a>
+      <span class="mobile-section-label" id="mobileSectionLabel"></span>
+      <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
     </div>
-    <a href="https://wa.me/919207271076" target="_blank" rel="noopener" class="nav-cta nav-glass">Let's Talk →</a>
-    <span class="mobile-section-label" id="mobileSectionLabel"></span>
-    <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-</nav>
+  </nav>
 
 <div id="mobile-menu">
   <a href="#hero">Home</a>
@@ -1032,14 +1013,7 @@ footer{ padding:70px 0 34px; border-top:1px solid var(--glass-border); }
     </div>
     <div class="sec-right">
       <div class="sec-visual reveal reveal-d2">
-        <div class="radar-ring"></div>
-        <div class="radar-ring r2"></div>
-        <div class="radar-ring r3"></div>
-        <div class="radar-sweep"></div>
-        <div class="radar-dot d1"></div>
-        <div class="radar-dot d2"></div>
-        <div class="radar-dot d3"></div>
-        <div class="radar-core"></div>
+        <img src="hacker.gif" alt="A hacker trying to break into a system" loading="lazy" decoding="async">
       </div>
       <div class="sec-terminal reveal reveal-d3">
         <div class="term-bar">
