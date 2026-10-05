@@ -90,7 +90,6 @@ section{ position:relative; }
   border-bottom:1px solid var(--glass-border);
   padding:12px 20px;
 }
-
 @media(min-width:768px){
   #navbar{padding:24px 40px;}
   #navbar.scrolled{padding:14px 40px;}
@@ -631,7 +630,7 @@ footer{ padding:70px 0 34px; border-top:1px solid var(--glass-border); }
 .cb-launcher canvas{ position:absolute; left:0; top:0; width:58px; height:58px; border-radius:50%; pointer-events:none; filter:drop-shadow(0 6px 10px rgba(20,25,35,.32)); }
 .cb-launcher.show{ pointer-events:auto; transform:scale(1); opacity:1; transition:transform .55s cubic-bezier(.34,1.56,.64,1) .3s, opacity .3s ease .3s; }
 .cb-launcher .cb-badge{ position:absolute; top:6px; right:6px; width:11px; height:11px; border-radius:50%; background:#E0554F; border:2px solid #0E0F11; }
-.cb-panel{ position:fixed; right:18px; bottom:calc(18px + env(safe-area-inset-bottom,0px)); z-index:210; width:360px; max-width:calc(100vw - 24px); height:520px; max-height:calc(100svh - 36px); display:flex; flex-direction:column; background:linear-gradient(155deg, rgba(255,255,255,.66), rgba(238,241,247,.46)); backdrop-filter:blur(24px) saturate(190%); -webkit-backdrop-filter:blur(24px) saturate(190%); border:1px solid rgba(255,255,255,.7); border-radius:120px; overflow:hidden; will-change:transform,opacity; box-shadow:0 28px 70px -16px rgba(20,25,35,.38), 0 0 0 1px rgba(10,10,10,.06), inset 0 1px 0 rgba(255,255,255,.95), inset 0 -1px 0 rgba(255,255,255,.4); --ox:27px; transform-origin:calc(100% - var(--ox)) calc(100% - 27px); transform:scale(.1); opacity:0; visibility:hidden; pointer-events:none; transition:transform .6s cubic-bezier(.22,1.15,.36,1), opacity .3s ease, border-radius .55s cubic-bezier(.16,.84,.44,1), visibility 0s linear .6s; }
+.cb-panel{ position:fixed; right:18px; bottom:calc(18px + env(safe-area-inset-bottom,0px)); z-index:210; width:360px; max-width:calc(100vw - 24px); height:520px; max-height:calc(100svh - 36px); display:flex; flex-direction:column; background:linear-gradient(155deg, rgba(255,255,255,.66), rgba(238,241,247,.46)); backdrop-filter:blur(10px) saturate(190%); -webkit-backdrop-filter:blur(24px) saturate(190%); border:1px solid rgba(255,255,255,.7); border-radius:120px; overflow:hidden; will-change:transform,opacity; box-shadow:0 28px 70px -16px rgba(20,25,35,.38), 0 0 0 1px rgba(10,10,10,.06), inset 0 1px 0 rgba(255,255,255,.95), inset 0 -1px 0 rgba(255,255,255,.4); --ox:27px; transform-origin:calc(100% - var(--ox)) calc(100% - 27px); transform:scale(.1); opacity:0; visibility:hidden; pointer-events:none; transition:transform .6s cubic-bezier(.22,1.15,.36,1), opacity .3s ease, border-radius .55s cubic-bezier(.16,.84,.44,1), visibility 0s linear .6s; }
 .cb-panel.open{ transform:none; opacity:1; visibility:visible; pointer-events:auto; border-radius:26px; transition:transform .6s cubic-bezier(.22,1.15,.36,1), opacity .25s ease, border-radius .55s cubic-bezier(.16,.84,.44,1), visibility 0s; }
 /* inner parts fade in one after another once the box has opened */
 .cb-panel > *{ opacity:0; transform:translateY(12px); transition:opacity .18s ease, transform .18s ease; }
@@ -714,8 +713,9 @@ footer{ padding:70px 0 34px; border-top:1px solid var(--glass-border); }
 </head>
 <body>
 
+
 <!-- NAVBAR -->
-  <nav id="navbar">
+<nav id="navbar">
     <div class="nav-inner">
       <a href="#hero" class="nav-logo nav-glass">BRUTIIT</a>
       <div class="nav-links nav-glass">
@@ -733,6 +733,7 @@ footer{ padding:70px 0 34px; border-top:1px solid var(--glass-border); }
       </button>
     </div>
   </nav>
+
 
 <div id="mobile-menu">
   <a href="#hero">Home</a>
@@ -2593,7 +2594,7 @@ function buildNodeSphere(count, radius){
 
 /* ---------- AI chatbot ---------- */
 (function(){
-  const CHAT_PROXY_URL = ' https://brutiit-chat-proxy.adilkp579.workers.dev'; // paste your chat proxy URL here (Cloudflare Pages function)
+  const CHAT_PROXY_URL = 'https://brutiit-chat-proxy.adilkp579.workers.dev'; // paste your chat proxy URL here (Cloudflare Pages function)
   const launcher = document.getElementById('cbLauncher');
   const panel = document.getElementById('cbPanel');
   const body = document.getElementById('cbBody');
@@ -2632,7 +2633,7 @@ function buildNodeSphere(count, radius){
     if(/cloud|devops|deploy|aws/.test(q)) return "We handle cloud setup, CI/CD, deployment automation, monitoring and scaling.";
     if(/start|project|contact|talk|whatsapp|call/.test(q)) return "Great! Tap 'Start a Project' on the page or WhatsApp us at +91 92072 71076.";
     if(/service/.test(q)) return "Our services: Web Development, App Development, Software Development, Cybersecurity, AI & Automation, Cloud & DevOps.";
-    return "I can help with our services, pricing or starting a project. You can also WhatsApp us at +91 92072 71076.";
+    return "Sorry, I can't help with that. I'm the BRUTIIT chatbot, so I can only answer questions about BRUTIIT and our services. Ask me about web, app, software, security, AI or cloud projects, or WhatsApp us at +91 92072 71076.";
   }
   async function reply(){
     const typing = add('', 'bot'); typing.classList.add('cb-typing');
