@@ -705,6 +705,8 @@ footer{ padding:70px 0 34px; border-top:1px solid var(--glass-border); }
 
 @supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){ .cb-panel{ background:rgba(250,251,253,.97); } }
 @media(max-width:480px){ .cb-panel{ right:12px; left:12px; width:auto; max-width:none; --ox:33px; } }
+.cb-quick button{ cursor:pointer; }
+
 
 @media (prefers-reduced-motion: reduce){
   *{ animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; scroll-behavior:auto !important; }
@@ -2003,7 +2005,10 @@ footer{ padding:70px 0 34px; border-top:1px solid var(--glass-border); }
   </div>
   <div class="cb-body" id="cbBody"></div>
   <div class="cb-quick" id="cbQuick">
-    <button>Services</button><button>Pricing</button><button>Start a project</button>
+    <button data-chat-action="message">Services</button>
+    <button data-chat-action="message">Pricing</button>
+    <button data-chat-action="project">Start a project</button>
+    <button data-chat-action="whatsapp">WhatsApp</button>
   </div>
   <form class="cb-form" id="cbForm">
     <input id="cbInput" type="text" placeholder="Type your message…" autocomplete="off">
@@ -2594,7 +2599,10 @@ function buildNodeSphere(count, radius){
 
 /* ---------- AI chatbot ---------- */
 (function(){
-  const CHAT_PROXY_URL = 'https://brutiit-chat-proxy.adilkp579.workers.dev'; // paste your chat proxy URL here (Cloudflare Pages function)
+  const CHAT_PROXY_URL = 'https://brutiit-chat-proxy.adilkp579.workers.dev';
+  const WHATSAPP_URL = 'https://wa.me/919207271076?text=' + encodeURIComponent('Hi BRUTIIT, I would like to discuss a project.');
+  const MEMORY_KEY = 'brutiit_chat_v2';
+  const CLIENT_KEY = 'brutiit_client_id_v2';
   const launcher = document.getElementById('cbLauncher');
   const panel = document.getElementById('cbPanel');
   const body = document.getElementById('cbBody');
@@ -2602,7 +2610,37 @@ function buildNodeSphere(count, radius){
   const input = document.getElementById('cbInput');
   const quick = document.getElementById('cbQuick');
   const history = [];
-  let greeted = false, userInteracted = false;
+  let greeted = false, userInteracted = false, busy = false;
+
+  function getClientId(){
+    try{
+      let id = localStorage.getItem(CLIENT_KEY);
+      if(!id){ id = crypto.randomUUID ? crypto.randomUUID() : ('c_' + Date.now() + '_' + Math.random().toString(36).slice(2)); localStorage.setItem(CLIENT_KEY,id); }
+      return id;
+    }catch(e){ return 'guest_' + Math.random().toString(36).slice(2); }
+  }
+  const clientId = getClientId();
+
+  function saveLocal(){
+    try{
+      localStorage.setItem(MEMORY_KEY, JSON.stringify({
+        version:2,
+        updatedAt:Date.now(),
+        messages:history.slice(-20)
+      }));
+    }catch(e){}
+  }
+  function loadLocal(){
+    try{
+      const saved = JSON.parse(localStorage.getItem(MEMORY_KEY) || 'null');
+      if(!saved || !Array.isArray(saved.messages)) return;
+      saved.messages.slice(-12).forEach(m=>{
+        if(m && (m.role==='user'||m.role==='assistant') && typeof m.content==='string' && m.content.trim()){
+          history.push({role:m.role,content:m.content.slice(0,1000)});
+        }
+      });
+    }catch(e){}
+  }
 
   function add(text, who){
     const m = document.createElement('div');
@@ -2612,10 +2650,22 @@ function buildNodeSphere(count, radius){
     body.scrollTop = body.scrollHeight;
     return m;
   }
+
+  function openProject(){
+    const trigger = document.querySelector('.start-project-trigger');
+    if(trigger) trigger.click();
+  }
   function openChat(){
     panel.classList.add('open'); panel.setAttribute('aria-hidden','false');
     launcher.classList.remove('show');
-    if(!greeted){ greeted = true; add("Hi! 👋 I'm the BRUTIIT assistant. Ask me about websites, apps, software, cybersecurity, AI or cloud.", 'bot'); }
+    if(!greeted){
+      greeted = true;
+      if(history.length){
+        add("Welcome back 👋 I remember this conversation on this device. What would you like to continue with?", 'bot');
+      }else{
+        add("Hi! 👋 I’m the BRUTIIT assistant. Tell me what you’re planning to build, and I’ll help you figure out the right solution.", 'bot');
+      }
+    }
     if(matchMedia('(hover:hover) and (pointer:fine)').matches) setTimeout(()=> input.focus({preventScroll:true}), 650);
   }
   function closeChat(){
@@ -2623,53 +2673,75 @@ function buildNodeSphere(count, radius){
     launcher.classList.add('show');
     const b = launcher.querySelector('.cb-badge'); if(b) b.style.display = 'none';
   }
+
   function fallback(q){
     q = q.toLowerCase();
-    if(/price|cost|pricing|rate|quote/.test(q)) return "Pricing depends on scope and features. Share your requirements and we'll send a clear quote.";
-    if(/web/.test(q)) return "We build fast, secure, SEO-friendly websites and web apps — business sites, e-commerce, portals and more.";
-    if(/app|android|ios|mobile/.test(q)) return "We develop Android & iOS apps with a modern UI, secure backend and store-ready launch.";
-    if(/secur|hack|pentest|vulnerab/.test(q)) return "We offer vulnerability assessments, penetration testing and OWASP-aligned security reviews.";
-    if(/ai|bot|automat/.test(q)) return "We build AI chatbots, workflow automation and custom AI solutions for your business.";
-    if(/cloud|devops|deploy|aws/.test(q)) return "We handle cloud setup, CI/CD, deployment automation, monitoring and scaling.";
-    if(/start|project|contact|talk|whatsapp|call/.test(q)) return "Great! Tap 'Start a Project' on the page or WhatsApp us at +91 92072 71076.";
-    if(/service/.test(q)) return "Our services: Web Development, App Development, Software Development, Cybersecurity, AI & Automation, Cloud & DevOps.";
-    return "Sorry, I can't help with that. I'm the BRUTIIT chatbot, so I can only answer questions about BRUTIIT and our services. Ask me about web, app, software, security, AI or cloud projects, or WhatsApp us at +91 92072 71076.";
+    if(/price|cost|pricing|rate|quote/.test(q)) return "Pricing depends on the scope and features. If you tell me what you want to build, I can explain what affects the cost and you can request a quote from the BRUTIIT team.";
+    if(/web|website|web app/.test(q)) return "BRUTIIT builds modern, fast and secure websites and web apps, including business websites, e-commerce platforms and custom portals. If you tell me what the website should do, I can suggest a suitable approach.";
+    if(/app|android|ios|mobile/.test(q)) return "We develop Android and iOS applications with modern interfaces, secure backends and production-ready architecture. Tell me the app idea and its main features, and I’ll help you scope it.";
+    if(/secur|pentest|vulnerab|owasp/.test(q)) return "BRUTIIT provides vulnerability assessments, penetration testing and OWASP-aligned security reviews. If you describe the system you want assessed, I can explain the usual engagement process.";
+    if(/ai|bot|automat/.test(q)) return "We build AI chatbots, AI applications and workflow automation for businesses. Tell me which repetitive task or customer workflow you want to improve, and we can explore a solution.";
+    if(/cloud|devops|deploy|aws|ci\/cd/.test(q)) return "BRUTIIT handles cloud deployment, CI/CD, monitoring and scaling. Tell me what you are running today and what you want to deploy, and I can outline the next step.";
+    if(/start|project|contact|talk|whatsapp|call/.test(q)) return "Absolutely. You can open the Start a Project form here, or message the BRUTIIT team directly on WhatsApp at +91 92072 71076.";
+    if(/service/.test(q)) return "BRUTIIT provides Web Development, App Development, Software Development, Cybersecurity, AI & Automation, and Cloud & DevOps. Which one are you interested in?";
+    return "I’m the BRUTIIT website assistant, so I can help with BRUTIIT services, project planning, timelines, pricing approach, security, AI, cloud and how to contact the team.";
   }
+
   async function reply(){
+    if(busy) return;
+    busy = true;
     const typing = add('', 'bot'); typing.classList.add('cb-typing');
     typing.innerHTML = '<span></span><span></span><span></span>';
     let text;
     try{
-      if(!CHAT_PROXY_URL) throw new Error('no proxy');
-      const res = await fetch(CHAT_PROXY_URL, { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({messages:history.slice(-12)}) });
+      const res = await fetch(CHAT_PROXY_URL, {
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({clientId, messages:history.slice(-12)})
+      });
       if(!res.ok) throw new Error('bad');
-      text = (await res.json()).reply;
+      const data = await res.json();
+      text = data.reply;
       if(!text) throw new Error('empty');
     }catch(e){
-      await new Promise(r=>setTimeout(r,500));
-      text = fallback(history[history.length-1].content);
+      await new Promise(r=>setTimeout(r,350));
+      text = fallback(history[history.length-1]?.content || '');
     }
     typing.remove();
     add(text, 'bot');
     history.push({role:'assistant', content:text});
+    saveLocal();
+    busy = false;
   }
+
   function send(text){
-    text = text.trim(); if(!text) return;
+    text = text.trim(); if(!text || busy) return;
     userInteracted = true;
     quick.style.display = 'none';
-    add(text, 'user'); history.push({role:'user', content:text});
+    add(text, 'user');
+    history.push({role:'user', content:text});
+    saveLocal();
     input.value = '';
     reply();
   }
+
+  loadLocal();
   form.addEventListener('submit', e=>{ e.preventDefault(); send(input.value); });
-  quick.querySelectorAll('button').forEach(b=> b.addEventListener('click', ()=> send(b.textContent)));
+  quick.querySelectorAll('button').forEach(b=>{
+    b.addEventListener('click', ()=>{
+      const action = b.dataset.chatAction;
+      if(action === 'project'){ openProject(); return; }
+      if(action === 'whatsapp'){ window.open(WHATSAPP_URL, '_blank', 'noopener'); return; }
+      send(b.textContent);
+    });
+  });
   launcher.addEventListener('click', ()=>{ userInteracted = true; openChat(); });
   document.getElementById('cbClose').addEventListener('click', closeChat);
 
-  // auto-open 4 seconds after the website loads
+  // Show the launcher after the existing intro animation; keep the original page design unchanged.
   setTimeout(()=>{
-    if(userInteracted || document.querySelector('.modal-overlay.open')){ launcher.classList.add('show'); return; }
-    openChat();
+    if(userInteracted || document.querySelector('.modal-overlay.open')) launcher.classList.add('show');
+    else openChat();
   }, 6000);
 })();
 </script>
