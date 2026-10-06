@@ -1,0 +1,1329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<link rel="stylesheet" href="style.css">
+<title>BRUTIIT — Digital Innovation, Software &amp; Cybersecurity</title>
+<meta name="description" content="BRUTIIT builds modern digital products, software, websites, applications and cybersecurity solutions for ambitious businesses.">
+<meta property="og:title" content="BRUTIIT — Building the Digital Future">
+<meta property="og:description" content="Web, app and software development, cybersecurity, AI automation and cloud engineering for ambitious businesses.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#FFFFFF">
+<link rel="icon" type="image/png" href="logo.png">
+<link rel="apple-touch-icon" href="logo.png">
+<meta property="og:image" content="https://brutiit.in/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=Inter:wght@300..600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Organization","name":"BRUTIIT","url":"https://brutiit.in","email":"hello@brutiit.in","sameAs":["https://instagram.com","https://linkedin.com","https://github.com","https://x.com"]}
+</script>
+</head>
+<body>
+
+
+<!-- NAVBAR -->
+<nav id="navbar">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo nav-glass">BRUTIIT</a>
+      <div class="nav-links nav-glass">
+        <a href="#hero">Home</a>
+        <a href="#services">Services</a>
+        <a href="#why">Solutions</a>
+        <a href="#work">Work</a>
+        <a href="#about">About</a>
+        <a href="#footer-contact">Contact</a>
+      </div>
+      <a href="https://wa.me/919207271076" target="_blank" rel="noopener" class="nav-cta nav-glass">Let's Talk →</a>
+      <span class="mobile-section-label" id="mobileSectionLabel"></span>
+      <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+
+<div id="mobile-menu">
+  <a href="#hero">Home</a>
+  <a href="#services">Services</a>
+  <a href="#work">Work</a>
+  <a href="#about">About</a>
+  <a href="#security">Security</a>
+  <a href="#footer-contact">Contact</a>
+  <div class="mmenu-foot">hello@brutiit.in — brutiit.in</div>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-grid"></div>
+  <div class="wrap hero-content">
+    <div class="hero-visual"><img src="image.jpeg" alt="BRUTIIT" class="hero-image"></div>
+    <div class="hero-text">
+      <span class="eyebrow"><span class="dot"></span>DIGITAL INNOVATION STUDIO</span>
+      <h1 class="hero-title" id="heroTitle">
+        <span class="line"><span>WE PROVIDE</span></span>
+        <span class="line"><span>ALL TYPES <em class="accent-word" style="font-style:normal;">SERVICES.</em></span></span>
+        <div class="hero-rotator reveal">
+            <span class="rot-slot"><span id="rotWord" class="rot-word">Website</span></span>
+            <span class="rot-slot"><span id="rotSuffix">Development</span></span>
+          </div>
+      </h1>
+      <p class="hero-sub reveal">BRUTIIT Solution creates powerful digital experiences, intelligent software and secure technology solutions for ambitious businesses.</p>
+      <div class="hero-ctas reveal reveal-d1">
+        <a href="#" id="startProjectBtn" class="btn btn-primary start-project-trigger">Start a Project →</a>
+        <a href="#work" class="btn btn-ghost hero-explore-btn">Explore Our Work</a>
+        <a href="https://wa.me/919207271076" target="_blank" rel="noopener" class="btn btn-ghost hero-talk-btn">Let's Talk →</a>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-cue"><span class="mono"></span><span class="stem"></span></div>
+</section>
+
+<!-- INTRO -->
+<section id="intro" class="section">
+  <div class="wrap">
+    <span class="eyebrow-label reveal">Digital Innovation</span>
+    <p class="statement reveal reveal-d1">Technology should not only <strong>work</strong>. It should <strong>move your business forward</strong>.</p>
+    <p class="section-body reveal reveal-d2">We're a technology studio built for businesses that refuse to settle for template solutions — pairing engineering discipline with design ambition to ship products that hold up at scale.</p>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" class="section">
+  <div class="wrap">
+    <span class="eyebrow-label reveal">What We Build</span>
+    <h2 class="section-title reveal reveal-d1">Full-spectrum technology, engineered end to end.</h2>
+    <div class="svc-grid">
+      <div class="svc-card-wrap reveal">
+        <div class="svc-card">
+          <div class="svc-photo"><span class="svc-photo-num">01</span><div class="svc-photo-overlay"><div><div class="svc-photo-title">Web Development</div><div class="svc-photo-sub">Websites &amp; Web Apps</div></div></div></div>
+          <div class="svc-info"><p class="svc-info-desc">Modern, fast and scalable websites and web applications.</p><button class="svc-arrow-btn" id="webDevDetailBtn" aria-label="Web Development">↗</button></div>
+        </div>
+      </div>
+      <div class="svc-card-wrap reveal reveal-d1">
+        <div class="svc-card">
+          <div class="svc-photo"><span class="svc-photo-num">02</span><div class="svc-photo-overlay"><div><div class="svc-photo-title">App Development</div><div class="svc-photo-sub">iOS &amp; Android</div></div></div></div>
+          <div class="svc-info"><p class="svc-info-desc">Beautiful and powerful mobile applications for iOS and Android.</p><button class="svc-arrow-btn" id="appDevDetailBtn" aria-label="App Development">↗</button></div>
+        </div>
+      </div>
+      <div class="svc-card-wrap reveal reveal-d2">
+        <div class="svc-card">
+          <div class="svc-photo"><span class="svc-photo-num">03</span><div class="svc-photo-overlay"><div><div class="svc-photo-title">Software Development</div><div class="svc-photo-sub">Custom Systems</div></div></div></div>
+          <div class="svc-info"><p class="svc-info-desc">Custom software engineered around business requirements.</p><button class="svc-arrow-btn" id="swDevDetailBtn" aria-label="Software Development">↗</button></div>
+        </div>
+      </div>
+      <div class="svc-card-wrap reveal reveal-d3">
+        <div class="svc-card">
+          <div class="svc-photo"><span class="svc-photo-num">04</span><div class="svc-photo-overlay"><div><div class="svc-photo-title">Cybersecurity</div><div class="svc-photo-sub">Applications &amp; Infra</div></div></div></div>
+          <div class="svc-info"><p class="svc-info-desc">Secure applications, infrastructure and digital systems.</p><button class="svc-arrow-btn" id="cyberDetailBtn" aria-label="Cybersecurity">↗</button></div>
+        </div>
+      </div>
+      <div class="svc-card-wrap reveal reveal-d4">
+        <div class="svc-card">
+          <div class="svc-photo"><span class="svc-photo-num">05</span><div class="svc-photo-overlay"><div><div class="svc-photo-title">AI &amp; Automation</div><div class="svc-photo-sub">Intelligent Systems</div></div></div></div>
+          <div class="svc-info"><p class="svc-info-desc">Intelligent automation and AI-powered digital solutions.</p><button class="svc-arrow-btn" id="aiDetailBtn" aria-label="AI &amp; Automation">↗</button></div>
+        </div>
+      </div>
+      <div class="svc-card-wrap reveal reveal-d5">
+        <div class="svc-card">
+          <div class="svc-photo"><span class="svc-photo-num">06</span><div class="svc-photo-overlay"><div><div class="svc-photo-title">Cloud &amp; DevOps</div><div class="svc-photo-sub">Infra &amp; Deployment</div></div></div></div>
+          <div class="svc-info"><p class="svc-info-desc">Reliable cloud infrastructure, deployment and scalable systems.</p><button class="svc-arrow-btn" id="cloudDetailBtn" aria-label="Cloud &amp; DevOps">↗</button></div>
+        </div>
+      </div>
+    </div>
+    <article class="vcard reveal reveal-d2">
+      <div class="vcard-media">
+        <video id="servicesVideo" class="services-video" src="services-video.mp4" autoplay muted loop playsinline preload="auto"></video>
+        <span class="vcard-badge">Featured</span>
+        <span class="vcard-logo"><img src="logo.png" alt="BRUTIIT"></span>
+        <div class="vcard-dots" id="vcardDots" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i></div>
+      </div>
+      <div class="vcard-body">
+        <h3 class="vcard-title">Build. Secure. Scale.</h3>
+        <p class="vcard-sub">Technology, engineered end to end.</p>
+        <p class="vcard-desc">From websites and apps to cybersecurity, AI and cloud — one team, one disciplined process.</p>
+      </div>
+      <div class="vcard-foot">
+        <span class="vcard-pill">6 Services</span>
+        <a href="#" class="vcard-btn start-project-trigger">Start a Project <span class="vcard-arr">↗</span></a>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- WHY -->
+<section id="why" class="section">
+  <div class="wrap">
+    <span class="eyebrow-label reveal">Why BRUTIIT</span>
+    <h2 class="section-title reveal reveal-d1">Four principles behind every build.</h2>
+    <div class="why-list">
+      <div class="why-item reveal"><span class="n">01</span><span class="t">Innovation</span><span class="d">Forward-looking engineering, not off-the-shelf templates.</span></div>
+      <div class="why-item reveal reveal-d1"><span class="n">02</span><span class="t">Security</span><span class="d">Protection built into architecture, not bolted on after.</span></div>
+      <div class="why-item reveal reveal-d2"><span class="n">03</span><span class="t">Performance</span><span class="d">Engineered for speed, on every device and network.</span></div>
+      <div class="why-item reveal reveal-d3"><span class="n">04</span><span class="t">Scalability</span><span class="d">Systems that grow with your business, not against it.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process" class="section">
+  <div class="wrap">
+    <span class="eyebrow-label reveal">From Idea To Impact</span>
+    <h2 class="section-title reveal reveal-d1">A disciplined path from concept to launch.</h2>
+    <div class="process-list">
+      <div class="process-item reveal"><span class="n">01</span><div><div class="t">Discover</div><div class="d">Understand the problem.</div></div></div>
+      <div class="process-item reveal"><span class="n">02</span><div><div class="t">Strategize</div><div class="d">Create the right technology roadmap.</div></div></div>
+      <div class="process-item reveal"><span class="n">03</span><div><div class="t">Design</div><div class="d">Build a refined digital experience.</div></div></div>
+      <div class="process-item reveal"><span class="n">04</span><div><div class="t">Develop</div><div class="d">Engineer the product.</div></div></div>
+      <div class="process-item reveal"><span class="n">05</span><div><div class="t">Secure</div><div class="d">Test and protect the system.</div></div></div>
+      <div class="process-item reveal"><span class="n">06</span><div><div class="t">Launch</div><div class="d">Deploy, optimize and scale.</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- WORK -->
+<section id="work" class="section">
+  <div class="wrap">
+    <span class="eyebrow-label reveal">Selected Work</span>
+    <h2 class="section-title reveal reveal-d1">Products we've engineered.</h2>
+
+    <div class="work-tabs reveal reveal-d2" id="workTabs">
+      <button class="work-tab active" data-tab="new">New Work</button>
+      <button class="work-tab" data-tab="all">All Work</button>
+      <span class="work-tab-indicator"></span>
+    </div>
+
+    <div class="work-tab-panel" data-panel="new">
+      <div class="work-grid">
+        <div class="work-card reveal expanded">
+          <div class="work-photo">
+            <img class="mock" src="choicho.jpg" alt="Choicho project photo" loading="lazy">
+            <div class="work-photo-overlay">
+              <div><div class="work-photo-title">Choicho</div><div class="work-photo-cat">Social Platform</div></div>
+              <a href="#" class="work-btn" id="choichoDetailBtn">View Project →</a>
+            </div>
+          </div>
+          <div class="work-panel"><p class="work-panel-inner">A community-driven social platform built for speed at scale, with real-time interaction at its core.</p></div>
+          <button class="work-toggle" aria-label="Toggle details">⌄</button>
+        </div>
+
+        <div class="work-card reveal reveal-d1">
+          <div class="work-photo">
+            <img class="mock" src="brutiit-cyber-labs.jpg" alt="Brutiit Cyber Labs project photo" loading="lazy">
+            <div class="work-photo-overlay">
+              <div><div class="work-photo-title">Brutiit Cyber Labs</div><div class="work-photo-cat">Cybersecurity</div></div>
+              <a href="#" class="work-btn" id="cyberLabsDetailBtn">View Project →</a>
+            </div>
+          </div>
+          <div class="work-panel"><p class="work-panel-inner">A threat-monitoring and infrastructure hardening system built for real-time visibility.</p></div>
+          <button class="work-toggle" aria-label="Toggle details">⌄</button>
+        </div>
+
+        <div class="work-card reveal reveal-d2">
+          <div class="work-photo">
+            <img class="mock" src="digital-commerce.jpg" alt="Digital Commerce Platform project photo" loading="lazy">
+            <div class="work-photo-overlay">
+              <div><div class="work-photo-title">Digital Commerce Platform</div><div class="work-photo-cat">Web &amp; E-commerce</div></div>
+              <a href="#" class="work-btn" id="commerceDetailBtn">View Project →</a>
+            </div>
+          </div>
+          <div class="work-panel"><p class="work-panel-inner">A headless commerce build engineered for conversion, speed, and effortless scale.</p></div>
+          <button class="work-toggle" aria-label="Toggle details">⌄</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="work-tab-panel" data-panel="all" hidden>
+      <div class="work-grid">
+        <div class="work-card">
+          <div class="work-photo">
+            <img class="mock" src="choicho.jpg" alt="Choicho project photo" loading="lazy">
+            <div class="work-photo-overlay">
+              <div><div class="work-photo-title">Choicho</div><div class="work-photo-cat">Social Platform</div></div>
+              <a href="#" class="work-btn">View Project →</a>
+            </div>
+          </div>
+          <div class="work-panel"><p class="work-panel-inner">A community-driven social platform built for speed at scale, with real-time interaction at its core.</p></div>
+          <button class="work-toggle" aria-label="Toggle details">⌄</button>
+        </div>
+
+        <div class="work-card">
+          <div class="work-photo">
+            <img class="mock" src="brutiit-cyber-labs.jpg" alt="Brutiit Cyber Labs project photo" loading="lazy">
+            <div class="work-photo-overlay">
+              <div><div class="work-photo-title">Brutiit Cyber Labs</div><div class="work-photo-cat">Cybersecurity</div></div>
+              <a href="#" class="work-btn">View Project →</a>
+            </div>
+          </div>
+          <div class="work-panel"><p class="work-panel-inner">A threat-monitoring and infrastructure hardening system built for real-time visibility.</p></div>
+          <button class="work-toggle" aria-label="Toggle details">⌄</button>
+        </div>
+
+        <div class="work-card">
+          <div class="work-photo">
+            <img class="mock" src="digital-commerce.jpg" alt="Digital Commerce Platform project photo" loading="lazy">
+            <div class="work-photo-overlay">
+              <div><div class="work-photo-title">Digital Commerce Platform</div><div class="work-photo-cat">Web &amp; E-commerce</div></div>
+              <a href="#" class="work-btn">View Project →</a>
+            </div>
+          </div>
+          <div class="work-panel"><p class="work-panel-inner">A headless commerce build engineered for conversion, speed, and effortless scale.</p></div>
+          <button class="work-toggle" aria-label="Toggle details">⌄</button>
+        </div>
+
+        <div class="work-card">
+          <div class="work-photo">
+            <img class="mock" src="nexora-analytics.jpg" alt="Nexora Analytics project photo" loading="lazy">
+            <div class="work-photo-overlay">
+              <div><div class="work-photo-title">Nexora Analytics</div><div class="work-photo-cat">Data Dashboard</div></div>
+              <a href="#" class="work-btn">View Project →</a>
+            </div>
+          </div>
+          <div class="work-panel"><p class="work-panel-inner">A real-time analytics dashboard built to turn raw business data into clear, actionable insight.</p></div>
+          <button class="work-toggle" aria-label="Toggle details">⌄</button>
+        </div>
+
+        <div class="work-card">
+          <div class="work-photo">
+            <img class="mock" src="skyline-booking.jpg" alt="Skyline Booking project photo" loading="lazy">
+            <div class="work-photo-overlay">
+              <div><div class="work-photo-title">Skyline Booking</div><div class="work-photo-cat">Travel &amp; Booking</div></div>
+              <a href="#" class="work-btn">View Project →</a>
+            </div>
+          </div>
+          <div class="work-panel"><p class="work-panel-inner">A booking platform for travel experiences, built for a smooth search-to-checkout flow.</p></div>
+          <button class="work-toggle" aria-label="Toggle details">⌄</button>
+        </div>
+
+        <div class="work-card">
+          <div class="work-photo">
+            <img class="mock" src="pulse-fitness.jpg" alt="Pulse Fitness App project photo" loading="lazy">
+            <div class="work-photo-overlay">
+              <div><div class="work-photo-title">Pulse Fitness App</div><div class="work-photo-cat">Health &amp; Fitness</div></div>
+              <a href="#" class="work-btn">View Project →</a>
+            </div>
+          </div>
+          <div class="work-panel"><p class="work-panel-inner">A fitness tracking app that keeps users motivated with progress rings and daily goals.</p></div>
+          <button class="work-toggle" aria-label="Toggle details">⌄</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECURITY -->
+<section id="security" class="section">
+  <div class="wrap sec-wrap">
+    <div class="reveal">
+      <span class="eyebrow-label">Cybersecurity</span>
+      <h2 class="section-title">SECURITY IS NOT AN OPTION.</h2>
+      <p class="section-body">We build digital systems with security at their core — from architecture review to continuous monitoring.</p>
+      <button class="btn btn-ghost" id="websiteSecurityBtn" style="margin-top:30px;">Explore Security →</button>
+    </div>
+    <div class="sec-right">
+      <div class="sec-visual reveal reveal-d2">
+        <img src="hacker.gif" alt="A hacker trying to break into a system" loading="lazy" decoding="async">
+      </div>
+      <div class="sec-terminal reveal reveal-d3">
+        <div class="term-bar">
+          <span class="term-dot r"></span><span class="term-dot y"></span><span class="term-dot g"></span>
+          <span class="term-title">threat-monitor — live</span>
+        </div>
+        <div class="term-body" id="secTerminalBody"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TECH -->
+<section id="tech" class="section">
+  <div class="wrap">
+    <span class="eyebrow-label reveal">Built With Modern Technology</span>
+    <h2 class="section-title reveal reveal-d1">A stack chosen for reliability at scale.</h2>
+
+    <div class="tech-carousel reveal reveal-d2">
+      <div class="tech-track" id="techTrack">
+
+        <div class="tech-slide">
+          <div class="tech-slide-photo"><span class="tech-slide-mono">Re</span></div>
+          <div>
+            <div class="tech-slide-name">React</div>
+            <p class="tech-slide-desc">A component-based library for building fast, interactive user interfaces.</p>
+            <div class="tech-slide-why"><span class="tech-slide-why-label">Why We Use It</span><p>Reusable components and a mature ecosystem let us ship complex UIs quickly without sacrificing performance.</p></div>
+            <div class="tech-slide-stats"><div><strong>+35%</strong><span>Render Speed</span></div><div><strong>+20%</strong><span>Dev Velocity</span></div><div><strong>2x</strong><span>Reusability</span></div></div>
+          </div>
+        </div>
+
+        <div class="tech-slide">
+          <div class="tech-slide-photo"><span class="tech-slide-mono">N</span></div>
+          <div>
+            <div class="tech-slide-name">Next.js</div>
+            <p class="tech-slide-desc">A React framework for production-grade, server-rendered applications.</p>
+            <div class="tech-slide-why"><span class="tech-slide-why-label">Why We Use It</span><p>Built-in routing, SSR and edge support mean faster load times and better SEO out of the box.</p></div>
+            <div class="tech-slide-stats"><div><strong>+45%</strong><span>Load Speed</span></div><div><strong>+30%</strong><span>SEO Score</span></div><div><strong>1.8x</strong><span>Faster TTFB</span></div></div>
+          </div>
+        </div>
+
+        <div class="tech-slide">
+          <div class="tech-slide-photo"><span class="tech-slide-mono">No</span></div>
+          <div>
+            <div class="tech-slide-name">Node.js</div>
+            <p class="tech-slide-desc">A JavaScript runtime for building fast, scalable backend services.</p>
+            <div class="tech-slide-why"><span class="tech-slide-why-label">Why We Use It</span><p>Non-blocking architecture lets us handle high concurrency with one unified language across the stack.</p></div>
+            <div class="tech-slide-stats"><div><strong>+50%</strong><span>Throughput</span></div><div><strong>+25%</strong><span>Efficiency</span></div><div><strong>3x</strong><span>Concurrency</span></div></div>
+          </div>
+        </div>
+
+        <div class="tech-slide">
+          <div class="tech-slide-photo"><span class="tech-slide-mono">Py</span></div>
+          <div>
+            <div class="tech-slide-name">Python</div>
+            <p class="tech-slide-desc">A versatile language powering automation, APIs and AI workloads.</p>
+            <div class="tech-slide-why"><span class="tech-slide-why-label">Why We Use It</span><p>Clean syntax and a vast ecosystem accelerate everything from scripting to machine learning pipelines.</p></div>
+            <div class="tech-slide-stats"><div><strong>+40%</strong><span>Dev Speed</span></div><div><strong>+30%</strong><span>Automation</span></div><div><strong>2.5x</strong><span>Libraries</span></div></div>
+          </div>
+        </div>
+
+        <div class="tech-slide">
+          <div class="tech-slide-photo"><span class="tech-slide-mono">Fl</span></div>
+          <div>
+            <div class="tech-slide-name">Flutter</div>
+            <p class="tech-slide-desc">A single-codebase framework for native-quality iOS and Android apps.</p>
+            <div class="tech-slide-why"><span class="tech-slide-why-label">Why We Use It</span><p>One codebase means faster delivery across platforms without compromising on native performance.</p></div>
+            <div class="tech-slide-stats"><div><strong>+60%</strong><span>Delivery Speed</span></div><div><strong>+35%</strong><span>Code Reuse</span></div><div><strong>2x</strong><span>Platforms</span></div></div>
+          </div>
+        </div>
+
+        <div class="tech-slide">
+          <div class="tech-slide-photo"><span class="tech-slide-mono">Fb</span></div>
+          <div>
+            <div class="tech-slide-name">Firebase</div>
+            <p class="tech-slide-desc">A managed backend platform for auth, data and realtime sync.</p>
+            <div class="tech-slide-why"><span class="tech-slide-why-label">Why We Use It</span><p>Managed infrastructure removes backend overhead so teams can focus on product, not plumbing.</p></div>
+            <div class="tech-slide-stats"><div><strong>+50%</strong><span>Setup Speed</span></div><div><strong>+20%</strong><span>Uptime</span></div><div><strong>3x</strong><span>Realtime Sync</span></div></div>
+          </div>
+        </div>
+
+        <div class="tech-slide">
+          <div class="tech-slide-photo"><span class="tech-slide-mono">AWS</span></div>
+          <div>
+            <div class="tech-slide-name">AWS</div>
+            <p class="tech-slide-desc">Enterprise-grade cloud infrastructure for scale and reliability.</p>
+            <div class="tech-slide-why"><span class="tech-slide-why-label">Why We Use It</span><p>Elastic compute and global infrastructure keep systems available and performant under any load.</p></div>
+            <div class="tech-slide-stats"><div><strong>99.9%</strong><span>Uptime</span></div><div><strong>+40%</strong><span>Scalability</span></div><div><strong>3x</strong><span>Global Reach</span></div></div>
+          </div>
+        </div>
+
+        <div class="tech-slide">
+          <div class="tech-slide-photo"><span class="tech-slide-mono">Do</span></div>
+          <div>
+            <div class="tech-slide-name">Docker</div>
+            <p class="tech-slide-desc">Containerization for consistent, portable deployments.</p>
+            <div class="tech-slide-why"><span class="tech-slide-why-label">Why We Use It</span><p>Consistent environments across dev, staging and production eliminate "it works on my machine" issues.</p></div>
+            <div class="tech-slide-stats"><div><strong>+45%</strong><span>Deploy Speed</span></div><div><strong>+30%</strong><span>Consistency</span></div><div><strong>2x</strong><span>Portability</span></div></div>
+          </div>
+        </div>
+
+        <div class="tech-slide">
+          <div class="tech-slide-photo"><span class="tech-slide-mono">Mo</span></div>
+          <div>
+            <div class="tech-slide-name">MongoDB</div>
+            <p class="tech-slide-desc">A flexible NoSQL database for evolving data models.</p>
+            <div class="tech-slide-why"><span class="tech-slide-why-label">Why We Use It</span><p>Schema flexibility lets products evolve fast without costly migrations slowing teams down.</p></div>
+            <div class="tech-slide-stats"><div><strong>+35%</strong><span>Query Speed</span></div><div><strong>+25%</strong><span>Flexibility</span></div><div><strong>2x</strong><span>Scalability</span></div></div>
+          </div>
+        </div>
+
+        <div class="tech-slide">
+          <div class="tech-slide-photo"><span class="tech-slide-mono">Pg</span></div>
+          <div>
+            <div class="tech-slide-name">PostgreSQL</div>
+            <p class="tech-slide-desc">A powerful, reliable relational database for structured data.</p>
+            <div class="tech-slide-why"><span class="tech-slide-why-label">Why We Use It</span><p>Strong consistency and advanced querying keep critical business data accurate and fast.</p></div>
+            <div class="tech-slide-stats"><div><strong>99.9%</strong><span>Reliability</span></div><div><strong>+30%</strong><span>Query Speed</span></div><div><strong>2x</strong><span>Data Integrity</span></div></div>
+          </div>
+        </div>
+
+        <div class="tech-slide">
+          <div class="tech-slide-photo"><span class="tech-slide-mono">Cf</span></div>
+          <div>
+            <div class="tech-slide-name">Cloudflare</div>
+            <p class="tech-slide-desc">Global edge network for speed, security and DDoS protection.</p>
+            <div class="tech-slide-why"><span class="tech-slide-why-label">Why We Use It</span><p>Edge caching and built-in security keep sites fast and resilient against real-world threats.</p></div>
+            <div class="tech-slide-stats"><div><strong>+50%</strong><span>Load Speed</span></div><div><strong>99%</strong><span>Attack Mitigation</span></div><div><strong>3x</strong><span>Edge Reach</span></div></div>
+          </div>
+        </div>
+
+      </div>
+      <div class="tech-dots" id="techDots"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="section">
+  <div class="wrap">
+    <span class="eyebrow-label reveal">We Are BRUTIIT</span>
+    <h2 class="section-title reveal reveal-d1" style="max-width:20ch;">A technology-driven team building for the next generation of businesses.</h2>
+    <p class="section-body reveal reveal-d2">Digital products, platforms and experiences engineered with the same discipline, whether we're shipping a landing page or a distributed system.</p>
+    <div class="stat-grid">
+      <div class="reveal"><div class="stat-num" data-count="10" data-suffix="+">0</div><div class="stat-label">Projects</div></div>
+      <div class="reveal reveal-d1"><div class="stat-num" data-count="5" data-suffix="+">0</div><div class="stat-label">Technology Domains</div></div>
+      <div class="reveal reveal-d2"><div class="stat-num" data-static="24/7">24/7</div><div class="stat-label">Digital Support</div></div>
+      <div class="reveal reveal-d3"><div class="stat-num" data-count="100" data-suffix="%">0</div><div class="stat-label">Commitment</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST -->
+<section id="trust" class="section">
+  <div class="wrap">
+    <span class="eyebrow-label reveal">Why Trust BRUTIIT</span>
+    <h2 class="section-title reveal reveal-d1">Built on transparency and accountability.</h2>
+    <div class="trust-badges reveal reveal-d2">
+      <div class="trust-badge"><span class="icon">🔒</span>NDA &amp; Data Protection</div>
+      <div class="trust-badge"><span class="icon">⏱️</span>On-Time Delivery</div>
+      <div class="trust-badge"><span class="icon">💬</span>Transparent Pricing</div>
+      <div class="trust-badge"><span class="icon">🛠️</span>Dedicated Support</div>
+      <div class="trust-badge"><span class="icon">📄</span>Full Source Code Ownership</div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="section">
+  <div class="wrap">
+    <span class="eyebrow-label reveal">FAQ</span>
+    <h2 class="section-title reveal reveal-d1">Frequently asked questions.</h2>
+    <div class="faq-list">
+      <div class="faq-item reveal">
+        <button class="faq-q"><span>How long does it take to build a website or app?</span><span class="plus">+</span></button>
+        <div class="faq-a"><p>Timelines vary depending on scope and complexity, but most website projects take 3–6 weeks, while custom software or app projects typically take 6–12 weeks. We'll give you a clear timeline after understanding your requirements.</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q"><span>How much does a project cost?</span><span class="plus">+</span></button>
+        <div class="faq-a"><p>Cost depends on the size, features, and complexity of your project. We provide a detailed quote after discussing your requirements, so you only pay for what you actually need.</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q"><span>Do you provide support after the project is delivered?</span><span class="plus">+</span></button>
+        <div class="faq-a"><p>Yes. We offer ongoing maintenance, updates, and technical support after launch to keep your product running smoothly.</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q"><span>Will my website or app be secure?</span><span class="plus">+</span></button>
+        <div class="faq-a"><p>Security is built into every project from the start — including secure authentication, data protection, and regular security reviews, not added as an afterthought.</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q"><span>Can you work with an existing website or system?</span><span class="plus">+</span></button>
+        <div class="faq-a"><p>Yes, we can audit, improve, redesign, or integrate with your existing website, app, or software system.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="cta">
+  <canvas id="cta-canvas"></canvas>
+  <div class="wrap">
+    <h2 class="cta-title reveal">HAVE AN IDEA?<br>LET'S BUILD IT.</h2>
+    <p class="cta-sub reveal reveal-d1">Tell us what you're building. We'll help turn the idea into a powerful digital product.</p>
+    <div class="cta-btns reveal reveal-d2">
+      <a href="#" class="btn btn-primary start-project-trigger">Start a Project →</a>
+      <a href="mailto:hello@brutiit.in" class="btn btn-ghost">Talk to BRUTIIT</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="footer-contact">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="nav-logo"><img src="logo.png" alt="BRUTIIT" class="brand-logo brand-logo-lg"></div>
+        <p class="foot-desc">A technology studio building digital products, software and secure systems for ambitious businesses.</p>
+      </div>
+      <div>
+        <div class="foot-heading">Navigate</div>
+        <div class="foot-links"><a href="#hero">Home</a><a href="#services">Services</a><a href="#work">Work</a><a href="#about">About</a><a href="#footer-contact">Contact</a></div>
+      </div>
+      <div>
+        <div class="foot-heading">Services</div>
+        <div class="foot-links"><a href="#services">Web Development</a><a href="#services">App Development</a><a href="#services">Software Development</a><a href="#services">Cybersecurity</a><a href="#services">AI &amp; Automation</a><a href="#services">Cloud &amp; DevOps</a></div>
+      </div>
+      <div>
+        <div class="foot-heading">Connect</div>
+        <div class="foot-links">
+          <a href="mailto:hello@brutiit.in">hello@brutiit.in</a>
+          <a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://linkedin.com" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://github.com" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://x.com" target="_blank" rel="noopener">X</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-big">BRUTIIT</div>
+    <div class="foot-bottom">
+      <span>© <span id="year"></span> BRUTIIT. All rights reserved.</span>
+      <span>brutiit.in</span>
+    </div>
+  </div>
+</footer>
+
+<!-- START A PROJECT MODAL -->
+<div id="projectModal" class="modal-overlay" aria-hidden="true">
+  <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <button class="modal-close" id="modalClose" aria-label="Close">✕</button>
+    <span class="eyebrow-label" style="margin-bottom:8px;">Start A Project</span>
+    <h3 id="modalTitle" class="modal-title">Tell us what you're building.</h3>
+    <p class="modal-sub">Fill this in and our team will get back to you shortly.</p>
+
+    <form id="projectForm" class="modal-form">
+      <div class="mf-row">
+        <label class="mf-field">
+          <span>Your Name</span>
+          <input type="text" name="name" required placeholder="Full name">
+        </label>
+        <label class="mf-field">
+          <span>Company Name</span>
+          <input type="text" name="company" placeholder="Your company">
+        </label>
+      </div>
+
+      <div class="mf-row">
+        <label class="mf-field">
+          <span>Contact Number</span>
+          <input type="tel" name="contact" required placeholder="+91 XXXXX XXXXX">
+        </label>
+        <label class="mf-field">
+          <span>WhatsApp Number</span>
+          <input type="tel" name="whatsapp" placeholder="Same as above, if different">
+        </label>
+      </div>
+
+      <label class="mf-field">
+        <span>Which Service Do You Need?</span>
+        <select name="service" required>
+          <option value="" disabled selected>Select a service</option>
+          <option>Web Development</option>
+          <option>App Development</option>
+          <option>Software Development</option>
+          <option>Cybersecurity</option>
+          <option>AI &amp; Automation</option>
+          <option>Cloud &amp; DevOps</option>
+          <option>Other</option>
+        </select>
+      </label>
+
+      <label class="mf-field">
+        <span>About Your Company</span>
+        <textarea name="companyDetails" rows="2" placeholder="What does your company do?"></textarea>
+      </label>
+
+      <label class="mf-field">
+        <span>What Do You Need?</span>
+        <textarea name="requirement" rows="3" required placeholder="Tell us about your project and what you're looking to build."></textarea>
+      </label>
+
+      <p id="formStatus" class="modal-status"></p>
+      <button type="submit" id="formSubmitBtn" class="btn btn-primary" style="width:100%; margin-top:6px;">Send Inquiry →</button>
+    </form>
+  </div>
+</div>
+
+<!-- WEB DEVELOPMENT SERVICE DETAIL MODAL -->
+<div id="webDevModal" class="service-page" aria-hidden="true">
+  <div class="sp-header">
+    <a href="#" class="sp-logo" id="webDevBackLogo"><img src="logo.png" alt="BRUTIIT" class="brand-logo"></a>
+    <span class="sp-title" id="webDevModalTitle">Web Development</span>
+    <button class="sp-close" id="webDevModalClose" aria-label="Close">✕ Close</button>
+  </div>
+  <div class="sp-body">
+    <span class="sd-eyebrow">Service — Web Development</span>
+    <h1 class="modal-title" style="max-width:none; font-size:clamp(30px,6vw,46px); margin-top:10px;">Web Development</h1>
+    <p class="modal-sub">A website is your business's presence on the internet. It allows customers to learn about your business, explore your services or products, contact you, and take action — anytime, from anywhere.</p>
+    <p class="modal-sub" style="margin-top:-14px;">At Brutiit, we build modern, fast, secure, and user-friendly websites designed around your business needs.</p>
+
+    <div class="sd-section">
+      <h4>What Is Web Development?</h4>
+      <p>Web development is the process of creating and maintaining websites and web applications.</p>
+      <p>It includes everything that makes a website work — from the design and buttons you see on the screen to the systems working behind the website.</p>
+    </div>
+
+    <div class="sd-section">
+      <h4>What Can We Build?</h4>
+      <p>We can develop different types of websites, including:</p>
+      <ul class="sd-list">
+        <li>Business websites</li>
+        <li>Company websites</li>
+        <li>E-commerce websites</li>
+        <li>Portfolio websites</li>
+        <li>Personal websites</li>
+        <li>Landing pages</li>
+        <li>Booking and appointment websites</li>
+        <li>Educational platforms</li>
+        <li>Web applications</li>
+        <li>Custom websites and online platforms</li>
+      </ul>
+    </div>
+
+    <div class="sd-section">
+      <h4>More Than Just a Website</h4>
+      <p>We don't simply create a website and leave you with it. We focus on creating a complete digital experience that is:</p>
+      <div class="sd-grid">
+        <div class="sd-card"><strong>Fast</strong><span>Quick loading and smooth performance.</span></div>
+        <div class="sd-card"><strong>Responsive</strong><span>Works properly on mobile phones, tablets, laptops, and desktops.</span></div>
+        <div class="sd-card"><strong>Secure</strong><span>Built with security in mind to protect your website and user information.</span></div>
+        <div class="sd-card"><strong>User-Friendly</strong><span>Easy for visitors to understand and navigate.</span></div>
+        <div class="sd-card"><strong>Scalable</strong><span>Designed so new features can be added as your business grows.</span></div>
+        <div class="sd-card"><strong>SEO-Friendly</strong><span>Structured properly to help search engines understand your website.</span></div>
+      </div>
+    </div>
+
+    <div class="sd-section">
+      <h4>Our Web Development Process</h4>
+      <div class="sd-process">
+        <div class="sd-step"><span class="n">01</span><div><div class="t">Understand</div><div class="d">We first understand your business, goals, customers, and requirements.</div></div></div>
+        <div class="sd-step"><span class="n">02</span><div><div class="t">Plan</div><div class="d">We plan the website structure, features, technology, and user experience.</div></div></div>
+        <div class="sd-step"><span class="n">03</span><div><div class="t">Design</div><div class="d">We create a modern interface that matches your brand and makes the website easy to use.</div></div></div>
+        <div class="sd-step"><span class="n">04</span><div><div class="t">Develop</div><div class="d">Our developers turn the design into a fully functional website.</div></div></div>
+        <div class="sd-step"><span class="n">05</span><div><div class="t">Test</div><div class="d">We test the website across different devices and browsers and check its functionality, performance, and security.</div></div></div>
+        <div class="sd-step"><span class="n">06</span><div><div class="t">Launch</div><div class="d">After everything is ready, we deploy your website and make it available to your customers.</div></div></div>
+      </div>
+    </div>
+
+    <div class="sd-section">
+      <h4>Why Does Your Business Need a Website?</h4>
+      <p>A professional website can help your business:</p>
+      <ul class="sd-list">
+        <li>Build trust and credibility</li>
+        <li>Reach customers online</li>
+        <li>Showcase products and services</li>
+        <li>Generate new enquiries</li>
+        <li>Increase sales and bookings</li>
+        <li>Provide information 24/7</li>
+        <li>Build a stronger brand presence</li>
+      </ul>
+      <p style="margin-top:12px;">Your website is often the first impression people have of your business online. We help make that first impression count.</p>
+    </div>
+
+    <div class="sd-section" style="text-align:center;">
+      <h4>Build Your Digital Presence With Brutiit</h4>
+      <p style="max-width:52ch; margin-left:auto; margin-right:auto;">Whether you need a simple business website or a complete web application, Brutiit builds digital solutions that are designed for your business, your customers, and your future growth.</p>
+      <a href="https://wa.me/919207271076" target="_blank" rel="noopener" class="btn btn-primary" style="margin-top:10px;">Start a Project →</a>
+    </div>
+  </div>
+</div>
+
+<!-- APP DEVELOPMENT SERVICE DETAIL PAGE -->
+<div id="appDevModal" class="service-page" aria-hidden="true">
+  <div class="sp-header">
+    <a href="#" class="sp-logo" id="appDevBackLogo"><img src="logo.png" alt="BRUTIIT" class="brand-logo"></a>
+    <span class="sp-title">App Development</span>
+    <button class="sp-close" id="appDevModalClose" aria-label="Close">✕ Close</button>
+  </div>
+  <div class="sp-body">
+    <span class="sd-eyebrow">Service — App Development</span>
+    <h1 class="modal-title" style="max-width:none; font-size:clamp(30px,6vw,46px); margin-top:10px;">App Development</h1>
+    <p class="modal-sub">A mobile app allows your customers to access your business, products, services, or platform directly from their smartphone.</p>
+    <p class="modal-sub" style="margin-top:-14px;">At Brutiit, we develop modern, fast, secure, and user-friendly mobile applications for Android and iOS.</p>
+
+    <div class="sd-section">
+      <h4>What Is App Development?</h4>
+      <p>App development is the process of creating applications that run on smartphones and tablets.</p>
+      <p>A mobile app can help a business provide services, communicate with customers, sell products, manage operations, or create an entirely new digital platform.</p>
+    </div>
+
+    <div class="sd-section">
+      <h4>Android &amp; iOS App Development</h4>
+      <p>We build applications for both major mobile platforms:</p>
+      <div class="sd-grid">
+        <div class="sd-card"><strong>Android</strong><span>Applications designed for Android smartphones and tablets.</span></div>
+        <div class="sd-card"><strong>iOS</strong><span>Applications designed for iPhone and iPad.</span></div>
+      </div>
+      <p style="margin-top:12px;">Whether you want an Android app, an iOS app, or both, we can develop a solution based on your requirements.</p>
+    </div>
+
+    <div class="sd-section">
+      <h4>What Kind of Apps Can We Build?</h4>
+      <ul class="sd-list">
+        <li>Business apps</li>
+        <li>E-commerce apps</li>
+        <li>Social media apps</li>
+        <li>Booking and appointment apps</li>
+        <li>Delivery apps</li>
+        <li>Educational apps</li>
+        <li>Fitness and lifestyle apps</li>
+        <li>Communication and chat apps</li>
+        <li>Service-based apps</li>
+        <li>Custom mobile applications</li>
+      </ul>
+    </div>
+
+    <div class="sd-section">
+      <h4>More Than Just an App</h4>
+      <p>We focus on creating apps that are:</p>
+      <div class="sd-grid">
+        <div class="sd-card"><strong>Fast</strong><span>Smooth performance and quick response.</span></div>
+        <div class="sd-card"><strong>User-Friendly</strong><span>Simple and easy-to-use interfaces.</span></div>
+        <div class="sd-card"><strong>Secure</strong><span>Designed with proper security practices to protect user data.</span></div>
+        <div class="sd-card"><strong>Responsive</strong><span>Designed to work across different screen sizes and devices.</span></div>
+        <div class="sd-card"><strong>Scalable</strong><span>Built so new features can be added as your app grows.</span></div>
+        <div class="sd-card"><strong>Reliable</strong><span>Tested to provide a consistent experience for users.</span></div>
+      </div>
+    </div>
+
+    <div class="sd-section">
+      <h4>Our App Development Process</h4>
+      <div class="sd-process">
+        <div class="sd-step"><span class="n">01</span><div><div class="t">Understand</div><div class="d">We understand your idea, business goals, target users, and required features.</div></div></div>
+        <div class="sd-step"><span class="n">02</span><div><div class="t">Plan</div><div class="d">We create the app structure and decide how the different features will work together.</div></div></div>
+        <div class="sd-step"><span class="n">03</span><div><div class="t">Design</div><div class="d">We create a modern and intuitive user interface and user experience.</div></div></div>
+        <div class="sd-step"><span class="n">04</span><div><div class="t">Develop</div><div class="d">We build the application and integrate the required features, APIs, databases, authentication, and other services.</div></div></div>
+        <div class="sd-step"><span class="n">05</span><div><div class="t">Test</div><div class="d">We test the app for functionality, performance, compatibility, and security.</div></div></div>
+        <div class="sd-step"><span class="n">06</span><div><div class="t">Launch</div><div class="d">Once everything is ready, we prepare the application for release on the Google Play Store and Apple App Store.</div></div></div>
+      </div>
+    </div>
+
+    <div class="sd-section">
+      <h4>Why Does Your Business Need a Mobile App?</h4>
+      <p>A mobile app can help your business:</p>
+      <ul class="sd-list">
+        <li>Reach customers directly on their phones</li>
+        <li>Improve customer engagement</li>
+        <li>Provide services more conveniently</li>
+        <li>Increase sales and bookings</li>
+        <li>Build customer loyalty</li>
+        <li>Create a stronger digital presence</li>
+        <li>Automate business processes</li>
+      </ul>
+    </div>
+
+    <div class="sd-section" style="text-align:center;">
+      <h4>Turn Your Idea Into an App With Brutiit</h4>
+      <p style="max-width:52ch; margin-left:auto; margin-right:auto;">Have an idea for a mobile application? Brutiit can help turn your idea into a real, functional, and scalable Android and iOS application.</p>
+      <a href="https://wa.me/919207271076" target="_blank" rel="noopener" class="btn btn-primary" style="margin-top:10px;">Start a Project →</a>
+    </div>
+  </div>
+</div>
+
+<!-- SOFTWARE DEVELOPMENT SERVICE DETAIL PAGE -->
+<div id="swDevModal" class="service-page" aria-hidden="true">
+  <div class="sp-header">
+    <a href="#" class="sp-logo" id="swDevBackLogo"><img src="logo.png" alt="BRUTIIT" class="brand-logo"></a>
+    <span class="sp-title">Software Development</span>
+    <button class="sp-close" id="swDevModalClose" aria-label="Close">✕ Close</button>
+  </div>
+  <div class="sp-body">
+    <span class="sd-eyebrow">Service — Software Development</span>
+    <h1 class="modal-title" style="max-width:none; font-size:clamp(30px,6vw,46px); margin-top:10px;">Software Development</h1>
+    <p class="modal-sub">Software helps businesses manage their work, solve problems, and automate everyday operations.</p>
+    <p class="modal-sub" style="margin-top:-14px;">At Brutiit, we develop custom software solutions designed specifically around your business requirements.</p>
+
+    <div class="sd-section">
+      <h4>What Is Software Development?</h4>
+      <p>Software development is the process of designing, building, testing, and maintaining software that performs specific tasks or solves particular business problems.</p>
+      <p>Instead of changing your business process to fit existing software, we can build software around the way your business works.</p>
+    </div>
+
+    <div class="sd-section">
+      <h4>What Can We Build?</h4>
+      <ul class="sd-list">
+        <li>Custom business software</li>
+        <li>Management systems</li>
+        <li>CRM systems</li>
+        <li>ERP solutions</li>
+        <li>Billing and invoicing software</li>
+        <li>Inventory management systems</li>
+        <li>Employee management systems</li>
+        <li>Desktop applications</li>
+        <li>Enterprise software</li>
+        <li>Custom software platforms</li>
+      </ul>
+    </div>
+
+    <div class="sd-section">
+      <h4>Why Custom Software?</h4>
+      <p>Custom software can help your business:</p>
+      <ul class="sd-list">
+        <li>Reduce repetitive manual work</li>
+        <li>Improve productivity</li>
+        <li>Organize business data</li>
+        <li>Automate business processes</li>
+        <li>Reduce errors</li>
+        <li>Improve decision-making</li>
+        <li>Scale as your business grows</li>
+      </ul>
+    </div>
+
+    <div class="sd-section">
+      <h4>Our Approach</h4>
+      <p>We understand your requirements, design the solution, develop the software, test it thoroughly, and provide a scalable system that can grow with your business.</p>
+    </div>
+
+    <div class="sd-section" style="text-align:center;">
+      <h4>Build Software That Works For Your Business</h4>
+      <p style="max-width:52ch; margin-left:auto; margin-right:auto;">Build software that works for your business with Brutiit.</p>
+      <a href="https://wa.me/919207271076" target="_blank" rel="noopener" class="btn btn-primary" style="margin-top:10px;">Start a Project →</a>
+    </div>
+  </div>
+</div>
+
+<!-- CYBERSECURITY SERVICE DETAIL PAGE -->
+<div id="cyberModal" class="service-page" aria-hidden="true">
+  <div class="sp-header">
+    <a href="#" class="sp-logo" id="cyberBackLogo"><img src="logo.png" alt="BRUTIIT" class="brand-logo"></a>
+    <span class="sp-title">Cybersecurity</span>
+    <button class="sp-close" id="cyberModalClose" aria-label="Close">✕ Close</button>
+  </div>
+  <div class="sp-body">
+    <span class="sd-eyebrow">Service — Cybersecurity</span>
+    <h1 class="modal-title" style="max-width:none; font-size:clamp(30px,6vw,46px); margin-top:10px;">Cybersecurity</h1>
+    <p class="modal-sub">As businesses become more digital, protecting websites, applications, systems, networks, and data becomes essential.</p>
+    <p class="modal-sub" style="margin-top:-14px;">At Brutiit, we help businesses identify security weaknesses and improve their overall cybersecurity.</p>
+
+    <div class="sd-section">
+      <h4>What Is Cybersecurity?</h4>
+      <p>Cybersecurity is the practice of protecting digital systems, applications, networks, and data from unauthorized access, attacks, damage, and other security threats.</p>
+    </div>
+
+    <div class="sd-section">
+      <h4>Our Cybersecurity Services</h4>
+      <ul class="sd-list">
+        <li>Website security assessment</li>
+        <li>Web application security testing</li>
+        <li>Vulnerability assessment</li>
+        <li>Penetration testing</li>
+        <li>API security testing</li>
+        <li>Network security assessment</li>
+        <li>Security configuration review</li>
+        <li>Security awareness guidance</li>
+        <li>Security monitoring and recommendations</li>
+      </ul>
+    </div>
+
+    <div class="sd-section">
+      <h4>Why Is Cybersecurity Important?</h4>
+      <p>A security weakness can potentially lead to:</p>
+      <ul class="sd-list">
+        <li>Data breaches</li>
+        <li>Account compromise</li>
+        <li>Financial losses</li>
+        <li>Service disruption</li>
+        <li>Loss of customer trust</li>
+        <li>Damage to your brand reputation</li>
+      </ul>
+      <p style="margin-top:12px;">Finding security problems before attackers do can help reduce these risks.</p>
+    </div>
+
+    <div class="sd-section">
+      <h4>Security With a Practical Approach</h4>
+      <p>We assess your systems, identify vulnerabilities, explain the risks, and provide recommendations to improve your security.</p>
+      <p>Our goal is not only to find vulnerabilities, but to help you understand and fix them.</p>
+    </div>
+
+    <div class="sd-section" style="text-align:center;">
+      <h4>Security Is Not An Option</h4>
+      <p style="max-width:52ch; margin-left:auto; margin-right:auto;">Protect your digital business with Brutiit.</p>
+      <a href="https://wa.me/919207271076" target="_blank" rel="noopener" class="btn btn-primary" style="margin-top:10px;">Start a Project →</a>
+    </div>
+  </div>
+</div>
+
+<!-- AI & AUTOMATION SERVICE DETAIL PAGE -->
+<div id="aiModal" class="service-page" aria-hidden="true">
+  <div class="sp-header">
+    <a href="#" class="sp-logo" id="aiBackLogo"><img src="logo.png" alt="BRUTIIT" class="brand-logo"></a>
+    <span class="sp-title">AI &amp; Automation</span>
+    <button class="sp-close" id="aiModalClose" aria-label="Close">✕ Close</button>
+  </div>
+  <div class="sp-body">
+    <span class="sd-eyebrow">Service — AI &amp; Automation</span>
+    <h1 class="modal-title" style="max-width:none; font-size:clamp(30px,6vw,46px); margin-top:10px;">AI &amp; Automation</h1>
+    <p class="modal-sub">Artificial Intelligence can help businesses work smarter, reduce repetitive tasks, and make better use of their data.</p>
+    <p class="modal-sub" style="margin-top:-14px;">At Brutiit, we build AI-powered solutions and automation systems that help businesses save time and improve efficiency.</p>
+
+    <div class="sd-section">
+      <h4>What Is AI &amp; Automation?</h4>
+      <p>AI uses technology to perform tasks that normally require human intelligence, while automation allows repetitive processes to happen automatically with minimal manual effort.</p>
+      <p>Together, they can help businesses work faster and more efficiently.</p>
+    </div>
+
+    <div class="sd-section">
+      <h4>What Can We Build?</h4>
+      <ul class="sd-list">
+        <li>AI-powered applications</li>
+        <li>AI chatbots</li>
+        <li>Customer support automation</li>
+        <li>Business process automation</li>
+        <li>AI assistants</li>
+        <li>Document and data processing</li>
+        <li>AI content tools</li>
+        <li>Workflow automation</li>
+        <li>API and third-party integrations</li>
+        <li>Custom AI solutions</li>
+      </ul>
+    </div>
+
+    <div class="sd-section">
+      <h4>How Can AI &amp; Automation Help?</h4>
+      <p>It can help your business:</p>
+      <ul class="sd-list">
+        <li>Reduce repetitive work</li>
+        <li>Save time</li>
+        <li>Improve productivity</li>
+        <li>Respond to customers faster</li>
+        <li>Process information more efficiently</li>
+        <li>Reduce human errors</li>
+        <li>Automate routine business operations</li>
+      </ul>
+    </div>
+
+    <div class="sd-section">
+      <h4>From Idea to Automation</h4>
+      <p>We first understand your existing workflow, identify tasks that can be improved or automated, and then build a solution that fits your business.</p>
+    </div>
+
+    <div class="sd-section" style="text-align:center;">
+      <h4>Let AI Handle The Repetitive Work</h4>
+      <p style="max-width:52ch; margin-left:auto; margin-right:auto;">Let AI handle repetitive work while your team focuses on what matters.</p>
+      <a href="https://wa.me/919207271076" target="_blank" rel="noopener" class="btn btn-primary" style="margin-top:10px;">Start a Project →</a>
+    </div>
+  </div>
+</div>
+
+<!-- CLOUD & DEVOPS SERVICE DETAIL PAGE -->
+<div id="cloudModal" class="service-page" aria-hidden="true">
+  <div class="sp-header">
+    <a href="#" class="sp-logo" id="cloudBackLogo"><img src="logo.png" alt="BRUTIIT" class="brand-logo"></a>
+    <span class="sp-title">Cloud &amp; DevOps</span>
+    <button class="sp-close" id="cloudModalClose" aria-label="Close">✕ Close</button>
+  </div>
+  <div class="sp-body">
+    <span class="sd-eyebrow">Service — Cloud &amp; DevOps</span>
+    <h1 class="modal-title" style="max-width:none; font-size:clamp(30px,6vw,46px); margin-top:10px;">Cloud &amp; DevOps</h1>
+    <p class="modal-sub">Modern applications need reliable infrastructure, secure deployments, and the ability to handle growing numbers of users.</p>
+    <p class="modal-sub" style="margin-top:-14px;">At Brutiit, we help businesses deploy, manage, secure, and scale their applications using modern cloud and DevOps practices.</p>
+
+    <div class="sd-section">
+      <h4>What Is Cloud &amp; DevOps?</h4>
+      <p>Cloud computing allows businesses to run applications, store data, and use computing resources through cloud infrastructure.</p>
+      <p>DevOps combines development and IT operations to make software development, testing, deployment, and maintenance faster and more reliable.</p>
+    </div>
+
+    <div class="sd-section">
+      <h4>Our Cloud &amp; DevOps Services</h4>
+      <ul class="sd-list">
+        <li>Cloud infrastructure setup</li>
+        <li>Application deployment</li>
+        <li>Cloud storage solutions</li>
+        <li>Server and infrastructure management</li>
+        <li>CI/CD pipeline setup</li>
+        <li>Deployment automation</li>
+        <li>Monitoring and logging</li>
+        <li>Backup solutions</li>
+        <li>Scalability planning</li>
+        <li>Cloud security practices</li>
+      </ul>
+    </div>
+
+    <div class="sd-section">
+      <h4>Why Cloud &amp; DevOps?</h4>
+      <p>A properly designed cloud and DevOps environment can help businesses:</p>
+      <ul class="sd-list">
+        <li>Deploy software faster</li>
+        <li>Improve reliability</li>
+        <li>Scale applications when demand increases</li>
+        <li>Automate deployments</li>
+        <li>Reduce infrastructure management</li>
+        <li>Monitor systems more effectively</li>
+        <li>Improve application availability</li>
+      </ul>
+    </div>
+
+    <div class="sd-section">
+      <h4>Build, Deploy &amp; Scale</h4>
+      <p>From launching your first application to managing a growing production platform, we help create a reliable infrastructure that can grow with your business.</p>
+    </div>
+
+    <div class="sd-section" style="text-align:center;">
+      <h4>Build Faster. Deploy Smarter.</h4>
+      <p style="max-width:52ch; margin-left:auto; margin-right:auto;">Build faster. Deploy smarter. Scale with confidence.</p>
+      <a href="https://wa.me/919207271076" target="_blank" rel="noopener" class="btn btn-primary" style="margin-top:10px;">Start a Project →</a>
+    </div>
+  </div>
+</div>
+
+<!-- WEBSITE SECURITY DETAIL PAGE -->
+<div id="websiteSecurityModal" class="service-page" aria-hidden="true">
+  <div class="sp-header">
+    <a href="#" class="sp-logo" id="websiteSecurityBackLogo"><img src="logo.png" alt="BRUTIIT" class="brand-logo"></a>
+    <span class="sp-title">Website Security</span>
+    <button class="sp-close" id="websiteSecurityModalClose" aria-label="Close">✕ Close</button>
+  </div>
+  <div class="sp-body">
+    <span class="sd-eyebrow">Cybersecurity</span>
+    <h1 class="modal-title" style="max-width:none; font-size:clamp(28px,5.5vw,42px); margin-top:10px;">Website Security Is Not an Option</h1>
+    <p class="modal-sub">When building a website, design, performance, and features are important — but security is equally critical. A website that is not properly secured can become an easy target for attackers and put both your business and users at risk.</p>
+
+    <div class="sd-section">
+      <h4>What Can Happen If Website Security Is Ignored?</h4>
+      <div class="sd-grid" style="grid-template-columns:1fr;">
+        <div class="sd-card"><strong>🔐 User Account Hacking</strong><span>Weak authentication, insecure passwords, or session vulnerabilities can allow attackers to gain unauthorized access to user accounts.</span></div>
+        <div class="sd-card"><strong>💾 Data Breaches &amp; Information Theft</strong><span>Personal information such as names, emails, phone numbers, addresses, and other sensitive data can be exposed or stolen.</span></div>
+        <div class="sd-card"><strong>💳 Payment &amp; Financial Fraud</strong><span>Insecure payment or order systems can lead to payment manipulation, fake transactions, and financial fraud.</span></div>
+        <div class="sd-card"><strong>💻 Database Attacks</strong><span>Poor input validation can allow attackers to inject malicious commands and potentially access or manipulate databases.</span></div>
+        <div class="sd-card"><strong>📁 Malicious File Uploads</strong><span>An insecure file-upload system may allow attackers to upload harmful files and potentially compromise the server.</span></div>
+        <div class="sd-card"><strong>🦠 Malware &amp; Malicious Code</strong><span>A compromised website can be used to inject malicious scripts or distribute malware to visitors.</span></div>
+        <div class="sd-card"><strong>🌐 Website Takeover &amp; Defacement</strong><span>If an administrator account or server is compromised, attackers may gain control of the website and modify its content or take it offline.</span></div>
+        <div class="sd-card"><strong>⚠️ Loss of Customer Trust</strong><span>A security breach can seriously damage a company's reputation and lead to financial and business losses.</span></div>
+      </div>
+    </div>
+
+    <div class="sd-section">
+      <h4>OWASP &amp; Website Security</h4>
+      <p>OWASP — Open Worldwide Application Security Project is one of the most widely recognized organizations in application security. Its security guidance helps developers and security professionals identify and prevent common web application vulnerabilities.</p>
+      <p>A professional website security assessment should consider the OWASP Top 10, including areas such as:</p>
+      <div class="sd-process">
+        <div class="sd-step"><span class="n">01</span><div><div class="t">Broken Access Control</div><div class="d">Users gaining access to resources or actions they should not be allowed to access.</div></div></div>
+        <div class="sd-step"><span class="n">02</span><div><div class="t">Cryptographic Failures</div><div class="d">Sensitive information being exposed because encryption or data protection is inadequate.</div></div></div>
+        <div class="sd-step"><span class="n">03</span><div><div class="t">Injection</div><div class="d">Malicious input being interpreted as commands or queries by an application.</div></div></div>
+        <div class="sd-step"><span class="n">04</span><div><div class="t">Insecure Design</div><div class="d">Security weaknesses caused by insecure application architecture or design decisions.</div></div></div>
+        <div class="sd-step"><span class="n">05</span><div><div class="t">Security Misconfiguration</div><div class="d">Incorrect server, application, cloud, or security configurations.</div></div></div>
+        <div class="sd-step"><span class="n">06</span><div><div class="t">Vulnerable and Outdated Components</div><div class="d">Using libraries, frameworks, or software with known security vulnerabilities.</div></div></div>
+        <div class="sd-step"><span class="n">07</span><div><div class="t">Identification &amp; Authentication Failures</div><div class="d">Weak authentication, password handling, sessions, or account protection.</div></div></div>
+        <div class="sd-step"><span class="n">08</span><div><div class="t">Software &amp; Data Integrity Failures</div><div class="d">Trusting software, updates, or data without properly verifying their integrity.</div></div></div>
+        <div class="sd-step"><span class="n">09</span><div><div class="t">Security Logging &amp; Monitoring Failures</div><div class="d">Insufficient logging and monitoring that can make attacks difficult to detect and investigate.</div></div></div>
+        <div class="sd-step"><span class="n">10</span><div><div class="t">Server-Side Request Forgery (SSRF)</div><div class="d">When an application can be manipulated into making unintended requests to internal or external resources.</div></div></div>
+      </div>
+    </div>
+
+    <div class="sd-section">
+      <h4>What Should a Secure Website Include?</h4>
+      <ul class="sd-list">
+        <li>OWASP-aligned security practices</li>
+        <li>Strong authentication and authorization</li>
+        <li>Secure password storage</li>
+        <li>HTTPS / TLS encryption</li>
+        <li>Input validation and sanitization</li>
+        <li>Protection against injection and XSS</li>
+        <li>Secure file-upload mechanisms</li>
+        <li>Secure sessions and cookies</li>
+        <li>API security</li>
+        <li>Database protection</li>
+        <li>Proper access control</li>
+        <li>Regular security updates</li>
+        <li>Vulnerability assessments and penetration testing</li>
+        <li>Secure backups and recovery</li>
+        <li>Security logging and monitoring</li>
+      </ul>
+    </div>
+
+    <div class="sd-section" style="text-align:center;">
+      <h4>Security Is Not a Feature — It Is a Necessity.</h4>
+      <p style="max-width:56ch; margin-left:auto; margin-right:auto;">A website simply working is not enough. It needs to work securely.</p>
+      <p style="max-width:56ch; margin-left:auto; margin-right:auto;">Your website represents your business, protects your customers, and handles valuable information. Following recognized security practices such as the OWASP Top 10 can help identify and reduce common application security risks.</p>
+      <p style="max-width:56ch; margin-left:auto; margin-right:auto; color:var(--ink);">Build it. Secure it. Protect your users. Protect your business.</p>
+      <p style="max-width:56ch; margin-left:auto; margin-right:auto; font-family:'Space Grotesk',sans-serif; color:var(--ink); font-size:17px; margin-top:16px;">Security Is Not an Option. It Is a Responsibility.</p>
+      <a href="https://wa.me/919207271076" target="_blank" rel="noopener" class="btn btn-primary" style="margin-top:14px;">Start a Project →</a>
+    </div>
+  </div>
+</div>
+
+<!-- PROJECT DETAIL: CHOICHO -->
+<div id="choichoModal" class="service-page" aria-hidden="true">
+  <div class="sp-header">
+    <a href="#" class="sp-logo" id="choichoBackLogo"><img src="logo.png" alt="BRUTIIT" class="brand-logo"></a>
+    <span class="sp-title">Choicho</span>
+    <button class="sp-close" id="choichoModalClose" aria-label="Close">✕ Close</button>
+  </div>
+  <div class="sp-body">
+    <span class="sd-eyebrow">Case Study — Social Platform</span>
+    <h1 class="modal-title" style="max-width:none; font-size:clamp(30px,6vw,46px); margin-top:10px;">Choicho</h1>
+    <p class="modal-sub">Choicho is a community-driven social platform built for real-time interaction at scale. From feed algorithms to messaging, every layer was engineered for speed and reliability.</p>
+    <p class="modal-sub" style="margin-top:-14px;">We partnered with the Choicho team to design, build, and launch a platform that could grow from thousands to millions of users without re-architecting.</p>
+
+    <div class="sd-section">
+      <h4>The Challenge</h4>
+      <p>The team needed a social platform that could handle high-frequency interactions — posts, likes, comments, and messages — without lag, while keeping the interface simple enough for everyday users.</p>
+    </div>
+
+    <div class="sd-section">
+      <h4>What We Built</h4>
+      <ul class="sd-list">
+        <li>Real-time feed with live updates</li>
+        <li>In-app messaging and notifications</li>
+        <li>Media upload and processing pipeline</li>
+        <li>User profiles and social graph</li>
+        <li>Content moderation tools</li>
+        <li>Admin and analytics dashboard</li>
+      </ul>
+    </div>
+
+    <div class="sd-section">
+      <h4>Key Results</h4>
+      <div class="sd-grid">
+        <div class="sd-card"><strong>+65%</strong><span>User Engagement</span></div>
+        <div class="sd-card"><strong>+40%</strong><span>Faster Load Times</span></div>
+        <div class="sd-card"><strong>99.9%</strong><span>Uptime</span></div>
+      </div>
+    </div>
+
+    <div class="sd-section">
+      <h4>Technology Used</h4>
+      <ul class="sd-list">
+        <li>React</li>
+        <li>Node.js</li>
+        <li>MongoDB</li>
+        <li>AWS</li>
+        <li>Cloudflare</li>
+      </ul>
+    </div>
+
+    <div class="sd-section" style="text-align:center;">
+      <h4>Have A Similar Idea?</h4>
+      <p style="max-width:52ch; margin-left:auto; margin-right:auto;">Whether it's a social platform or a community-driven product, we can help you design and build it from the ground up.</p>
+      <a href="https://wa.me/919207271076" target="_blank" rel="noopener" class="btn btn-primary" style="margin-top:10px;">Start a Project →</a>
+    </div>
+  </div>
+</div>
+
+<!-- PROJECT DETAIL: BRUTIIT CYBER LABS -->
+<div id="cyberLabsModal" class="service-page" aria-hidden="true">
+  <div class="sp-header">
+    <a href="#" class="sp-logo" id="cyberLabsBackLogo"><img src="logo.png" alt="BRUTIIT" class="brand-logo"></a>
+    <span class="sp-title">Brutiit Cyber Labs</span>
+    <button class="sp-close" id="cyberLabsModalClose" aria-label="Close">✕ Close</button>
+  </div>
+  <div class="sp-body">
+    <span class="sd-eyebrow">Case Study — Cybersecurity</span>
+    <h1 class="modal-title" style="max-width:none; font-size:clamp(30px,6vw,46px); margin-top:10px;">Brutiit Cyber Labs</h1>
+    <p class="modal-sub">Brutiit Cyber Labs is a threat-monitoring and infrastructure hardening system built for real-time visibility into security events across an organization's digital footprint.</p>
+    <p class="modal-sub" style="margin-top:-14px;">We designed a platform that gives security teams a live, unified view of their attack surface — instead of scattered logs and disconnected tools.</p>
+
+    <div class="sd-section">
+      <h4>The Challenge</h4>
+      <p>Security teams were relying on fragmented tools and manual log reviews, making it difficult to detect and respond to threats quickly.</p>
+    </div>
+
+    <div class="sd-section">
+      <h4>What We Built</h4>
+      <ul class="sd-list">
+        <li>Real-time network monitoring</li>
+        <li>Automated vulnerability scanning</li>
+        <li>Centralized security dashboard</li>
+        <li>Alert and incident response workflows</li>
+        <li>API and integration layer</li>
+        <li>Audit logging and reporting</li>
+      </ul>
+    </div>
+
+    <div class="sd-section">
+      <h4>Key Results</h4>
+      <div class="sd-grid">
+        <div class="sd-card"><strong>-70%</strong><span>Detection Time</span></div>
+        <div class="sd-card"><strong>3x</strong><span>Faster Response</span></div>
+        <div class="sd-card"><strong>24/7</strong><span>Monitoring Coverage</span></div>
+      </div>
+    </div>
+
+    <div class="sd-section">
+      <h4>Technology Used</h4>
+      <ul class="sd-list">
+        <li>Python</li>
+        <li>AWS</li>
+        <li>Docker</li>
+        <li>PostgreSQL</li>
+        <li>Cloudflare</li>
+      </ul>
+    </div>
+
+    <div class="sd-section" style="text-align:center;">
+      <h4>Protect What You've Built</h4>
+      <p style="max-width:52ch; margin-left:auto; margin-right:auto;">If your systems need better visibility and faster threat response, we can help design a security setup around your infrastructure.</p>
+      <a href="https://wa.me/919207271076" target="_blank" rel="noopener" class="btn btn-primary" style="margin-top:10px;">Start a Project →</a>
+    </div>
+  </div>
+</div>
+
+<!-- PROJECT DETAIL: DIGITAL COMMERCE PLATFORM -->
+<div id="commerceModal" class="service-page" aria-hidden="true">
+  <div class="sp-header">
+    <a href="#" class="sp-logo" id="commerceBackLogo"><img src="logo.png" alt="BRUTIIT" class="brand-logo"></a>
+    <span class="sp-title">Digital Commerce Platform</span>
+    <button class="sp-close" id="commerceModalClose" aria-label="Close">✕ Close</button>
+  </div>
+  <div class="sp-body">
+    <span class="sd-eyebrow">Case Study — Web &amp; E-commerce</span>
+    <h1 class="modal-title" style="max-width:none; font-size:clamp(30px,6vw,46px); margin-top:10px;">Digital Commerce Platform</h1>
+    <p class="modal-sub">A headless commerce build engineered for conversion, speed, and effortless scale — from product discovery to checkout.</p>
+    <p class="modal-sub" style="margin-top:-14px;">We built a fully custom storefront and backend designed to handle high-traffic sales events without compromising performance.</p>
+
+    <div class="sd-section">
+      <h4>The Challenge</h4>
+      <p>The business needed an e-commerce platform that could scale during peak sales periods while giving the team full control over design and checkout flow — something off-the-shelf platforms couldn't offer.</p>
+    </div>
+
+    <div class="sd-section">
+      <h4>What We Built</h4>
+      <ul class="sd-list">
+        <li>Custom storefront and product pages</li>
+        <li>Headless CMS integration</li>
+        <li>Secure checkout and payment processing</li>
+        <li>Inventory and order management</li>
+        <li>Search and filtering system</li>
+        <li>Performance-optimized image delivery</li>
+      </ul>
+    </div>
+
+    <div class="sd-section">
+      <h4>Key Results</h4>
+      <div class="sd-grid">
+        <div class="sd-card"><strong>+50%</strong><span>Conversion Rate</span></div>
+        <div class="sd-card"><strong>+35%</strong><span>Page Speed</span></div>
+        <div class="sd-card"><strong>2x</strong><span>Peak Traffic Handling</span></div>
+      </div>
+    </div>
+
+    <div class="sd-section">
+      <h4>Technology Used</h4>
+      <ul class="sd-list">
+        <li>Next.js</li>
+        <li>Node.js</li>
+        <li>PostgreSQL</li>
+        <li>Stripe</li>
+        <li>Cloudflare</li>
+      </ul>
+    </div>
+
+    <div class="sd-section" style="text-align:center;">
+      <h4>Build Your Commerce Platform</h4>
+      <p style="max-width:52ch; margin-left:auto; margin-right:auto;">Whether you're launching a new store or rebuilding an existing one, we can help you create a fast, scalable commerce experience.</p>
+      <a href="https://wa.me/919207271076" target="_blank" rel="noopener" class="btn btn-primary" style="margin-top:10px;">Start a Project →</a>
+    </div>
+  </div>
+</div>
+
+<!-- AI CHATBOT -->
+<button class="cb-launcher" id="cbLauncher" aria-label="Open chat"><canvas id="cbBlobCanvas" aria-hidden="true"></canvas><span class="cb-badge"></span></button>
+<div class="cb-panel" id="cbPanel" role="dialog" aria-label="BRUTIIT assistant" aria-hidden="true">
+  <div class="cb-head">
+    <div class="cb-title"><i></i>BRUTIIT Assistant</div>
+    <button class="cb-close" id="cbClose" aria-label="Close chat">✕</button>
+  </div>
+  <div class="cb-body" id="cbBody"></div>
+  <div class="cb-quick" id="cbQuick">
+    <button data-chat-action="message">Services</button>
+    <button data-chat-action="message">Pricing</button>
+    <button data-chat-action="project">Start a project</button>
+    <button data-chat-action="whatsapp">WhatsApp</button>
+  </div>
+  <form class="cb-form" id="cbForm">
+    <input id="cbInput" type="text" placeholder="Type your message…" autocomplete="off">
+    <button type="submit" aria-label="Send">➤</button>
+  </form>
+</div>
+
+<script src="file.js" defer></script>
+</body>
+</html>
